@@ -19,8 +19,7 @@
 func(){
    local arg1="undefined"
    arg1=$1
-
-   #function return value
+   
    echo "this function func() is called by $arg1"
    
    #return code = successful

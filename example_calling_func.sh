@@ -21,6 +21,7 @@ source example_func.sh
 # short form
 #. example_func.sh
 
-ret=`func "calling from the script: $0"`
-echo $ret
+# ret variable will store "any" standard output.
+ret_std_outputs=`func "$0"`
+echo $ret_std_outputs
 
