@@ -21,14 +21,17 @@
 #   Standard Output:
 #   
 #
-sub_mkdummydisk(){
+sub_vdisk_create(){
 
 local disk_count=$1
 local disk_size="64m" #64MB - ZFS minimum disk size
 local disk_dir=$(pwd)
 local disk_name_prefix="vdisk"
+local disk_list_info="${disk_name_prefix}.fileinfo"
+
 declare -a disk_name_array #declare array (this is local var by default.
-	for ((i=0; i < $disk_count; i++)){
+
+	fr ((i=0; i < $disk_count; i++)){
 
 	local timestamp=`date "+%s"`
 	disk_name_array[i]=$disk_dir/$disk_name_prefix$timestamp$i
@@ -41,10 +44,11 @@ declare -a disk_name_array #declare array (this is local var by default.
 		p
 		w
 		ARG
+	#echo "${disk_name_array[i]}" >> $disk_list_info
 	} #for loop 
 	return 0
 
 }
 
 #testing
-sub_mkdummydisk 6 #creatign 6 vdisk...
+sub_vdisk_create 6 #creatign 6 vdisk...
