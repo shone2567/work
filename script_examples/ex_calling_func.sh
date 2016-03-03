@@ -17,7 +17,7 @@
 #
 
 # Include bash script file:
-source example_func.sh
+source ex_func.sh
 # short form
 #. example_func.sh
 
