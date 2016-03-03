@@ -1,3 +1,4 @@
 #showing all commits log
 git log --all --oneline --decorate --graph
-
+#shoing all remote commits and branches 
+git ls-remote <remote>
