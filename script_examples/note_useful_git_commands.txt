@@ -1,0 +1,3 @@
+#showing all commits log
+git log --all --oneline --decorate --graph
+
