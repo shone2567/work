@@ -24,7 +24,7 @@
 sub_vdisk_create(){
 
 local disk_count=$1
-local disk_size="64m" #64MB - ZFS minimum disk size
+local disk_size="128m" #64MB - ZFS minimum disk size
 local disk_dir=$(pwd)
 local disk_prefix="" #add prefix in case needed
 local disk_postfix="vdisk"
@@ -41,8 +41,7 @@ declare -a disk_name_array #declare array (this is local var by default.
 	#note 1: placing - after less tans (below) at here document will ignore 
 	#the tab indentation for code readability.
 	#note 2: 2> and 1> can replace with &>
-	#sudo fdisk ${disk_name_array[i]} &> /dev/null <<-ARG
-	sudo fdisk ${disk_name_array[i]} <<-ARG
+	sudo fdisk ${disk_name_array[i]} &> /dev/null <<-ARG
 	g
 	p
 	w
