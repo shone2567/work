@@ -21,20 +21,20 @@
 #   Standard Output:
 #   
 #
-sub_vdisk_create(){
+sub_wcache_create(){
 
 local disk_count=$1
 local disk_size="128m" #64MB - ZFS minimum disk size
-local disk_dir=$HOME"/temp/zfs/vdisks"
+local disk_dir=$HOME"/temp/zfs/vlogs"
 local disk_prefix="" #add prefix in case needed
-local disk_postfix="vdisk"
+local disk_postfix="vlog"
 #local disk_list_info="${disk_postfix}.info"
 
 declare -a disk_name_array #declare array (this is local var by default.
+        if [ ! -d $disk_dir ]; then
+           mkdir -p $disk_dir #-p will automatically create parent directory if not exist
+        fi
 
-	if [ ! -d $disk_dir ]; then
-	   mkdir -p $disk_dir #-p will automatically create parent directory if not exist
-	fi
 
 	for ((i=0; i < $disk_count; i++)){
 
@@ -58,6 +58,4 @@ declare -a disk_name_array #declare array (this is local var by default.
 }
 
 #testing
-#sub_vdisk_create 6 #creating 6 vdisk...
-sub_vdisk_create $1
-
+sub_wcache_create $1
