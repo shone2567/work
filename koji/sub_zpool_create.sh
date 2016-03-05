@@ -22,6 +22,13 @@ sub_zpool_create(){
 	#add log (write cache) - no raid allowed...
 	sudo zpool add $zpool log mirror ${log_array[*]}
 	#add cache (read cache)
+	
+	#for ((i=0; i<${#cache_array[*]}; i++)){
+	#	sudo losetup $(losetup -f) ${cache_array[$i]}
+	#	echo $i
+	#}
+
+	losetup
 	sudo zpool add $zpool cache ${cache_array[*]}
 	#view zpool list
 	sudo zpool list

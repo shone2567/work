@@ -53,7 +53,11 @@ declare -a disk_name_array #declare array (this is local var by default.
 	p
 	w
 	ARG
+	
 	#echo "${disk_name_array[i]}" >> $disk_list_info
+	#mounting the psudo device to vdisk (this is requried for read cache).
+	losetup $(losetup -f) ${disk_name_array[i]}
+	losetup
 	} #for loop 
 	return 0
 
