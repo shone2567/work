@@ -12,6 +12,7 @@ sub_zpool_create(){
 	declare -a disk_array
 	declare -a log_array
 	declare -a cache_array
+	declare -a cachedev_array
 
 	disk_array=( $(find $disk_dir | grep -E "$disk_filter") )
 	log_array=( $(find $disk_dir | grep -E "$log_filter") )
@@ -23,13 +24,13 @@ sub_zpool_create(){
 	sudo zpool add $zpool log mirror ${log_array[*]}
 	#add cache (read cache)
 	
-	#for ((i=0; i<${#cache_array[*]}; i++)){
-	#	sudo losetup $(losetup -f) ${cache_array[$i]}
-	#	echo $i
-	#}
+	for ((i=0; i<${#cache_array[*]}; i++)){
+		cachedev_array[$i]=$(losetup -f)
+		sudo losetup ${cachedev_array[$i]} ${cache_array[$i]}
+	}
 
 	losetup
-	sudo zpool add $zpool cache ${cache_array[*]}
+	sudo zpool add $zpool cache ${cachedev_array[*]}
 	#view zpool list
 	sudo zpool list
 	#view zpool status
