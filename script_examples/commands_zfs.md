@@ -14,13 +14,14 @@ zpool status <pool>
 
 #adding another top-level vdev to pool
 zpool add <pool> raidz2 <disk...>
+zpool add <pool> mirror <disk1> <disk2> <disk3>
 #adding read cache
 zpool add <pool> cache <disks>
+
 #removing read cache
 zpool remove <pool> <cache disks...>
-
 #removing vdev
-zpool remove <pool1> <vdev>
+zpool remove <pool> <vdev>
 	example: zpool remove pool1 mirror-1
 	example: zpool remove pool1 <log_single_disk>
 
