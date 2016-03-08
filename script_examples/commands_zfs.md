@@ -13,17 +13,31 @@ zpool list
 zpool status <pool>
 
 #adding another top-level vdev to pool
-zpool add <pool> raidz2 <disk...>
+zpool add <pool> raidz2 <disks...>
 zpool add <pool> mirror <disk1> <disk2> <disk3>
+#adding write cache (log)
+zpool add <pool> log mirror <disks...>
 #adding read cache
-zpool add <pool> cache <disks>
+zpool add <pool> cache <disks...>
 
-#removing read cache
-zpool remove <pool> <cache disks...>
 #removing vdev
 zpool remove <pool> <vdev>
 	example: zpool remove pool1 mirror-1
-	example: zpool remove pool1 <log_single_disk>
+#removing write cache (log)
+zpool remove <pool> log <mirror>
+zpool remove <pool> <log single disk>
+#removing read cache
+zpool remove <pool> <cache disks...>
+
+#Detaching disk
+TBD
+#Splitting pool
+TBD
+#Onlining and Offlining
+zpool offline <pool> <disk>
+zpool offline <pool> <disks...>
+zpool online <pool> <disk>
+zpool online <pool> <disks...>
 
 zfs create <pool>/<zvol>
 
