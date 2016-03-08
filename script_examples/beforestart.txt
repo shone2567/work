@@ -1,0 +1,10 @@
+You need to enable sudoer
+
+1. switch to root account
+2. edit /etc/sudoers and make sure to comment out as: 
+%wheel ALL=(ALL) ALL
+3. execute:
+usermod -aG wheel <USERNAME>
+4. check if wheel group is added:
+groups <USERNAME>
+5. relogin as in <USERNAME>
