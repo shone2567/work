@@ -1,10 +1,21 @@
 You need to enable sudoer
 
+*** enable sudoer
+
 1. switch to root account
 2. edit /etc/sudoers and make sure to comment out as: 
 %wheel ALL=(ALL) ALL
 3. execute:
-usermod -aG wheel <USERNAME>
+usermod -aG wheel <USERNAME> -OR-
+gpasswd -a <USERNAME> wheel
 4. check if wheel group is added:
 groups <USERNAME>
 5. relogin as in <USERNAME>
+
+*** set hostname
+
+hostnamectl set-hostname <hostname>
+vi /etc/hosts
+
+
+
