@@ -1,0 +1,5 @@
+10.0.0.11	controller0
+10.0.0.31	compute0
+10.0.0.41	block0
+10.0.0.51	object0
+10.0.0.52	object1

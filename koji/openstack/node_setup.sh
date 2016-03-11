@@ -7,6 +7,9 @@ declare -A storage1
 declare -A storage2
 
 
+hostname
+
+
 main(){
 
 }
