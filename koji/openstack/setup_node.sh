@@ -78,6 +78,24 @@ sub_set_hosts(){
 	exit 0
 
 }
+sub_set_ifcfg(){
+	local macaddress=
+	#get all nic interface name
+	declare -a ifs=( `ip -o link | grep -e "^...eno*" | cut -d " " -f 2 | cut -d ":" -f 1` )
+
+	for iface in ${ifs[*]}; do
+     	#get mac address based on interface name
+     	macaddress=`ip -o link | grep -e "$iface" | cut -d " " -f 18`
+     	echo -e "$iface\t$macaddress"
+		#check if the cfg file exist:
+		if [  ]; then
+
+		else
+
+		fi	
+	done
+
+}
 
 sub_set_ifcfg_mgmt(){
 
