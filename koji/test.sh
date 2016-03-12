@@ -1,5 +1,21 @@
 #!/bin/bash
 
+declare -a ary
+ary=(one two three four)
+echo ${ary[*]}
+echo ${ary[@]}
+echo ${#ary[@]}
+echo ${#ary[*]}
+j=0
+for i in ${ary[*]}
+do
+	printf "%s\t%s\n" $i $j
+	j=`expr $j + 1`
+	
+done
+
+exit 0
+
 test_dir=$HOME/temp/test
 
 if [ ! -d $test_dir ]; then

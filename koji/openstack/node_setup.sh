@@ -1,4 +1,14 @@
 #!/bin/bash
+declare -a nodes
+declare -A controller
+declare -A compute1
+declare -A compute2
+declare -A storage1
+declare -A storage2
+
+
+hostname
+
 
 main(){
 
@@ -22,7 +32,9 @@ sub_set_ifcfg(){
 	#	NETMASK=255.255.255.0
 	#	NAME=ethxxx
 	#	ONBOOT=yes
+	
 }
+
 
 
 main $@
