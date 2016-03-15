@@ -29,10 +29,10 @@ sub_create_ifcfg(){
 			--onboot=			
 		ERR
 		exit 0
-	elif [ -z ${device+x} ]; then	#if unset
+	elif [ -z ${device+x} ]; then	#if $device is unset 
 		echo "error: usage $0 --device=<device>"
 		exit 0
-	elif [ ${#device} -eq 0 ]; then #if empty string (length = 0)
+	elif [ ${#device} -eq 0 ]; then #if $device is empty string (length = 0)
 		echo "error: usage $0 --device=<device> (2)"
 		exit 0
 	fi
