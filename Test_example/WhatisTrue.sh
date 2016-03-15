@@ -69,4 +69,46 @@ else
 	echo "Uninitialized variable is false"
 fi
 
+xyz= 
+
+echo "Testing \"-n \&xyz\""
+
+if [ -n "$xyz"]
+then 
+	echo "Null variable is true"
+else
+	echo "Null variable is false"
+fi
+
+echo
+
+
+#false
+
+echo "Testing \"false\""
+
+if [ "false" ]
+then 
+	echo "\"false\ is true."
+fi
+
+echo
+
+
+echo "Testing \"\$false\""
+if [ "$false" ]
+then 
+	echo "\"\$false\" is true."
+else
+	echo "\"\$false\" is false."
+fi
+
+
+echo 
+
+
+exit 0
+
+
+# Using the [[.....]] test construct, rather than [..] can prevent many logic errors in scripts. For example, the &&,||,<,and>operators work within a [[]] test, despite giving an error within a [] construct
 
