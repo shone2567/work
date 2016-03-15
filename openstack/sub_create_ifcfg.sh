@@ -1,15 +1,15 @@
 #!/bin/bash
 
 
-sub_set_ifcfg(){
-	local iface=
+sub_create_ifcfg(){
+	local device=
 	local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
 	local ifcfg_file=
 	local hwaddr=
 	local bootprot=static
-	local ipaddr=$1
+	local ipaddr=
 	local netmask=255.255.255.0
-	local gateway=$2
+	local gateway=
 	local name=
 	local onboot=yes
 	#get all nic interface name
@@ -46,6 +46,52 @@ sub_set_ifcfg(){
 			CFG
 		fi	
 	done
-
+	
+	while [[ $# > 1 ]]
+	do
+		key="$1"
+		case $key in
+			--device)
+			device="$2"
+			shift
+			;;
+			--ipaddr)
+			ipaddr="$2"
+			shift
+			;;
+			--netmask)
+			netmask="$2"
+			shift
+			;;
+			--gateway)
+			gateway="$2"
+			shift
+			;;
+			--type)
+			type="$2"
+			shift
+			;;
+			--name)
+			name="$2"
+			shift
+			;;
+			--bootproto)
+			bootproto="$2"
+			shift
+			;;
+			--hwaddr)
+			hwaddr="$2"
+			shift
+			;;
+			--onboot)
+			onboot="$2"
+			shift
+			;;
+			*)
+				#unknown option
+			;;
+		esac
+		shift
+	done
 }
 
