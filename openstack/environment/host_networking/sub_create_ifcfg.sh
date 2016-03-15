@@ -11,6 +11,7 @@ sub_create_ifcfg(){
 	local ipaddr=
 	local netmask=255.255.255.0
 	local gateway=
+	local type=Ethernet
 	local name=
 	local onboot=yes
 
@@ -18,15 +19,15 @@ sub_create_ifcfg(){
 		cat <<- ERR
 			error: usage $0 --<option>=<option value>
 			<option>:
-			--device=
-			--ipaddr=
-			--netmask=
-			--gateway=
+			--device=<eth>
+			--ipaddr=<ip address>
+			--netmask=<netmask>
+			--gateway=<gateway>
 			--type=Ethernet
-			--name=
-			--bootproto=
-			--hwaddr=
-			--onboot=			
+			--name=<the same as device value>
+			--bootproto=<none|static|dhcp|bootp>
+			--hwaddr=<mac address>
+			--onboot=<yes|no>			
 		ERR
 		exit 0
 	elif [ -z ${device+x} ]; then	#if $device is unset 
