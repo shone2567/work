@@ -2,9 +2,10 @@
 
 
 sub_create_ifcfg(){
-	local device=
-	local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
+	#local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
+	local ifcfg_path=./ifcfg-
 	local ifcfg_file=
+	local device=
 	local hwaddr=
 	local bootprot=static
 	local ipaddr=
@@ -12,86 +13,89 @@ sub_create_ifcfg(){
 	local gateway=
 	local name=
 	local onboot=yes
-	#get all nic interface name
-	declare -a ifs=( `ip -o link | grep -E "^...eno*" | cut -d " " -f 2 | cut -d ":" -f 1` )
-	if [ $# -lt 2 ]; then
-		echo -e "usage: $0 <mgmt-ipaddr> <mgmt-netmask> <mgmt-gateway>"
+
+	if [ ${#@} -eq 0 ]; then #if no argument
+		cat <<- ERR
+			error: usage $0 --<option>=<option value>
+			<option>:
+			--device=
+			--ipaddr=
+			--netmask=
+			--gateway=
+			--type=Ethernet
+			--name=
+			--bootproto=
+			--hwaddr=
+			--onboot=			
+		ERR
+		exit 0
+	elif [ -z ${device+x} ]; then	#if unset
+		echo "error: usage $0 --device=<device>"
+		exit 0
+	elif [ ${#device} -eq 0 ]; then #if empty string (length = 0)
+		echo "error: usage $0 --device=<device> (2)"
+		exit 0
 	fi
 
-	for iface in ${ifs[*]}; do
-		#ipaddr=$(ip -o address | grep -E "$iface( )+inet( )+" | sed -e "s/ /|/g" | cut -d "|" -f 7 | cut -d "/" -f 1)
-		hwaddr=$(ip -o link | grep -e "$iface" | cut -d " " -f 18)
-		ifcfg_file=$ifcfg_path$iface
-	     	echo -e "$iface\t$hwaddr\t$ifcfg_file"
-
-		#check if the cfg file exist:
-		if [ -e $ifcfg_file ]; then
-			echo -e "$ifcfg_file exist"
-			
-			
-		else
-			echo -e "$ifcfg_file doesn't exist"
-			#creating a new ifcfg file.
-			touch $ifcfg_file
-			cat <<- CFG > $ifcfg_file
-			DEVICE=$iface
-			IPADDR=$ipaddr
-			NETMASK=255.255.255.0
-			GATEWAY=10.0.0.1
-			TYPE=Ethernet
-			BOOTPROTO=static
-			NAME=$iface
-			ONBOOT=yes
-			HWADDR=$hwaddr
-			CFG
-		fi	
-	done
-	
-	while [[ $# > 1 ]]
+	for i in $@
 	do
-		key="$1"
-		case $key in
-			--device)
-			device="$2"
+		case $i in
+			--device=*)
+			device="${i#*=}"
+			ifcfg_file=$ifcfg_path$device
+			echo "DEVICE=$device" >> $ifcfg_file
 			shift
 			;;
-			--ipaddr)
-			ipaddr="$2"
+			--ipaddr=*)
+			ipaddr="${i#*=}"
 			shift
 			;;
-			--netmask)
-			netmask="$2"
+			--netmask=*)
+			netmask="${i#*=}"
 			shift
 			;;
-			--gateway)
-			gateway="$2"
+			--gateway=*)
+			gateway="${i#*=}"
 			shift
 			;;
-			--type)
-			type="$2"
+			--type=*)
+			type="${i#*=}"
 			shift
 			;;
-			--name)
-			name="$2"
+			--name=*)
+			name="${i#*=}"
 			shift
 			;;
-			--bootproto)
-			bootproto="$2"
+			--bootproto=*)
+			bootproto="${i#*=}"
 			shift
 			;;
-			--hwaddr)
-			hwaddr="$2"
+			--hwaddr=*)
+			hwaddr="${i#*=}"
 			shift
 			;;
-			--onboot)
-			onboot="$2"
+			--onboot=*)
+			onboot="${i#*=}"
 			shift
 			;;
-			*)
+			*=*)
 				#unknown option
 			;;
 		esac
-		shift
 	done
+	echo "file: $ifcfg_file"
+	cat <<-CFG > $ifcfg_file
+		DEVICE=$device
+		IPADDR=$ipaddr
+		NETMASK=$netmask
+		GATEWAY=$gateway
+		TYPE=$type
+		NAME=$name
+		BOOTPROTO=$bootproto
+		HWADDR=$hwaddr
+		ONBOOT=$onboot
+
+	CFG
 }
+sub_create_ifcfg $@
 
