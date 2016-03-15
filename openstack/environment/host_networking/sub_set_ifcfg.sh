@@ -13,7 +13,7 @@ sub_set_ifcfg(){
 	local name=
 	local onboot=yes
 	#get all nic interface name
-	declare -a ifs=( `ip -o link | grep -e "^...eno*" | cut -d " " -f 2 | cut -d ":" -f 1` )
+	declare -a ifs=( `ip -o link | grep -E "^...eno*" | cut -d " " -f 2 | cut -d ":" -f 1` )
 	if [ $# -lt 2 ]; then
 		echo -e "usage: $0 <mgmt-ipaddr> <mgmt-netmask> <mgmt-gateway>"
 	fi
@@ -22,7 +22,7 @@ sub_set_ifcfg(){
 		#ipaddr=$(ip -o address | grep -E "$iface( )+inet( )+" | sed -e "s/ /|/g" | cut -d "|" -f 7 | cut -d "/" -f 1)
 		hwaddr=$(ip -o link | grep -e "$iface" | cut -d " " -f 18)
 		ifcfg_file=$ifcfg_path$iface
-     	echo -e "$iface\t$hwaddr\t$ifcfg_file"
+	     	echo -e "$iface\t$hwaddr\t$ifcfg_file"
 
 		#check if the cfg file exist:
 		if [ -e $ifcfg_file ]; then
