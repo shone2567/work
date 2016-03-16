@@ -1,3 +1,6 @@
+#!/bin/bash
+
+set -x
 echo 
 
 echo "Testing \"0\""
@@ -10,7 +13,7 @@ else
 fi
 
 echo
-
+set +x
 echo "Testing \"1\""
 if [ 1 ]
 then
