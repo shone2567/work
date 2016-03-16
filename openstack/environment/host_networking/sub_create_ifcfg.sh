@@ -2,8 +2,8 @@
 
 
 sub_create_ifcfg(){
-	#local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
-	local ifcfg_path=./ifcfg-
+	local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
+	#local ifcfg_path=./ifcfg-
 	local ifcfg_file=
 	local device=
 	local hwaddr=
