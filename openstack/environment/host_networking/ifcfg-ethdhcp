@@ -1,0 +1,5 @@
+DEVICE=ethdhcp
+BOOTPROTO=dhcp
+ONBOOT=yes
+HWADDR=
+TYPE=Ethernet

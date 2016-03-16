@@ -29,13 +29,7 @@ sub_create_ifcfg(){
 			--hwaddr=<mac address>
 			--onboot=<yes|no>			
 		ERR
-		exit 0
-	elif [ -z ${device+x} ]; then	#if $device is unset 
-		echo "error: usage $0 --device=<device>"
-		exit 0
-	elif [ ${#device} -eq 0 ]; then #if $device is empty string (length = 0)
-		echo "error: usage $0 --device=<device> (2)"
-		exit 0
+		exit 1
 	fi
 
 	for i in $@
@@ -44,59 +38,73 @@ sub_create_ifcfg(){
 			--device=*)
 			device="${i#*=}"
 			ifcfg_file=$ifcfg_path$device
+			#if ifcfg_file already exist, then back it up.
+			if [ -f $ifcfg_file ]; then
+				mv $ifcfg_file $ifcfg_file.bak.$(date "+%s") 
+			fi
 			echo "DEVICE=$device" >> $ifcfg_file
-			shift
+			#shift
 			;;
 			--ipaddr=*)
 			ipaddr="${i#*=}"
-			shift
+			echo "IPADDR=$ipaddr" >> $ifcfg_file
+			#shift
 			;;
 			--netmask=*)
 			netmask="${i#*=}"
-			shift
+			echo "NETMASK=$netmask" >> $ifcfg_file
+			#shift
 			;;
 			--gateway=*)
 			gateway="${i#*=}"
-			shift
+			echo "GATEWAY=$gateway" >> $ifcfg_file
+			#shift
 			;;
 			--type=*)
 			type="${i#*=}"
-			shift
+			echo "TYPE=$type" >> $ifcfg_file
+			#shift
 			;;
 			--name=*)
 			name="${i#*=}"
-			shift
+			echo "NAME=$name" >> $ifcfg_file
+			#shift
 			;;
 			--bootproto=*)
 			bootproto="${i#*=}"
-			shift
+			echo "BOOTPROTO=$bootproto" >> $ifcfg_file
+			#shift
 			;;
 			--hwaddr=*)
 			hwaddr="${i#*=}"
-			shift
+			echo "HWADDR=$hwaddr" >> $ifcfg_file
+			#shift
 			;;
 			--onboot=*)
 			onboot="${i#*=}"
-			shift
+			echo "ONBOOT=$onboot" >> $ifcfg_file
+			#shift
+			;;
+			--userctl=*)
+			userctl="${i#*=}"
+			echo "USERCTL=$userctl" >> $ifcfg_file
 			;;
 			*=*)
 				#unknown option
 			;;
 		esac
 	done
+	if [ -z ${device+x} ]; then	#if $device is unset 
+		echo "error: usage $0 --device=<device>"
+		rm $ifcfg_file
+		exit 1
+	elif [ ${#device} -eq 0 ]; then #if $device is empty string (length = 0)
+		echo "error: usage $0 --device=<device> (2)"
+		rm $ifcfg_file
+		exit 1 
+	fi
 	echo "file: $ifcfg_file"
-	cat <<-CFG > $ifcfg_file
-		DEVICE=$device
-		IPADDR=$ipaddr
-		NETMASK=$netmask
-		GATEWAY=$gateway
-		TYPE=$type
-		NAME=$name
-		BOOTPROTO=$bootproto
-		HWADDR=$hwaddr
-		ONBOOT=$onboot
-
-	CFG
+	exit 0
 }
-sub_create_ifcfg $@
+#sub_create_ifcfg $@
 
