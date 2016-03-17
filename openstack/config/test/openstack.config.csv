@@ -1,0 +1,11 @@
+controller,eth1,10.0.0.11,255.255.255.0,static
+controller,eth2,,,dhcp
+compute1,eth1,10.0.0.31,255.255.255.0,static
+compute1,eth2,,,dhcp
+block1,eth1,10.0.0.41,255.255.255.0,static
+block1,eth2,,,dhcp
+object1,eth1,10.0.0.51,255.255.255.0,static
+object1,eth2,,,dhcp
+object2,eth1,10.0.0.52,255.255.255.0,static
+object2,eth2,,,dhcp
+
