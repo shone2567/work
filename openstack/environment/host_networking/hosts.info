@@ -1,5 +1,0 @@
-role=controller,id=1,hostname=controller,mgmt=10.0.0.11,gateway=10.0.0.1,public=dhcp
-role=compute,id=1,hostname=compute1,mgmt=10.0.0.31,gateway=10.0.0.1,public=dhcp
-role=blockstor,id=1,hostname=block1,,mgmt=10.0.0.41,gateway=10.0.0.1,public=dhcp
-role=objectstor,id=1,hostname=object1,mgmt=10.0.0.51,gateway=10.0.0.1,public=dhcp
-role=objectstor,id=2,hostname=object2,mgmt=10.0.0.52,gateway=10.0.0.1,public=dhcp

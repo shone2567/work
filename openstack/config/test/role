@@ -1,4 +1,0 @@
-role=compute,name=compute
-role=objectstor,name="object storage"
-role=blockstor,name="block storage"
-role=controller,name="controller"

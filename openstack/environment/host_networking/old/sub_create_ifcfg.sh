@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 sub_create_ifcfg(){
 	local ifcfg_path=/etc/sysconfig/network-scripts/ifcfg-
 	#local ifcfg_path=./ifcfg-
@@ -16,25 +14,31 @@ sub_create_ifcfg(){
 	local onboot=yes
 
 	if [ ${#@} -eq 0 ]; then #if no argument
-		cat <<- ERR
-			error: usage $0 --<option>=<option value>
-			<option>:
-			--device=<eth>
-			--ipaddr=<ip address>
-			--netmask=<netmask>
-			--gateway=<gateway>
-			--type=Ethernet
-			--name=<the same as device value>
-			--bootproto=<none|static|dhcp|bootp>
-			--hwaddr=<mac address>
-			--onboot=<yes|no>			
-		ERR
+		cat <<-CMT 
+			info: try $0 --help
+		CMT
 		exit 1
 	fi
 
 	for i in $@
 	do
 		case $i in
+			--help*)
+			cat <<-HELP
+				info: usage $0 --<option>=<option value>
+				<option>:
+				--device=<eth>
+				--ipaddr=<ip address>
+				--netmask=<netmask>
+				--gateway=<gateway>
+				--type=Ethernet
+				--name=<the same as device value>
+				--bootproto=<none|static|dhcp|bootp>
+				--hwaddr=<ma
+				--onboot=<yes|no>			
+			HELP
+			#shift
+			;;
 			--device=*)
 			device="${i#*=}"
 			ifcfg_file=$ifcfg_path$device
@@ -95,16 +99,21 @@ sub_create_ifcfg(){
 		esac
 	done
 	if [ -z ${device+x} ]; then	#if $device is unset 
-		echo "error: usage $0 --device=<device>"
-		rm $ifcfg_file
+		echo "error: usage $0 --help"
+		if [ -f "$ifcfg_file" ]; then
+			echo "ifcfg_file: $ifcfg_file"
+			sudo rm $ifcfg_file
+		fi
 		exit 1
 	elif [ ${#device} -eq 0 ]; then #if $device is empty string (length = 0)
-		echo "error: usage $0 --device=<device> (2)"
-		rm $ifcfg_file
+		echo "error: usage $0 --help"
+		if [ -f "$ifcfg_file" ]; then
+			echo "ifcfg_file: $ifcfg_filei\t#ifcfg_file: ${#ifcfg_file}"
+			sudo rm $ifcfg_file
+		fi
 		exit 1 
 	fi
 	echo "file: $ifcfg_file"
 	exit 0
 }
-#sub_create_ifcfg $@
-
+sub_create_ifcfg $@

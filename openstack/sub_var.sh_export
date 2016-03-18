@@ -1,0 +1,6 @@
+export #!/bin/bash
+export openstack_work_dir
+export openstack_conf_dir
+export openstack_network_conf
+export openstack_service_conf
+export 
