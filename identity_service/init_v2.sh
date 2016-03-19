@@ -16,6 +16,9 @@ EOF
 
 #Generate admin token
 
+cd /root/work/identity_service
+
+
 ADMIN_TOKEN=$(openssl rand -hex 10)
 
 #Install the packages

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /root/work/glance_service
+
 mysql -u root -pSuper123 << EOF
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' \
@@ -28,7 +30,7 @@ openstack endpoint create --region RegionOne \
 openstack endpoint create --region RegionOne \
   image admin http://controller:9292
 
-echo "install glance service on controller"
+echo "installing glance package on controller"
 yum -y install openstack-glance wget &>/dev/null
 
 openstack-config --set /etc/glance/glance-api.conf database \
