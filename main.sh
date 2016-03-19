@@ -3,13 +3,11 @@
 
 main(){
 
-	if [ !  $# -eq 1 ]
-	then
+	if [ $# -ne 1 ]; then
 		echo "Usage : $0 Deploy Option"
 		echo "Please check $0 --help"
 		exit
 	fi
-
 		case $1 in
 		--help*)
 		cat <<-HELP
@@ -74,10 +72,12 @@ main(){
 		   echo "install swift"
 		   /root/work/swift_service/init.sh
 		;;
+		*)
+		   echo "Option $1 is invailded"
 		esac
 }
 
-main $1
+main "$@"
 
 
 
