@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 mysql -u root -pSuper123 << EOF
 CREATE DATABASE nova_api;
 CREATE DATABASE nova;
@@ -63,7 +65,7 @@ openstack-config --set /etc/nova/nova.conf api_database \
 connection mysql+pymysql://nova:Super123@controller/nova_api
 
 openstack-config --set /etc/nova/nova.conf database \
-connection mysql+pymysql://nova:Super123@controller/nova_api
+connection mysql+pymysql://nova:Super123@controller/nova
 
 
 openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit \
