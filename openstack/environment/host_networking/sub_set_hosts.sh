@@ -24,8 +24,12 @@ function sub_set_hosts(){
 				sudo ./hosts.sh >> /etc/hosts
 				sudo echo "# (END)" >> /etc/hosts
 			;;				
+<<<<<<< HEAD
       
 
+=======
+      esac
+>>>>>>> 6fa23f944ec91148f1b49cbbc4af0b34a811e558
    done
 	
 		
@@ -44,4 +48,7 @@ function sub_set_hosts(){
 	esac
 }
 
+<<<<<<< HEAD
 sub_set_hosts $@
+=======
+>>>>>>> 6fa23f944ec91148f1b49cbbc4af0b34a811e558
