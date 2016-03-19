@@ -114,8 +114,6 @@ openstack-config --set /etc/swift/object-server.conf filter:recon \
 recon_cache_path /var/cache/swift
 
 chown -R swift:swift /srv/node
-
-
 mkdir -p /var/cache/swift
 chown -R root:swift /var/cache/swift
 chmod -R 775 /var/cache/swift
@@ -123,13 +121,12 @@ chmod -R 775 /var/cache/swift
 touch ~/storage_node_finished
 scp ~/object_storage_nodes_finished root@controller:~/
 
-while [ ! -f /etc/swift ]   #wait storage nodes finished
+while [ ! -f /etc/swift/swift.conf ]   #wait storage nodes finished
 do
    sleep 10
 done
 
 chown -R root:swift /etc/swift
-
 
 systemctl enable openstack-swift-account.service openstack-swift-account-auditor.service \
 openstack-swift-account-reaper.service openstack-swift-account-replicator.service
@@ -152,4 +149,4 @@ systemctl start openstack-swift-object.service openstack-swift-object-auditor.se
 openstack-swift-object-replicator.service openstack-swift-object-updater.service
 
 
-
+exit 0

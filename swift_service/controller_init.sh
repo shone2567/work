@@ -144,8 +144,6 @@ scp swift.conf root@object1:/etc/swift
 scp swift.conf root@object2:/etc/swift
 
 chown -R root:swift /etc/swift
-sh root@$node_ip 'chown -R root:swift /etc/swift'
-sh root@$node_ip 'chown -R root:swift /etc/swift'
 
 systemctl enable openstack-swift-proxy.service memcached.service
 systemctl start openstack-swift-proxy.service memcached.service
