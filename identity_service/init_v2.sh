@@ -20,7 +20,7 @@ ADMIN_TOKEN=$(openssl rand -hex 10)
 
 #Install the packages
 
-echo "installing keystone package pn controller"
+echo "installing keystone package on controller"
 
 yum install -y openstack-keystone openstack-utils \
 httpd mod_wsgi expect &> /dev/null 
@@ -113,6 +113,9 @@ unset OS_TOKEN OS_URL
 #check token
 
 ./sub_keystone_verify.sh
+
+/usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t "/etc/keystone/fernet-keys(/.*)?" 
+/sbin/restorecon -R -v /etc/keystone/fernet-keys
 
 identityResult=$?
 
