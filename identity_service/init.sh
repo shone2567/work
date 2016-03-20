@@ -3,7 +3,6 @@
 set -x
 
 #Create a database and an administration token
-
 mysql - u root -pSuper123 << EOF
 CREATE DATABASE keystone;
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
@@ -12,6 +11,7 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
   IDENTIFIED BY 'Super123';
 EOF
 
+
 #Generate admin token
 
 ADMIN_TOKEN=$(openssl rand -hex 10)
@@ -19,7 +19,7 @@ ADMIN_TOKEN=$(openssl rand -hex 10)
 #Install the packages
 
 yum install -y openstack-keystone openstack-utils \
-httpd mod_wsgi memcached python-memcached 
+httpd mod_wsgi memcached python-memcached expect 
 
 systemctl start  memcached.service
 systemctl enable memcached.service
@@ -40,11 +40,14 @@ su -s /bin/sh -c "keystone-manage db_sync" keystone
 
 # edit httpd.conf
 
-./sub_httpd_edited
+./sub_httpd_edited.sh
 
 # create_wsgi-keystone.conf
 
-./sub_wsgi-keystone_create
+./sub_wsgi-keystone_create.sh
+
+systemctl enable httpd.service
+systemctl start httpd.service
 
 # Create the service entity and API endpoints
 
@@ -69,8 +72,8 @@ openstack endpoint create --region RegionOne \
 openstack project create --domain default \
   --description "Admin Project" admin
 
-openstack user create --domain default \
-  --password-prompt admin
+#create a keystone admin user
+./sub_keystoneadmin_create.sh
 
 openstack role create admin
 
@@ -82,8 +85,8 @@ openstack project create --domain default \
 openstack project create --domain default \
   --description "Demo Project" demo
 
-openstack user create --domain default \
-  --password-prompt demo
+#create a keystone demo user
+./sub_keystonedemo_create.sh
 
 openstack role create user
 
@@ -109,7 +112,7 @@ ARG
 
 identityResult=$?
 
-if [[ $identityResult -eq 1]]
+if [[ $identityResult -eq 1 ]]
 then 
 	echo "There is something wrong on installing identity service"
 else
