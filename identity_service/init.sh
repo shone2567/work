@@ -44,7 +44,7 @@ su -s /bin/sh -c "keystone-manage db_sync" keystone
 
 # create_wsgi-keystone.conf
 
-./sub_wsgi-keystone_create.sh
+./sub_wsgikeystone_create.sh
 
 systemctl enable httpd.service
 systemctl start httpd.service
