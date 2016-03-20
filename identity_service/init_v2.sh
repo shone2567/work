@@ -29,7 +29,7 @@ httpd mod_wsgi expect
 
 openstack-config --set /etc/keystone/keystone.conf DEFAULT admin_token $ADMIN_TOKEN
 openstack-config --set /etc/keystone/keystone.conf \
-database connection mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+database connection mysql+pymysql://keystone:Super123@controller/keystone
 openstack-config --set /etc/keystone/keystone.conf token provider fernet
 
 su -s /bin/sh -c "keystone-manage db_sync" keystone
