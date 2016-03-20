@@ -1,0 +1,8 @@
+
+# unclear what's is going on here..
+
+if [[ "$v1" -gt "$v2" -o "$v1" -lt "$v2" -a -e "$filename"]]
+
+# better coding style
+
+if [[ "$v1" -gt "$v2"]] || [[ "$v1" -lt "$v2" ]] && [[ -e "$filenme" ]]
