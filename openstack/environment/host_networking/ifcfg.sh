@@ -6,11 +6,13 @@ ifcfg(){
 	local if_type=
 	local field_hostname=1
 	local field_iface=2
-	local field_iface_type=3
+	local field_ifacetype=3
 	local field_ipaddr=4
 	local field_netmask=5
 	local field_bootproto=6
 	local field_gateway=7		
+	local field_deployment=8
+	local field_hwseq=9
 	declare -a ifaces
 
 
@@ -19,8 +21,9 @@ ifcfg(){
    do
       case $opt in
          --help*)
-				cat <<-HELP
-				usage: $0 --host_name=<host name> \
+				>&2 cat <<-HELP
+				usage: $0 
+				--host_name=<host name>
 				--if_type=<pub|internal>
 				HELP
          ;;
@@ -32,10 +35,10 @@ ifcfg(){
 			;;
       esac
    done
-	#argument and ption requirement check
+	#argument and ption requirement check (output to stderr)
 	if [ ${#host_name} -eq 0 ]; then
-		cat <<-ERR
-			info: host_name is not defined
+		>&2 cat <<-ERR
+			error: host_name is not defined
 		ERR
 		exit 1	
 	
@@ -53,11 +56,14 @@ ifcfg(){
 	fi 
 	local host_name=$(echo $network_info | cut -d "," -f $field_hostname)
 	local iface=$(echo $network_info | cut -d "," -f $field_iface)
-	local iface_type=$(echo $network_info | cut -d "," -f $field_iface_type)
+	local ifacetype=$(echo $network_info | cut -d "," -f $field_iface_type)
 	local ipaddr=$(echo $network_info | cut -d "," -f $field_ipaddr)
 	local netmask=$(echo $network_info | cut -d "," -f $field_netmask)
 	local bootproto=$(echo $network_info | cut -d "," -f $field_bootproto)
 	local gateway=$(echo $network_info | cut -d "," -f $field_gateway)
+	local deployment=$(echo $network_info | cut -d "," -f $field_deployment)
+	local hwseq=$(echo $network_info | cut -d "," -f $field_hwseq)
+if [ $deployment == "auto" 	
 	if [ $bootproto == "dhcp" ]; then
 		cat <<-OUTPUT
 			DEVICE=$iface
