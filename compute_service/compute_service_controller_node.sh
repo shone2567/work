@@ -1,3 +1,4 @@
+su
 mysql -u root &> /dev/null << CREATEDB
 
 CREATE DATABASE nova;
@@ -21,6 +22,13 @@ openstack endpoint create --region RegionOne compute admin http://controller:877
 
 yum install openstack-nova-api openstack-nova-cert openstack-nova-conductor openstack-nova-console openstack-nova-novncproxy openstack-nova-scheduler python-novaclient
 
+#Edit the /etc/nova/nova.conf file
 
+cp -f nova.conf /etc/nova/nova.conf
 
+su -s /bin/sh -c "nova-manage db sync" nova
+
+systemctl enable openstack-nova-api.service openstack-nova-cert.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
+
+systemctl start openstack-nova-api.service openstack-nova-cert.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
 
