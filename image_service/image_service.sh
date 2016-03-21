@@ -1,3 +1,5 @@
+su
+
 mysql -u root &> /dev/null << CREATEDB
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'GLANCE_DBPASS';
@@ -15,6 +17,14 @@ openstack service create --name glance --description "OpenStack Image service" i
 #4
 openstack endpoint create --region RegionOne image public http://controller:9292openstack endpoint create --region RegionOne image internal http://controller:9292
 openstack endpoint create --region RegionOne image admin http://controller:9292
+
+yum install openstack-glance python-glance python-glanceclie
+
+#Edit the /etc/glance/glance-api.conf file
+cp glance-api.conf /etc/glance/glance-api.conf
+
+#Edit the /etc/glance/glance-registry.conf
+cp glance-registry.conf /etc/glance/glance-registry.conf
 
 su -s /bin/sh -c "glance-manage db_sync" glance
 
