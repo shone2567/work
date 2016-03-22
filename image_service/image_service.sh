@@ -18,7 +18,7 @@ openstack service create --name glance --description "OpenStack Image service" i
 openstack endpoint create --region RegionOne image public http://controller:9292openstack endpoint create --region RegionOne image internal http://controller:9292
 openstack endpoint create --region RegionOne image admin http://controller:9292
 
-yum install openstack-glance python-glance python-glanceclie
+yum install -y openstack-glance python-glance python-glanceclie
 
 #Edit the /etc/glance/glance-api.conf file
 cp -f glance-api.conf /etc/glance/glance-api.conf
