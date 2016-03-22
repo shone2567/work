@@ -1,4 +1,4 @@
-su
+#su
 
 mysql -u root &> /dev/null << CREATEDB
 CREATE DATABASE glance;
@@ -21,10 +21,10 @@ openstack endpoint create --region RegionOne image admin http://controller:9292
 yum install openstack-glance python-glance python-glanceclie
 
 #Edit the /etc/glance/glance-api.conf file
-cp glance-api.conf /etc/glance/glance-api.conf
+cp -f glance-api.conf /etc/glance/glance-api.conf
 
 #Edit the /etc/glance/glance-registry.conf
-cp glance-registry.conf /etc/glance/glance-registry.conf
+cp -f glance-registry.conf /etc/glance/glance-registry.conf
 
 su -s /bin/sh -c "glance-manage db_sync" glance
 
