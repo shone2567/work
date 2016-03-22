@@ -16,39 +16,20 @@ function sub_set_hosts(){
          ;;
 			--host_name=*)
 				host_name="${o#*=}"
-				#set host name
-				sudo hostnamectl set-hostname $host_name
-				#set hosts file
-				sudo cp /etc/hosts /etc/hosts.bak	#back up the original
-				sudo echo "# (BEGIN) added for openstack" >> /etc/hosts
-				sudo ./hosts.sh >> /etc/hosts
-				sudo echo "# (END)" >> /etc/hosts
+				
 			;;				
-<<<<<<< HEAD
-      
-
-=======
-      esac
->>>>>>> 6fa23f944ec91148f1b49cbbc4af0b34a811e558
-   done
-	
+		esac
+	done
+	if [ ${#host_name} -gt 0 ]; then
+		#set host name
+		sudo hostnamectl set-hostname $host_name
+		#set hosts file
+		sudo cp /etc/hosts /etc/hosts.bak	#back up the original
+		sudo echo "# (BEGIN) added for openstack" >> /etc/hosts
+		sudo ./hosts.sh >> /etc/hosts
+		sudo echo "# (END)" >> /etc/hosts
 		
-	case $host_name in
-
-
-		controller)
-		;;
-		compute)
-		;;
-		block_storage)
-		;;
-		object_storage)
-		;;
-		
-	esac
+	fi
 }
 
-<<<<<<< HEAD
 sub_set_hosts $@
-=======
->>>>>>> 6fa23f944ec91148f1b49cbbc4af0b34a811e558

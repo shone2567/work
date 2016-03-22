@@ -17,3 +17,11 @@ sudo nmcli connection delete mgmt.
 source:
 https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/sec-Using_the_NetworkManager_Command_Line_Tool_nmcli.html
 
+#renaming network device (example):
+/sbin/ip link set eth1 down
+/sbin/ip link set eth1 name eth123
+/sbin/ip link set eth123 up
+
+##see also:
+http://unix.stackexchange.com/questions/205010/centos-7-rename-network-interface-without-rebooting
+
