@@ -7,17 +7,34 @@ function sub_(){
 
 	#to collect active network device:
 	declare -a devices=( $(nmcli device status | grep -E "ethernet[ ]+connected" | cut -d " " -f 1) )	
-	
+	local arg_hostname=$1
 	local conn=
 	local ifname=
 	local ipaddr=
 	local prefix=
 	local gateway=
-
-	for device in $devices
+	
+	declare -a nework_cfgs=( $(cat $openstack_network_conf | grep -E "$arg_hostname" ) )
+	for network_cfg in $network_cfgs
 	do
-		#check if ifcfg file exists
-		local file_count=$(find $ifcfg_path -type f -name *$device | wc -l)
+		local hostname=$(echo $network_cfg | cut -d "," -f 1)
+		local connid=$(echo $network_cfg | cut -d "," -f 2)
+		local device=$(echo $network_cfg | cut -d "," -f 3)
+		local ipaddr=$(echo $network_cfg | cut -d "," -f 4)
+		local netmaskbit=$(echo $network_cfg | cut -d "," -f 5)
+		local bootproto=$(echo $network_cfg | cut -d "," -f 6)
+		local gateway=$(echo $network_cfg | cut -d "," -f 7)
+		local deployment=$(echo $network_cfg | cut -d "," -f 8)
+		local hwseq=$(echo $network_cfg | cut -d "," -f 9)
+		
+		if [ $device == "manual" ]; then
+
+			#check if ifcfg file exists
+			local file_count=$(find $ifcfg_path -type f -name *$device | wc -l)
+		fi
+		
+	done
+
 		if [ $file_count -eq 0 ]; then
 			#need to create one
 			sudo nmcli device disconnect $device
