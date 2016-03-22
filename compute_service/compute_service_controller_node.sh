@@ -1,4 +1,5 @@
-su
+#su
+
 mysql -u root &> /dev/null << CREATEDB
 
 CREATE DATABASE nova;
