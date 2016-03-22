@@ -1,6 +1,6 @@
 #su
 
-yum install openstack-dashboard
+yum -y install openstack-dashboard
 
 #Edit the /etc/openstack-dashboard/local_settings file
 cp -f local_settings /etc/openstack-dashboard/
