@@ -1,4 +1,4 @@
-WORK_DIR=$HOME/workspace/work
+WORK_DIR=$HOME/work
 openstack_work_dir=$WORK_DIR/openstack
 openstack_conf_dir=$openstack_work_dir/config/
 openstack_var=$openstack_conf/openstack.var

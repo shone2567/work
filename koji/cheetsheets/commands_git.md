@@ -1,3 +1,6 @@
+#About basic writing and formatting syntax in github:
+##https://help.github.com/articles/basic-writing-and-formatting-syntax/
+
 Command	Chapter		Example	Remark
 git init				
 git clone <git URL>				
