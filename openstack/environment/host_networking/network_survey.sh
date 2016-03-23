@@ -8,7 +8,7 @@ sub_network_collect(){
 		case $o in
 		--help*)
 		cat <<-HELP
-		#Script: $0
+		#Script: `$0`
 		##Network Device & Connection Summary
 		description:
 		this command will output network device and connections

@@ -1,4 +1,4 @@
-#Script: ./network_survey.sh
+#Script: `./network_survey.sh`
 ##Network Device & Connection Summary
 description:
 this command will output network device and connections

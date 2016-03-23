@@ -14,7 +14,12 @@ for o in \$@
 do
 	case \$o in
 	--help)
-	#echo "help msg here"
+	cat << HELP
+#Script: $0
+##Title:
+##Description:
+##System Impact:
+HELP
 	;;
 CODE
 	
