@@ -9,6 +9,8 @@ sudo nmcli connection up [mgmt] ifname [eno33554984]
 nmcli device status
 #changing ip address
 nmcli connection modify [mgmt] ipv4.addresses [new ipaddress/bitmast]
+#changing onboot=yes
+nmcli connection modify [mgmt] connect.autoconnect yes
 #check network connection status in detail
 nmcli -p connection show [mgmt]
 #disconnect network interface (=ifdown) again…

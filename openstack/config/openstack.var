@@ -7,3 +7,5 @@ openstack_node_def=$openstack_conf_dir/openstack_node.def
 openstack_errorcode_def=$openstack_conf_dir/openstack_errorcode.def
 openstack_network_conf=$openstack_conf_dir/openstack_network.config
 openstack_service_conf=$openstack_conf_dir/openstack_service.config
+openstack_password_def=$openstack_conf_dir/openstack_password.def
+
