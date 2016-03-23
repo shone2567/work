@@ -7,12 +7,15 @@ sudo nmcli connection add type ethernet con-name [mgmt.] ifname [eno33554984] ip
 sudo nmcli connection up [mgmt] ifname [eno33554984]
 #check network device status
 nmcli device status
+#changing ip address
+nmcli connection modify [mgmt] ipv4.addresses [new ipaddress/bitmast]
 #check network connection status in detail
 nmcli -p connection show [mgmt]
 #disconnect network interface (=ifdown) again…
 sudo nmcli device disconnect eno33554984
 #delete the ifcfg file (if you want…)
 sudo nmcli connection delete mgmt.
+
 
 source:
 https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/sec-Using_the_NetworkManager_Command_Line_Tool_nmcli.html
