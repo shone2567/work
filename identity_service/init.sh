@@ -29,8 +29,8 @@ systemctl enable memcached.service
 # edit keystone.conf
 
 openstack-config --set /etc/keystone/keystone.conf DEFAULT admin_token $ADMIN_TOKEN
-openstack-config --set /etc/keystone/keystone.conf database connection mysql://keystone:Super123@controller/keystone
-
+openstack-config --set /etc/keystone/keystone.conf \
+database connection mysql://keystone:Super123@controller/keystone
 openstack-config --set /etc/keystone/keystone.conf revoke driver sql
 openstack-config --set /etc/keystone/keystone.conf memcache servers localhost:11211
 openstack-config --set /etc/keystone/keystone.conf token provider uuid
@@ -94,6 +94,8 @@ openstack role add --project demo --user demo user
 
 #need to modified /usr/share/keystone/keystone-dist-paste.ini
 
+./sub_keystone-dist-paste_edited.sh
+
 unset OS_TOKEN OS_URL#
 
 #check token
@@ -101,6 +103,28 @@ unset OS_TOKEN OS_URL#
 openstack --os-auth-url http://controller:35357/v3 \
   --os-project-domain-id default --os-user-domain-id default \
   --os-project-name admin --os-username admin --os-auth-type password \
-  token issue
+  token issue <<-ARG
+Super123
+ARG
+
+identityResult=$?
+
+if [[ $identityResult -eq 1]]
+then 
+	echo "There is something wrong on installing identity service"
+else
+	echo "Pass identity service installation"
+fi
+
+# Create admin_openrc.sh and demo_openrc.sh
+
+./sub_openrc_create.sh
+
+exit 0
+
+
+
+
+
 
 

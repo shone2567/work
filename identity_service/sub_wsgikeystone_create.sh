@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat<<EOF >tmp/wgsi_keystone.conf
+cat<<EOF >/etc/httpd/conf.d/wgsi_keystone.conf
 
 
 Listen 5000
