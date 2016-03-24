@@ -14,6 +14,13 @@ sub_network_collect(){
 		this command will output network device and connections
 		status in following csv format:
 		"hostname,device,ipaddr,bitmask,type,state,connection,seq"
+		output exmaple:
+		---example: start---
+		localhost.localdomain,enp0s3,10.0.2.15,24,ethernet,connected,enp0s3,2
+		localhost.localdomain,enp0s9,192.168.56.104,24,ethernet,connected,Wired connection 2,4
+		localhost.localdomain,enp0s8,,,ethernet,disconnected,,
+		localhost.localdomain,lo,127.0.0.1,8,loopback,unmanaged,,1
+		---example: end  ---
 		HELP
 		exit 0
 		;;
@@ -34,7 +41,8 @@ sub_network_collect(){
 	local ipf_ip=7
 	
 	#declare -a devices=
-	local devices=( $(ip -o a | grep -E "inet " | cut -d ' ' -f 2) ) 
+	#local devices=( $(ip -o a | grep -E "inet " | cut -d ' ' -f 2) ) 
+	local devices=( $(nmcli d s | sed -n '1!p' | cut -d ' ' -f 1) ) 
 	#echo ${devices[*]}
 	for device in ${devices[*]}
 	do
