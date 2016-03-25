@@ -13,7 +13,7 @@ sub_network_collect(){
 		description:
 		this command will output network device and connections
 		status in following csv format:
-		"hostname,device,ipaddr,bitmask,gateway,bootproto,type,state,connection,seq"
+		"hostname,device,ipaddr,bitmask,gateway,ipv4_method,type,state,connection,ifcfg,seq"
 		output exmaple:
 		---example: start---
 		localhost.localdomain,enp0s3,10.0.2.15,24,ethernet,connected,enp0s3,2
@@ -33,6 +33,7 @@ sub_network_collect(){
 	local ipaddr=
 	local bitmask=
 	local bootproto=
+	local ipv4_method= #dhcp flag
 	local deployment=
 	local seq=
 	local type=
@@ -61,8 +62,9 @@ sub_network_collect(){
 		ifcfg=$(ls /etc/sysconfig/network-scripts/ | grep -E "ifcfg-$connection$" | wc -l)
 		uuid=$(nmcli c s | grep -E "$connection.*$device" | sed -E "s/.* (([[:alnum:]]+-){4,}[[:alnum:]]+) .*/\1/")
 		gateway=$(nmcli c s $connection | grep -E "ipv4.gateway" | sed -E "s/([ ]|:)+/|/g" | cut -d '|' -f 2)
-		bootproto=$(nmcli c s $connection | grep -E "DHCP4.OPTION" | sed -n "1p" | cut -d "4" -f 1 | tr '[:upper:]' '[:lower:]')
-		echo "$hostname,$device,$ipaddr,$bitmask,$gateway,$bootproto,$type,$state,$connection,$ifcfg,$uuid,$seq"
+		#bootproto=$(nmcli c s $connection | grep -E "DHCP4.OPTION" | sed -n "1p" | cut -d "4" -f 1 | tr '[:upper:]' '[:lower:]')
+		ipv4_method=$(nmcli c s $connection | grep -E "ipv4.method" | sed -E "s/([ ]|:)+/|/g" | cut -d '|' -f 2)
+		echo "$hostname,$device,$ipaddr,$bitmask,$gateway,$ipv4_method,$type,$state,$connection,$ifcfg,$seq"
 		
 	done
 
