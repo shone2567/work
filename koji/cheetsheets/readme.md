@@ -127,8 +127,8 @@ example 1: `echo "test.txt" | xargs sed -i .bkup -E "s/# ServerName .+/ServerNam
 example 2: `sed -i .bkup -E "s/# ServerName .+/ServerName controller/" test.txt`
 ##Use `sed` to output matched string
 try the followings and check output:
-1. `echo "today is friday." | sed "s/friday/monday/"`
-2. `echo "today is friday." | sed -E "s/(.+day) is (.+day)./\2 is \1/"`
-3. `echo "today is friday." | sed -E "s/.+(fri.*).+/\1/"`
-4. `echo "today is friday." | sed -E "s/(fri.*)./\1/"`
-4. `echo "today is friday." | sed -E "s/(fri.*)/\1/"`
+####1. `echo "today is friday." | sed "s/friday/monday/"`
+####2. `echo "today is friday." | sed -E "s/(.+day) is (.+day)./\2 is \1/"`
+####3. `echo "today is friday." | sed -E "s/.+(fri.*).+/\1/"`
+####4. `echo "today is friday." | sed -E "s/(fri.*)./\1/"`
+####4. `echo "today is friday." | sed -E "s/(fri.*)/\1/"`
