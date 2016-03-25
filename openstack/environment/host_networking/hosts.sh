@@ -1,5 +1,5 @@
 #!/bin/bash
-. $HOME/workspace/work/openstack/config/openstack_exported.var
+. $HOME/work/openstack/config/openstack_exported.var
 
 function hosts(){
 

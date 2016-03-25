@@ -13,7 +13,7 @@ sub_network_collect(){
 		description:
 		this command will output network device and connections
 		status in following csv format:
-		"hostname,device,ipaddr,bitmask,type,state,connection,seq"
+		"hostname,device,ipaddr,bitmask,gateway,bootproto,type,state,connection,seq"
 		output exmaple:
 		---example: start---
 		localhost.localdomain,enp0s3,10.0.2.15,24,ethernet,connected,enp0s3,2
@@ -29,13 +29,16 @@ sub_network_collect(){
 	local hostname=
 	local connection=
 	local device=
+	local ip=
 	local ipaddr=
 	local bitmask=
-	local bootproto=yes
-	local deployment=auto
-	local seq=0
+	local bootproto=
+	local deployment=
+	local seq=
 	local type=
 	local state=
+	local uuid=
+	local ifcfg=
 
 	local ipf_seq=1
 	local ipf_ip=7
@@ -48,14 +51,18 @@ sub_network_collect(){
 	do
 		hostname=$(hostname)	
 		seq=$(ip -o a | grep -E "${device}.+inet " | cut -d ' ' -f $ipf_seq | cut -d ':' -f 1)	
-		local ip=$(ip -o a | grep -E "$device.+inet " | cut -d ' ' -f $ipf_ip)	
+		type=$(nmcli device status | grep -E "$device" | sed -E "s/[[:blank:]]+/|/g" | cut -d '|' -f 2)
+		ip=$(ip -o a | grep -E "$device.+inet " | cut -d ' ' -f $ipf_ip)
+		#ip=$(nmcli c s $connection | grep -E "IP4.ADDRESS" | sed -E "s/([ ]|:)+/|/g" | cut -d '|' -f 2)
 		ipaddr=$(echo $ip | cut -d '/' -f 1)
 		bitmask=$(echo $ip | cut -d '/' -f 2)
-		
-		type=$(nmcli device status | grep -E "$device" | sed -E "s/[[:blank:]]+/|/g" | cut -d '|' -f 2)
 		state=$(nmcli device status | grep -E "$device" | sed -E "s/[[:blank:]]+/|/g" | cut -d '|' -f 3)
 		connection=$(nmcli c s | grep -E "$device" | sed -E "s/[ ]+([[:alnum:]]+-){4}[[:alnum:]]+[ ]+/|/g" | cut -d '|' -f 1)
-		echo "$hostname,$device,$ipaddr,$bitmask,$type,$state,$connection,$seq"
+		ifcfg=$(ls /etc/sysconfig/network-scripts/ | grep -E "ifcfg-$connection$" | wc -l)
+		uuid=$(nmcli c s | grep -E "$connection.*$device" | sed -E "s/.* (([[:alnum:]]+-){4,}[[:alnum:]]+) .*/\1/")
+		gateway=$(nmcli c s $connection | grep -E "ipv4.gateway" | sed -E "s/([ ]|:)+/|/g" | cut -d '|' -f 2)
+		bootproto=$(nmcli c s $connection | grep -E "DHCP4.OPTION" | sed -n "1p" | cut -d "4" -f 1 | tr '[:upper:]' '[:lower:]')
+		echo "$hostname,$device,$ipaddr,$bitmask,$gateway,$bootproto,$type,$state,$connection,$ifcfg,$uuid,$seq"
 		
 	done
 
