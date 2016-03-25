@@ -10,7 +10,7 @@ do
 	case \$o in
 	--help)
 	cat <<-HELP
-	#Script: $0
+	#Script: \`\$0\`
 	##Title:
 	##Description:
 	##Requirement:
