@@ -8,24 +8,24 @@
 sub_main(){
 	for o in $@
 	do
-	        case $o in
-	        --help)
-	        cat <<-HELP
-	        #Script: $0
-	        ##Title:
-	        ##Description:
-				$0 network down --device=[device]
-				$0 network down --connection=[connection]
-				$0 network up --connection=[connection]
-				$0 network add --connection=[connection]
-				$0 network mod static --connection=[connection]
-				$0 network mod dhcp --connection=[connection]
-				$0 network del --connection=[connection]
-	        ##Requirement:
-	        ##System Impact:
-				HELP
-	        exit 0
-       		;;
+		case $o in
+		--help)
+		cat <<-HELP
+		#Script: $0
+		##Title:
+		##Description:
+		$0 network down --device=[device]
+		$0 network down --connection=[connection]
+		$0 network up --connection=[connection]
+		$0 network add --connection=[connection]
+		$0 network mod static --connection=[connection]
+		$0 network mod dhcp --connection=[connection]
+		$0 network del --connection=[connection]
+		##Requirement:
+		##System Impact:
+		HELP
+		exit 0
+		;;
         	esac
 	done
 
@@ -66,6 +66,24 @@ sub_main(){
 
 sub_network_down_by_device() {
 	local device=
+
+	for o in $@
+	do
+		case $o in
+		--help)
+		cat <<-HELP
+		#Script: $0
+		##Title:
+		##Description:
+		--device=[device]
+		##Requirement:
+		##System Impact:
+		HELP
+		exit 0
+		;;
+		esac
+	done
+
 	for o in $@
 	do
 		case $o in
@@ -79,6 +97,20 @@ sub_network_down_by_device() {
 
 sub_network_up(){
 	local connection=
+	case $o in
+	--help)
+	cat <<-HELP
+	#Script: $0
+	##Title:
+	##Description:
+	--device=[device]
+	##Requirement:
+	##System Impact:
+	HELP
+	exit 0
+	;;
+	esac
+
 	for o in $@
 	do
 		case $o in
