@@ -1,19 +1,19 @@
 #!/bin/bash
 
-. $HOME/work/openstack/config/openstack_exported.var
+#. $HOME/work/openstack/config/openstack_exported.var
 
 function sub(){
-local script_name=
 
+local script_name=
 local func_name=sub
 
 for arg in $@
 do 
 	case arg in
 	--script_name=*)
-	script_name=${arg#*=}
-	func_name=${script_name%.*}	
-	shift
+		script_name=${arg#*=}
+		func_name=${script_name%.*}	
+		shift
 	;;
 	--*)
 	shift
@@ -23,9 +23,7 @@ done
 
 cat << BEGIN 
 $func_name(){
-
 BEGIN
-
 
 	for arg in $@
 	do
@@ -35,32 +33,6 @@ local arg_$arg=
 CODE
 	done
 
-cat << BEGIN
-for o in \$@
-do
-	case \$o in
-	--help)
-	cat <<-HELP
-	#Script: \$0
-	##Title:
-	##Description:
-	##Requirement:
-BEGIN
-	for arg in $@
-	do
-	cat << CODE
-	--$arg=[value of $arg]
-CODE
-	done
-cat << BEGIN2
-	##System Impact:
-	HELP
-	return 0
-	;;
-	esac
-done
-
-BEGIN2
 	cat << CODE
 for o in \$@
 do
@@ -72,10 +44,11 @@ CODE
 	cat << CODE
 	--$arg=*)
 	arg_$arg=\${o#*=}
+	shift
 	;;
 CODE
 	done
-	cat << CODE
+cat << CODE
 	*)
 	;;
 	esac
@@ -90,8 +63,37 @@ if [ \${#arg_$arg} -eq 0  ]; then
 fi
 CODE
 	done
+
+#code>handling --help
+cat << BEGIN
+	for o in \$@
+	do
+		case \$o in
+		--help)
+		cat <<-HELP
+		#Function Name: $func_name
+		##Title:
+		##Description:
+		##Requirement:
+BEGIN
+		for arg in $@
+		do
+cat << CODE
+		--$arg=[value of $arg]
+		shift
+CODE
+		done
+cat << BEGIN2
+		##System Impact:
+		HELP
+		return 0
+		;;
+		esac
+	done
+BEGIN2
+#code<handling --help
+
 cat << END
-	echo "$output" > $script_name
 	return 0
 }
 
@@ -101,4 +103,5 @@ END
 }
 
 sub $@ 
+#todo: consider using read -r -d instead of cat for here document
 

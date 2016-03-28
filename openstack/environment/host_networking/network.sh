@@ -6,6 +6,40 @@
 #Check if dhcp or not
 #Check if ifcfg (connection) exisits
 sub_main(){
+
+	resource=$1; shift; echo "args: $@"
+	action=$1; shift; echo "args: $@"
+
+	echo "$resource"
+	echo "$action"
+	
+	case $action in 
+		down)
+			#sub_network_down_by_device $@
+			sub_network_down $@ 
+			;;
+		up)
+			sub_network_up $@
+			;;
+		add)
+			sub_network_add $@
+			;;
+		mod)
+			local directive=$1; shift
+			case $directive in
+				static)
+				sub_network_mod_static4 $@
+				;;
+				dhcp)
+				sub_network_mod_dhcp4 $@ 
+				;;
+			esac
+			;;
+		del*)
+			sub_network_delete $@
+			;;
+	esac
+
 	for o in $@
 	do
 		case $o in
@@ -17,8 +51,8 @@ sub_main(){
 		$0 network down --device=[device]
 		$0 network down --connection=[connection]
 		$0 network up --connection=[connection]
-		$0 network add --connection=[connection]
-		$0 network mod static --connection=[connection]
+		$0 network add --connection=[connection] --device=[device]
+		$0 network mod static --connection=[connection] --ip4=[ipaddr/mask] --gw4=[gateway addr]
 		$0 network mod dhcp --connection=[connection]
 		$0 network del --connection=[connection]
 		##Requirement:
@@ -29,37 +63,6 @@ sub_main(){
         	esac
 	done
 
-	resource=$1; shift; echo "args: $@"
-	action=$1; shift; echo "args: $@"
-
-	echo "$resource"
-	echo "$action"
-	
-	case $action in 
-		down)
-			sub_network_down_by_device --device=
-			sub_network_down --connection=
-			;;
-		up)
-			sub_network_up --connection=
-			;;
-		add)
-			sub_network_add \
-			--connection= \
-			--device= \
-			;;
-		mod)
-			sub_network_mod_static4 \
-			--connection= \
-			--ipaddr= \
-			--bitmask= \
-			--gateway= 		
-			sub_network_mod_dhcp4 --conection=
-			;;
-		del*)	
-			sub_network__delete --connection=
-			;;
-	esac
 	exit 0
 }
 
@@ -89,6 +92,8 @@ sub_network_down_by_device() {
 		case $o in
 		--device=*)
 		device=${o#*=}
+		shift
+		;;
 		esac
 	done
 	sudo nmcli device disconnect $device	
@@ -116,6 +121,8 @@ sub_network_up(){
 		case $o in
 		--connection=*)
 		connection=${o#*=}
+		shift
+		;;
 		esac
 	done
 	sudo nmcli connection up $connection	
@@ -129,6 +136,8 @@ sub_network_down(){
 		case $o in
 		--connection=*)
 		connection=${o#*=}
+		shift
+		;;
 		esac
 	done
 	sudo nmcli connection down $connection	
@@ -150,10 +159,10 @@ sub_network_add(){
 		echo "counter: $c"
 
 		case $o in
-		--connection=*)
+		--con*=*)
 		connection=${o#*=}
 		;;
-		--device=*)
+		--dev*=*)
 		device=${o#*=}
 		;;
 		esac
@@ -187,6 +196,7 @@ sub_network_mod_static4(){
 		esac
 		c=`expr $c + 1`
 	done
+	#sudo nmcli connection mod $connection ipv4.method $ipv4_method ipv4.addresses $ip4 ipv4.gateway $gw4 ipv4.dns 8.8.8.8
 	sudo nmcli connection mod $connection ipv4.method $ipv4_method ipv4.addresses $ip4 ipv4.gateway $gw4
 	exit $(echo $?)
 
