@@ -132,6 +132,6 @@ try the followings and check output:
 ####3. `echo "today is friday." | sed -E "s/.+(tue.*).+/\1/"`
 ####4. `echo "today is friday." | sed -E "s/(fri.*)./\1/"`
 ####5. `echo "today is friday." | sed -E "s/(fri.*)/\1/"`
-####6. `echo "today is friday." | sed -E -n "s/.+(fri.*).+/\1/p" (correct ans.)
-####7. `echo "today is friday." | sed -E -n "s/.+(tue.*).+/\1/p" (correct ans.)
-####8. `echo "today is friday." | sed -E "s/.+(tue.*).+/\1/"
+####6. `echo "today is friday." | sed -E -n "s/.+(fri.*).+/\1/p"` (correct ans.)
+####7. `echo "today is friday." | sed -E -n "s/.+(tue.*).+/\1/p"` (correct ans.)
+####8. `echo "today is friday." | sed -E "s/.+(tue.*).+/\1/"`

@@ -1,3 +1,6 @@
 test(){
 
+. test.txt
+
 }
+test $@
