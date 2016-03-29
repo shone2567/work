@@ -1,9 +1,11 @@
 #!/bin/bash
+a=(1 2 3 4)
 
-test2(){
-
-###FUNC_BODY###
-
-} 
-
-#test2 $@
+for i in ${a[@]}
+do
+	echo "i: $i"
+done
+for i in ${a[@]}
+do
+	echo "i: $i"
+done
