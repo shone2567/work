@@ -1,0 +1,237 @@
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
+  IDENTIFIED BY 'Super123';
+
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
+  IDENTIFIED BY 'Super123';
+
+openstack user create --domain default --password-prompt neutron
+
+
+openstack role add --project service --user neutron admin
+
+openstack service create --name neutron \
+  --description "OpenStack Networking" network
+
+openstack endpoint create --region RegionOne \
+  network public http://controller:9696
+openstack endpoint create --region RegionOne \
+  network internal http://controller:9696
+openstack endpoint create --region RegionOne \
+  network admin http://controller:9696
+
+
+yum install -y openstack-neutron openstack-neutron-ml2 \
+  openstack-neutron-linuxbridge python-neutronclient ebtables ipset
+
+ /etc/neutron/neutron.conf
+
+
+[DEFAULT]
+core_plugin = ml2
+service_plugins =
+rpc_backend = rabbit
+auth_strategy = keystone
+notify_nova_on_port_status_changes = True
+notify_nova_on_port_data_changes = True
+nova_url = http://controller:8774/v2
+verbose = True
+
+
+[database]
+...
+connection = mysql://neutron:Super123@controller/neutron
+
+[oslo_messaging_rabbit]
+
+rabbit_host = controller
+rabbit_userid = openstack
+rabbit_password = Super123
+
+[keystone_authtoken]
+...
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = neutron
+password = Super123
+
+[nova]
+...
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+region_name = RegionOne
+project_name = service
+username = nova
+password = Super123
+
+
+[oslo_concurrency]
+...
+lock_path = /var/lib/neutron/tmp
+
+
+[ml2]
+type_drivers = flat,vlan
+tenant_network_types =
+mechanism_drivers = linuxbridge
+extension_drivers = port_security
+
+[ml2_type_flat]
+flat_networks = public
+
+[securitygroup] 
+enable_ipset = True
+
+edit /etc/neitron/plugins/m;2/linuxbridge_agent.ini
+
+[linux_bridge]
+physical_interface_mappings = public:enp0s8
+
+[vxlan]
+enable_vxlan = False
+
+[agent]
+...
+prevent_arp_spoofing = True
+
+
+[securitygroup]
+...
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+
+
+
+/etc/neutron/dhcp_agent.ini
+
+[DEFAULT]
+...
+interface_driver = neutron.agent.linux.interface.BridgeInterfaceDriver
+dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+enable_isolated_metadata = True
+verbose = True
+
+/etc/neutron/metadata_agent.ini
+
+[DEFAULT]
+...
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+auth_region = RegionOne
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = neutron
+password = Super123
+nova_metadata_ip = controller
+metadata_proxy_shared_secret = Super123
+verbose = True
+
+
+/etc/nova/nova.conf
+
+
+[neutron]
+...
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = Super123
+
+service_metadata_proxy = True
+metadata_proxy_shared_secret = Super123
+
+
+ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
+
+su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf \
+  --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
+
+systemctl restart openstack-nova-api.service
+systemctl enable neutron-server.service \
+  neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
+  neutron-metadata-agent.service
+systemctl start neutron-server.service \
+  neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
+  neutron-metadata-agent.service
+--------------------------------------------------------------------
+
+Compute node configure
+
+sudo iptables -A IN_public_allow -p tcp -m tcp --dport 5672 -m conntrack --ctstate NEW -j ACCEPT
+
+yum -y install openstack-neutron openstack-neutron-linuxbridge ebtables ipset
+
+ /etc/neutron/neutron.conf
+
+[DEFAULT]
+rpc_backend = rabbit
+auth_strategy = keystone
+verbose = True
+
+[oslo_messaging_rabbit]
+rabbit_host = controller
+rabbit_userid = openstack
+rabbit_password = :Super123
+
+[keystone_authtoken]
+
+auth_uri = http://controller:5000
+auth_url = http://controller:35357
+iauth_plugin = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = neutron
+password = Super123
+
+[oslo_concurrency]
+lock_path = /var/lib/neutron/tmp
+
+/etc/neutron/plugins/ml2/linuxbridge_agent.ini
+ 
+[linux_bridge]
+physical_interface_mappings = public:enp0s8
+
+[vxlan]
+enable_vxlan = False
+
+[agent]
+...
+prevent_arp_spoofing = True
+
+[securitygroup]
+...
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+
+/etc/nova/nova.conf
+
+[neutron]
+...
+url = http://controller:9696
+auth_url = http://controller:35357
+auth_plugin = password
+project_domain_id = default
+user_domain_id = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = Super123
+
+
+
+systemctl restart openstack-nova-compute.service
+systemctl enable neutron-linuxbridge-agent.service
+systemctl start neutron-linuxbridge-agent.service
