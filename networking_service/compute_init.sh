@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 yum -y install openstack-neutron openstack-neutron-linuxbridge ebtables ipset openstack-utils
 
 openstack-config --set /etc/neutron/neutron.conf \
@@ -69,7 +71,6 @@ openstack-config --set /etc/nova/nova.conf \
 DEFAULT username neutron
 openstack-config --set /etc/nova/nova.conf \
 DEFAULT password Super123
-DEFAULT verbose True
 
 systemctl restart openstack-nova-compute.service
 systemctl enable neutron-linuxbridge-agent.service
