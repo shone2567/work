@@ -1,16 +1,16 @@
 #su
 
-mysql -u root &> /dev/null << CREATEDB
+mysql -u root-pSuper123 &> /dev/null << CREATEDB
 
 CREATE DATABASE nova;
-GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
-GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'Super123';
+GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'Super123';
 
 CREATEDB 
 
 source admin-openrc.sh
 
-openstack user create --domain default --password-prompt nova
+openstack user create --domain default --password Super123 nova
 openstack role add --project service --user nova admin
 
 openstack service create --name nova --description "OpenStack Compute" compute
