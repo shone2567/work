@@ -10,7 +10,7 @@ CREATEDB
 source admin-openrc.sh
 
 #3
-openstack user create --domain default --password-prompt glance
+openstack user create --domain default --password Super123 glance
 openstack role add --project service --user glance admin
 
 #4
