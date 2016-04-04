@@ -12,13 +12,13 @@ source admin-openrc.sh
 #3
 openstack user create --domain default --password-prompt glance
 openstack role add --project service --user glance admin
-openstack service create --name glance --description "OpenStack Image service" image
 
 #4
-openstack endpoint create --region RegionOne image public http://controller:9292openstack endpoint create --region RegionOne image internal http://controller:9292
-openstack endpoint create --region RegionOne image admin http://controller:9292
+openstack service create --name glance --description "OpenStack Image service" image
+openstack endpoint create --region RegionOne image public http://controller:9292
+openstack endpoint create --region RegionOne image internal http://controller:9292
 
-yum install -y openstack-glance python-glance python-glanceclie
+yum install -y openstack-glance python-glance python-glanceclient
 
 #Edit the /etc/glance/glance-api.conf file
 cp -f glance-api.conf /etc/glance/glance-api.conf
