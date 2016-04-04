@@ -1,12 +1,12 @@
 #su
 
-mysql -u root-pSuper123 &> /dev/null << CREATEDB
+mysql -u root-pSuper123 &> /dev/null << CREATEDB_COMPUTE_CONTROLLER
 
 CREATE DATABASE nova;
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'Super123';
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'Super123';
 
-CREATEDB 
+CREATEDB_COMPUTE_CONTROLLER
 
 source admin-openrc.sh
 
