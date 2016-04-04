@@ -1,6 +1,6 @@
 #su
 
-mysql -u root &> /dev/null << CREATEDB
+mysql -u root -pSuper123 &> /dev/null << CREATEDB
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'Super123';
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'Super123';
