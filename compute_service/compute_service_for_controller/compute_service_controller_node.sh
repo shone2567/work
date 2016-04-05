@@ -10,7 +10,7 @@ CREATEDB_COMPUTE_CONTROLLER
 
 source admin-openrc.sh
 
-openstack user create --domain default --password-prompt nova
+openstack user create --domain default --password Super123 nova
 openstack role add --project service --user nova admin
 openstack service create --name nova --description "OpenStack Compute" compute
 
