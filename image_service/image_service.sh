@@ -4,7 +4,7 @@ mysql -u root -pSuper123 &> /dev/null << CREATEDB
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'Super123';
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'Super123';
-exit
+EXIT
 CREATEDB
 
 source admin-openrc.sh
