@@ -22,7 +22,7 @@ yum install -y openstack-nova-api openstack-nova-cert openstack-nova-conductor o
 
 #Edit the /etc/nova/nova.conf file
 
-cp -f nova.conf /etc/nova/nova.conf
+cp -f nova.conf /etc/nova/
 
 su -s /bin/sh -c "nova-manage db sync" nova
 
