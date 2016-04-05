@@ -2,9 +2,14 @@
 
 yum -y install openstack-nova-compute sysfsutils
 
-cp -f nova.conf /etc/nova/nova.conf
+acceleration = `egrep -c '(vmx|svm)' /proc/cpuinfo`
 
-egrep -c '(vmx|svm)' /proc/cpuinfo
+if [acceleration == 0]
+then
+	cp -f nova_not_support_hw_acceleration/nova.conf /etc/nova
+else
+	cp -f nova_support_hw_acceleration/nova.conf /etc/nova
+fi
 
 #Edit the [libvirt] section in the /etc/nova/nova.conf file
 
