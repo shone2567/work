@@ -43,8 +43,8 @@ openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT notify_nova_on_port_status_changes  True
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT notify_nova_on_port_data_changes  True
-openstack-config --set /etc/neutron/neutron.conf \
-DEFAULT nova_url http://controller:8774/v2
+#openstack-config --set /etc/neutron/neutron.conf \
+#DEFAULT nova_url http://controller:8774/v2
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT verbose True
 
