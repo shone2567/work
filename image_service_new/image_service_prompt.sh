@@ -7,7 +7,7 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'Super123';
 EXIT
 CREATEDB
 
-source admin-openrc.sh
+. admin-openrc.sh
 
 #3
 ./prompt_image_service.sh
@@ -20,7 +20,7 @@ openstack endpoint create --region RegionOne image public http://controller:9292
 openstack endpoint create --region RegionOne image internal http://controller:9292
 openstack endpoint create --region RegionOne image admin http://controller:9292
 
-yum install -y openstack-glance python-glance python-glanceclient
+yum install -y openstack-glance
 
 #Edit the /etc/glance/glance-api.conf file
 cp -f glance-api.conf /etc/glance/
