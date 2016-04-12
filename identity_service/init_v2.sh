@@ -23,6 +23,11 @@ ADMIN_TOKEN=$(openssl rand -hex 10)
 yum install -y openstack-keystone openstack-utils \
 httpd mod_wsgi expect 
 
+yum install -y memcached python-memcached
+
+systemctl enable memcached.service
+systemctl start memcached.service
+
 #Edit/create conf files
 
 # edit keystone.conf
@@ -34,6 +39,9 @@ openstack-config --set /etc/keystone/keystone.conf token provider fernet
 
 su -s /bin/sh -c "keystone-manage db_sync" keystone
 keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+
+/usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t "/etc/keystone/fernet-keys(/.*)?"
+/sbin/restorecon -R -v /etc/keystone/fernet-keys
 
 # edit httpd.conf
 
