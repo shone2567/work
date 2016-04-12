@@ -7,7 +7,7 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' \
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
   IDENTIFIED BY 'Super123';
 EOF
-. admin-openrc
+source admin-openrc.sh
 yum -y install expect
 
 #create glanceuser
@@ -29,10 +29,10 @@ openstack endpoint create --region RegionOne \
   image admin http://controller:9292
 
 
-yum -y install openstack-glance wget
+yum -y install openstack-glance python-glance python-glanceclient wget
 
 openstack-config --set /etc/glance/glance-api.conf database \
-connection mysql+pymysql://glance:Super123@controller/glance
+connection mysql://glance:Super123@controller/glance
 
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
 auth_uri http://controller:5000
@@ -41,16 +41,13 @@ openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
 auth_url http://controller:35357
 
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
-memcached_servers controller:11211
+auth_plugin password
 
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
-auth_type password
+project_domain_id default
 
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
-project_domain_name default
-
-openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
-user_domain_name default
+user_domain_id default
 
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken \
 project_name service
@@ -68,17 +65,17 @@ openstack-config --set /etc/glance/glance-api.conf glance_store \
 default_store file
 
 openstack-config --set /etc/glance/glance-api.conf glance_store \
-store file,http
-
-openstack-config --set /etc/glance/glance-api.conf glance_store \
 filesystem_store_datadir /var/lib/glance/images/
+
+openstack-config --set /etc/glance/glance-api.conf DEFAULT \
+notification_driver noop
 
 openstack-config --set /etc/glance/glance-api.conf DEFAULT \
 verbose True
 
 
 openstack-config --set /etc/glance/glance-registry.conf database \
-connection mysql+pymysql://glance:Super123@controller/glance
+connection mysql://glance:Super123@controller/glance
 
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
 auth_uri http://controller:5000
@@ -86,17 +83,15 @@ auth_uri http://controller:5000
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
 auth_url http://controller:35357
 
-openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
-memcached_servers controller:11211
 
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
-auth_type password
+auth_plugin password
 
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
-project_domain_name default
+project_domain_id default
 
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
-user_domain_name default
+user_domain_id default
 
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken \
 project_name service
@@ -110,6 +105,9 @@ password Super123
 openstack-config --set /etc/glance/glance-registry.conf paste_deploy \
 flavor keystone
 
+
+openstack-config --set /etc/glance/glance-registry.conf DEFAULT \
+notification_driver noop
 
 openstack-config --set /etc/glance/glance-registry.conf DEFAULT \
 verbose True
@@ -126,8 +124,8 @@ systemctl start openstack-glance-api.service \
 
 wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
 
-echo "export OS_IMAGE_API_VERSION=2" \  | tee -a admin-openrc demo-openrc
-. admin-openrc
+echo "export OS_IMAGE_API_VERSION=2" \  | tee -a admin-openrc.sh demo-openrc.sh
+source admin-openrc.sh
 
 glance image-create --name "cirros" \
   --file cirros-0.3.4-x86_64-disk.img \
