@@ -1,4 +1,8 @@
-yum -y install openstack-nova-compute
+#!/bin/bash
+
+set -x
+
+yum -y install openstack-nova-compute openstack-utils
 
 
 openstack-config --set /etc/nova/nova.conf DEFAULT \
