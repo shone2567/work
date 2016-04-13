@@ -10,7 +10,7 @@ GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
   IDENTIFIED BY 'Super123';
 EOF
 
-. admin-openrc
+source admin-openrc.sh
 
 ./sub_neutronuser_create.sh
 
@@ -28,7 +28,7 @@ openstack endpoint create --region RegionOne \
 
 
 yum install -y openstack-neutron openstack-neutron-ml2 \
-  openstack-neutron-linuxbridge ebtables ipset
+  openstack-neutron-linuxbridge python-neutronclient ebtables ipset
 
 
 openstack-config --set /etc/neutron/neutron.conf \
@@ -50,7 +50,7 @@ DEFAULT verbose True
 
 
 openstack-config --set /etc/neutron/neutron.conf \
-database connection mysql+pymysql://neutron:Super123@controller/neutron
+database connection mysql://neutron:Super123@controller/neutron
 
 openstack-config --set /etc/neutron/neutron.conf \
 oslo_messaging_rabbit rabbit_host controller
@@ -65,13 +65,11 @@ keystone_authtoken auth_uri http://controller:5000
 openstack-config --set /etc/neutron/neutron.conf \
 keystone_authtoken auth_url http://controller:35357
 openstack-config --set /etc/neutron/neutron.conf \
-keystone_authtoken memcached_servers controller:11211
+keystone_authtoken auth_plugin password
 openstack-config --set /etc/neutron/neutron.conf \
-keystone_authtoken auth_type password
+keystone_authtoken project_domain_id default
 openstack-config --set /etc/neutron/neutron.conf \
-keystone_authtoken project_domain_name default
-openstack-config --set /etc/neutron/neutron.conf \
-keystone_authtoken user_domain_name default
+keystone_authtoken user_domain_id default
 openstack-config --set /etc/neutron/neutron.conf \
 keystone_authtoken project_name service
 openstack-config --set /etc/neutron/neutron.conf \
@@ -82,11 +80,11 @@ keystone_authtoken password Super123
 openstack-config --set /etc/neutron/neutron.conf \
 nova auth_url http://controller:35357
 openstack-config --set /etc/neutron/neutron.conf \
-nova auth_type password
+nova auth_plugin password
 openstack-config --set /etc/neutron/neutron.conf \
-nova project_domain_name default
+nova project_domain_id default
 openstack-config --set /etc/neutron/neutron.conf \
-nova user_domain_name default
+nova user_domain_id default
 openstack-config --set /etc/neutron/neutron.conf \
 nova region_name RegionOne
 openstack-config --set /etc/neutron/neutron.conf \
@@ -109,16 +107,19 @@ openstack-config --set /etc/neutron/plugins/ml2/ml2_conf.ini \
 ml2 extension_drivers port_security
 
 openstack-config --set /etc/neutron/plugins/ml2/ml2_conf.ini \
-ml2_type_flat flat_networks provider
+ml2_type_flat flat_networks public
 
 openstack-config --set /etc/neutron/plugins/ml2/ml2_conf.ini \
 securitygroup enable_ipset True
 
 openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
-linux_bridge physical_interface_mappings provider:enp0s8
+linux_bridge physical_interface_mappings public:enp0s8
 
 openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
 vxlan enable_vxlan False
+
+openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
+agent prevent_arp_spoofing True
 
 openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
 securitygroup enable_security_group True
@@ -135,6 +136,24 @@ openstack-config --set /etc/neutron/dhcp_agent.ini \
 DEFAULT verbose True
 
 openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_uri http://controller:5000
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_url http://controller:35357
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_region RegionOne
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_plugin password
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT project_domain_id default
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT user_domain_id default
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT project_name service
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT username neutron
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT password Super123
+openstack-config --set /etc/neutron/metadata_agent.ini \
 DEFAULT nova_metadata_ip controller
 openstack-config --set /etc/neutron/metadata_agent.ini \
 DEFAULT metadata_proxy_shared_secret Super123
@@ -146,13 +165,13 @@ DEFAULT url http://controller:9696
 openstack-config --set /etc/nova/nova.conf \
 DEFAULT auth_url http://controller:35357
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT auth_type password
+DEFAULT auth_region RegionOne
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT project_domain_name default
+DEFAULT auth_plugin password
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT user_domain_name default
+DEFAULT project_domain_id default
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT region_name RegionOne
+DEFAULT user_domain_id default
 openstack-config --set /etc/nova/nova.conf \
 DEFAULT project_name service
 openstack-config --set /etc/nova/nova.conf \
