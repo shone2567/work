@@ -185,7 +185,7 @@ sudo iptables -A IN_public_allow -p tcp -m tcp --dport 5672 -m conntrack --ctsta
 
 #verify
 
-source admin-openrc.sh
+. admin-openrc
 
 neutron ext-list
 
