@@ -7,7 +7,7 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'Super123';
 EXIT
 CREATEDB
 
-. admin-openrc.sh
+. admin-openrc
 
 #3
 openstack user create --domain default --password Super123 glance
