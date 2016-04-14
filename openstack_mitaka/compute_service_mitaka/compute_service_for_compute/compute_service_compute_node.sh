@@ -1,6 +1,6 @@
 #su
 
-yum -y install openstack-nova-compute
+yum install -y openstack-nova-compute
 
 acceleration=`egrep -c '(vmx|svm)' /proc/cpuinfo`
 echo $acceleration
