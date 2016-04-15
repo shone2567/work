@@ -102,7 +102,7 @@ swift-ring-builder container.builder create 10 3 1
 swift-ring-builder object.builder create 10 3 1
 
 
-IFS=$'\n' read -d '' -r -a nodes < object_storage_nodes
+IFS=$'\n' read -d '' -r -a nodes < /root/work/swift_service/object_storage_nodes
 
 local count=1 
 
@@ -146,8 +146,8 @@ name Policy-0
 openstack-config --set /etc/swift/swift.conf storage-policy:0 \
 default yes
 
-scp swift.conf root@object1:/etc/swift
-scp swift.conf root@object2:/etc/swift
+scp swift.conf root@10.0.0.51:/etc/swift
+scp swift.conf root@10.0.0.52:/etc/swift
 
 touch controller_finished
 scp controller_finished root@object1:/etc/swift
