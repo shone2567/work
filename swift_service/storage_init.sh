@@ -118,12 +118,15 @@ mkdir -p /var/cache/swift
 chown -R root:swift /var/cache/swift
 chmod -R 775 /var/cache/swift
 
-touch ~/storage_node_finished
-scp ~/object_storage_nodes_finished root@controller:~/
+filename="`hostname`_finished"
+touch ~/"$filename"
+
+scp ~/"$filename" root@controller:~/
 
 while [ ! -f /etc/swift/swift.conf ]   #wait storage nodes finished
 do
-   sleep 10
+   echo "waiting for controller finishing installation"
+   sleep 5
 done
 
 chown -R root:swift /etc/swift

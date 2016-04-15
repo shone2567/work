@@ -82,9 +82,11 @@ use egg:swift#memcache
 openstack-config --set /etc/swift/proxy-server.conf filter:cache \
 memcache_servers controller:11211
 
+read 
+
 ./sub_storagenodes_configure.sh  #installing storage nodes
 
-while [ ! -f ~/object_storage_nodes_finished ]   #wait storage nodes finished
+while [ ! -f ~/object1_finished ]   #wait storage nodes finished
 do
    sleep 10
 done
