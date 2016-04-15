@@ -58,7 +58,7 @@ auth_url http://controller:35357
 openstack-config --set /etc/swift/proxy-server.conf filter:authtoken \
 memcached_servers controller:11211
 
-openstack-config --set /etc/swift/proxy-server.conff filter:authtoken \
+openstack-config --set /etc/swift/proxy-server.conf filter:authtoken \
 auth_type password
 
 openstack-config --set /etc/swift/proxy-server.conf filter:authtoken \
