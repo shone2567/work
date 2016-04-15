@@ -20,10 +20,12 @@ ADMIN_TOKEN=$(openssl rand -hex 10)
 
 #Install the packages
 
-yum install -y openstack-keystone openstack-utils \
-httpd mod_wsgi expect 
+echo "installing keystone package pn controller"
 
-yum install -y memcached python-memcached
+yum install -y openstack-keystone openstack-utils \
+httpd mod_wsgi expect &> /dev/null 
+
+yum install -y memcached python-memcached &> /dev/null
 
 systemctl enable memcached.service
 systemctl start memcached.service

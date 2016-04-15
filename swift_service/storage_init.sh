@@ -5,7 +5,8 @@ set -x
 firewall-cmd --add-port=6000-6003/tcp --permanent
 firewall-cmd --reload
 
-yum -y install xfsprogs rsync expect
+echo "install swift package on object node"
+yum -y install xfsprogs rsync expect &> /dev/null
 
 mkfs.xfs /dev/sdb
 mkfs.xfs /dev/sdc

@@ -76,12 +76,4 @@ systemctl restart openstack-nova-compute.service
 systemctl enable neutron-linuxbridge-agent.service
 systemctl start neutron-linuxbridge-agent.service
 
-filename="`hostname`_neutron_finished"
-touch ~/"$filename"
-
-/root/ssh_key_auth.sh controller
-scp ~/"$filename" root@controller:~/
-
-
-
 exit 0

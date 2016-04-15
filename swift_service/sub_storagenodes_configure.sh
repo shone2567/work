@@ -1,11 +1,17 @@
 #!/bin/bash
 
 function generate_ssh_key(){
-	mkdir ~/.ssh
-	chmod 700 ~/.ssh
-	ssh-keygen -f id_rsa -t rsa -N ''
-	cp id_rsa id_rsa.pub "/root/.ssh/"
-	rm -f id_rsa id_rsa.pub
+
+	if [ ! -f ~/.ssh/id_rsa ]; then
+		echo "start connection"
+		mkdir ~/.ssh
+		chmod 700 ~/.ssh
+		ssh-keygen -f id_rsa -t rsa -N ''
+		cp id_rsa id_rsa.pub "/root/.ssh/"
+		rm -f id_rsa id_rsa.pub
+	else 
+		echo "already have rsa keys"
+	fi
 }
 
 

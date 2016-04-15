@@ -2,7 +2,8 @@
 
 set -x
 
-yum install -y openstack-dashboard
+echo "installing horizon package on controller"
+yum install -y openstack-dashboard &>/dev/null
 /bin/cp -rf local_settings /etc/openstack-dashboard/local_settings
 systemctl restart httpd.service memcached.service
 

@@ -8,7 +8,7 @@ GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
   IDENTIFIED BY 'Super123';
 EOF
 . admin-openrc
-yum -y install expect
+yum -y install expect &>/dev/null
 
 #create glanceuser
 
@@ -28,8 +28,8 @@ openstack endpoint create --region RegionOne \
 openstack endpoint create --region RegionOne \
   image admin http://controller:9292
 
-
-yum -y install openstack-glance wget
+echo "install glance service on controller"
+yum -y install openstack-glance wget &>/dev/null
 
 openstack-config --set /etc/glance/glance-api.conf database \
 connection mysql+pymysql://glance:Super123@controller/glance

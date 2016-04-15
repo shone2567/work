@@ -2,9 +2,8 @@
 
 set -x
 
-echo "installing openstack compute package on compute node"
-
-yum -y install openstack-nova-compute openstack-utils &> /dev/null;
+echo "installing openstack compute package"
+yum -y install openstack-nova-compute openstack-utils &> /dev/null
 
 
 openstack-config --set /etc/nova/nova.conf DEFAULT \
@@ -85,15 +84,31 @@ virt_type qemu
 systemctl enable libvirtd.service openstack-nova-compute.service
 systemctl start libvirtd.service openstack-nova-compute.service
 
-filename="`hostname`_finished"
-touch ~/"$filename"
 
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-ssh-keygen -f id_rsa -t rsa -N ''
-cp id_rsa id_rsa.pub "/root/.ssh/"
-rm -f id_rsa id_rsa.pub
+if [ ! -f ~/.ssh/id_rsa ]; then
+	echo "start connection"
+        mkdir ~/.ssh
+        chmod 700 ~/.ssh
+        ssh-keygen -f id_rsa -t rsa -N ''
+        cp id_rsa id_rsa.pub "/root/.ssh/"
+        rm -f id_rsa id_rsa.pub
+else
+       	echo "already have rsa keys"
+fi
 
-/root/ssh_key_auth.sh controller
-scp ~/"$filename" root@controller:~/
+node_ip=10.0.0.31
+
+cp ssh_key_auth.sh compute_init.sh root@"$node_ip":~
+ssh root@$node_ip '~/compute_init.sh' &>> "$node_ip""compute_output" &
+
+while [ ! -f ~/compute1_finished ]   #wait storage nodes finished
+do
+   echo "installing compute node"
+   sleep 10
+done
+
+openstack compute service list
+
+exit 0
+
 

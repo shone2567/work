@@ -2,9 +2,7 @@
 
 set -x
 
-echo "installing openstack compute package on compute node"
-
-yum -y install openstack-nova-compute openstack-utils &> /dev/null;
+yum -y install openstack-nova-compute openstack-utils
 
 
 openstack-config --set /etc/nova/nova.conf DEFAULT \
@@ -84,16 +82,4 @@ virt_type qemu
 
 systemctl enable libvirtd.service openstack-nova-compute.service
 systemctl start libvirtd.service openstack-nova-compute.service
-
-filename="`hostname`_finished"
-touch ~/"$filename"
-
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-ssh-keygen -f id_rsa -t rsa -N ''
-cp id_rsa id_rsa.pub "/root/.ssh/"
-rm -f id_rsa id_rsa.pub
-
-/root/ssh_key_auth.sh controller
-scp ~/"$filename" root@controller:~/
 
