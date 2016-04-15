@@ -89,7 +89,7 @@ devices /srv/node
 openstack-config --set /etc/swift/container-server.conf DEFAULT \
 mount_check True
 
-sed -i 's/^pipeline =.*/pipeline = healthcheck recon account-server/' /etc/swift/container-server.conf
+sed -i 's/^pipeline =.*/pipeline = healthcheck recon container-server/' /etc/swift/container-server.conf
 
 openstack-config --set /etc/swift/container-server.conf filter:recon \
 use egg:swift#recon
@@ -109,7 +109,7 @@ devices /srv/node
 openstack-config --set /etc/swift/object-server.conf DEFAULT \
 mount_check True
 
-sed -i 's/^pipeline =.*/pipeline = healthcheck recon account-server/' /etc/swift/object-server.conf
+sed -i 's/^pipeline =.*/pipeline = healthcheck recon object-server/' /etc/swift/object-server.conf
 
 openstack-config --set /etc/swift/object-server.conf filter:recon \
 use egg:swift#recon
@@ -161,5 +161,5 @@ openstack-swift-object-replicator.service openstack-swift-object-updater.service
 systemctl start openstack-swift-object.service openstack-swift-object-auditor.service \
 openstack-swift-object-replicator.service openstack-swift-object-updater.service
 
-
+chcon -R system_u:object_r:swift_data_t:s0 /srv/node
 exit 0

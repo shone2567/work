@@ -3,6 +3,7 @@
 set -x
 
 firewall-cmd --add-port=6000-6003/tcp --permanent
+firewall-cmd --add-port=8080/tcp --permanent
 firewall-cmd --reload
 
 . admin-openrc
