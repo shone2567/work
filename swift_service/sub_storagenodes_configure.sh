@@ -1,7 +1,6 @@
 #!/bin/bash
 
 function generate_ssh_key(){
-	IFS=$'\n' read -d '' -r -a nodes < object_storage_nodes
 	mkdir ~/.ssh
 	chmod 700 ~/.ssh
 	ssh-keygen -f id_rsa -t rsa -N ''
@@ -11,12 +10,12 @@ function generate_ssh_key(){
 
 
 generate_ssh_key	
-IFS=$'\n' read -d '' -r -a nodes < object_storage_nodes
-for node_info in ${nodes[*]}
+IFS=$'\n' read -d '' -r -a object_nodes < object_storage_nodes
+for node_info in "${object_nodes[@]}"
 do
-	node_ip=$(echo $node_info | cut -d " " -f2)
-	./ssh_key_auth.sh $node_ip
-	scp ssh_key_auth.sh storage_init.sh root@$node_ip:~
+	node_ip=$(echo "$node_info" | cut -d " " -f2)
+	./ssh_key_auth.sh "$node_ip"
+	scp ssh_key_auth.sh storage_init.sh root@"$node_ip":~
 	ssh root@$node_ip '~/storage_init.sh' &>> "$node_ip""_output" &
 done
 

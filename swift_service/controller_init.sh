@@ -104,23 +104,25 @@ swift-ring-builder object.builder create 10 3 1
 
 IFS=$'\n' read -d '' -r -a nodes < /root/work/swift_service/object_storage_nodes
 
-local count=1 
+count=1
+for node_info in "${nodes[@]}"
+do 
+	node_ip=$(echo "$node_info" | cut -d " " -f2)
+	
+	swift-ring-builder account.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6002 --device sdb --weight 100
+	swift-ring-builder account.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6002 --device sdc --weight 100
 
-for node_info in ${nodes[*]}
-do
-	node_ip=$(echo $node_info | cut -d " " -f1)
-	swift-ring-builder account.builder add --region 1 --zone $count --ip $node_ip --port 6002 --device sdb --weight 100
-	swift-ring-builder account.builder add --region 1 --zone $count --ip $node_ip --port 6002 --device sdc --weight 100
+	swift-ring-builder container.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6001 --device sdb --weight 100
+	swift-ring-builder container.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6001 --device sdc --weight 100
 
-	swift-ring-builder container.builder add --region 1 --zone $count --ip $node_ip --port 6001 --device sdb --weight 100
-	swift-ring-builder container.builder add --region 1 --zone $count --ip $node_ip --port 6001 --device sdc --weight 100
-
-	swift-ring-builder object.builder add --region 1 --zone $count --ip $node_ip --port 6000 --device sdb --weight 100
-	swift-ring-builder object.builder add --region 1 --zone $count --ip $node_ip --port 6000 --device sdc --weight 100
+	swift-ring-builder object.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6000 --device sdb --weight 100
+	swift-ring-builder object.builder add --region 1 --zone "$count" --ip "$node_ip" --port 6000 --device sdc --weight 100
 
 	count=$(($count+1))
 done
 
+object1="10.0.0.51"
+object2="10.0.0.52"
 #scp {account.ring.gz,container.ring.gz,object.ring.gz} root@object1:/etc/swift
 #scp {account.ring.gz,container.ring.gz,object.ring.gz} root@object2:/etc/swift
 swift-ring-builder account.builder
