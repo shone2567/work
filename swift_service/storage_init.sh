@@ -2,6 +2,9 @@
 
 set -x 
 
+firewall-cmd --add-port=6000-6003/tcp --permanent
+firewall-cmd --reload
+
 yum -y install xfsprogs rsync expect
 
 mkfs.xfs /dev/sdb

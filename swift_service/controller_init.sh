@@ -134,8 +134,8 @@ swift-ring-builder container.builder rebalance
 swift-ring-builder object.builder
 swift-ring-builder object.builder rebalance
 
-scp {account.ring.gz,container.ring.gz,object.ring.gz} root@object1:/etc/swift
-scp {account.ring.gz,container.ring.gz,object.ring.gz} root@object2:/etc/swift
+scp {account.ring.gz,container.ring.gz,object.ring.gz} root@$object1:/etc/swift
+scp {account.ring.gz,container.ring.gz,object.ring.gz} root@$object2:/etc/swift
 
 curl -o /etc/swift/swift.conf \
   https://git.openstack.org/cgit/openstack/swift/plain/etc/swift.conf-sample?h=stable/mitaka
@@ -149,12 +149,12 @@ name Policy-0
 openstack-config --set /etc/swift/swift.conf storage-policy:0 \
 default yes
 
-scp swift.conf root@object1:/etc/swift
-scp swift.conf root@object2:/etc/swift
+scp swift.conf root@$object1:/etc/swift
+scp swift.conf root@$object2:/etc/swift
 
 touch controller_finished
-scp controller_finished root@object1:/etc/swift
-scp controller_finished root@object2:/etc/swift
+scp controller_finished root@$object1:/etc/swift
+scp controller_finished root@$object2:/etc/swift
 
 
 chown -R root:swift /etc/swift
