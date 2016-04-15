@@ -121,10 +121,10 @@ chmod -R 775 /var/cache/swift
 filename="`hostname`_finished"
 touch ~/"$filename"
 
-/root/sh_key_auth.ssh controller
+/root/ssh_key_auth.sh controller
 scp ~/"$filename" root@controller:~/
 
-while [ ! -f /etc/swift/swift.conf ]   #wait storage nodes finished
+while [ ! -f /etc/swift/controller_finished ]   #wait storage nodes finished
 do
    echo "waiting for controller finishing installation"
    sleep 5

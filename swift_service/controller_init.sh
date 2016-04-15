@@ -149,6 +149,11 @@ default yes
 scp swift.conf root@object1:/etc/swift
 scp swift.conf root@object2:/etc/swift
 
+touch controller_finished
+scp controller_finished root@object1:/etc/swift
+scp controller_finished root@object2:/etc/swift
+
+
 chown -R root:swift /etc/swift
 
 systemctl enable openstack-swift-proxy.service memcached.service
