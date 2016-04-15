@@ -2,6 +2,9 @@
 
 set -x
 
+firewall-cmd --add-port=6000-6003/tcp --permanent
+firewall-cmd --reload
+
 . admin-openrc
 
 ./sub_swiftuser_create.sh
@@ -88,6 +91,7 @@ read
 
 while [ ! -f ~/object1_finished ]   #wait storage nodes finished
 do
+   echo "waitting for storage node installation"
    sleep 10
 done
 ########################################################## run command on the controller
