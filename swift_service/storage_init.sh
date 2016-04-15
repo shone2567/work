@@ -2,7 +2,7 @@
 
 set -x 
 
-yum install xfsprogs rsync
+yum -y install xfsprogs rsync expect
 
 mkfs.xfs /dev/sdb
 mkfs.xfs /dev/sdc
@@ -15,7 +15,7 @@ echo -e "/dev/sdb /srv/node/sdb xfs noatime,nodiratime,nobarrier,logbufs=8 0 2\n
 mount /srv/node/sdb
 mount /srv/node/sdc
 
-ipaddr=ip a show enp0s3 2>/dev/null|awk '$1 ~ /^inet$/ {print $2}'|sed 's/\/.*//'
+ipaddr="$(ip a show enp0s3 2>/dev/null|awk '$1 ~ /^inet$/ {print $2}'|sed 's/\/.*//')"
 
 cat <<EOF >/etc/rsyncd.conf
 uid = swift
@@ -121,6 +121,7 @@ chmod -R 775 /var/cache/swift
 filename="`hostname`_finished"
 touch ~/"$filename"
 
+/root/sh_key_auth.ssh controller
 scp ~/"$filename" root@controller:~/
 
 while [ ! -f /etc/swift/swift.conf ]   #wait storage nodes finished
