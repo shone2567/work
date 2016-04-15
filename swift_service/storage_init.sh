@@ -121,6 +121,12 @@ chmod -R 775 /var/cache/swift
 filename="`hostname`_finished"
 touch ~/"$filename"
 
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -f id_rsa -t rsa -N ''
+cp id_rsa id_rsa.pub "/root/.ssh/"
+rm -f id_rsa id_rsa.pub
+
 /root/ssh_key_auth.sh controller
 scp ~/"$filename" root@controller:~/
 

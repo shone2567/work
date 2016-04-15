@@ -2,8 +2,8 @@
 
 IFS=$'\n' read -d '' -r -a nodes < object_storage_nodes
 
-#cd ~/.ssh
-chmod 777 ~/.ssh
+mkdir ~/.ssh
+chmod 700 ~/.ssh
 ssh-keygen -f id_rsa -t rsa -N ''
 cp id_rsa id_rsa.pub "/root/.ssh/"
 rm -f id_rsa id_rsa.pub
