@@ -33,3 +33,6 @@ cinder os_region_name RegionOne
 systemctl restart openstack-nova-api.service
 systemctl enable openstack-cinder-api.service openstack-cinder-scheduler.servicesystemctl start openstack-cinder-api.service openstack-cinder-scheduler.service
 
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --zone=public --add-port=123/udp --permanent
+systemctl restart firewalld
