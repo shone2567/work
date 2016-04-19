@@ -23,11 +23,12 @@ openstack endpoint create --region RegionOne volumev2 admin http://controller:87
 
 yum install -y openstack-cinder
 
-cp -f cinder /etc/cinder/
+cp -f cinder.conf /etc/cinder/
 
 su -s /bin/sh -c "cinder-manage db sync" cinder
 
-cp -f nova.conf /etc/nova/
+openstack-config --set /etc/nova/nova.conf \
+cinder os_region_name RegionOne
 
 systemctl restart openstack-nova-api.service
 systemctl enable openstack-cinder-api.service openstack-cinder-scheduler.servicesystemctl start openstack-cinder-api.service openstack-cinder-scheduler.service
