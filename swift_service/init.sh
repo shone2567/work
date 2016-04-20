@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+/root/work/swift_service
+
 set -x
 
 firewall-cmd --add-port=6000-6003/tcp --permanent

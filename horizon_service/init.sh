@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /root/work/horizon_service
+
 set -x
 
 echo "installing horizon package on controller"

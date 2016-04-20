@@ -1,5 +1,8 @@
 #!/bin/bash
 
+firewall-cmd --add-port=5672/tcp --permanent
+firewall-cmd --reload
+
 cd /root/work/compute_service/
 set -x
 

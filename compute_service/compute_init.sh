@@ -85,7 +85,7 @@ virt_type qemu
 systemctl enable libvirtd.service openstack-nova-compute.service
 systemctl start libvirtd.service openstack-nova-compute.service
 
-filename="`hostname`_finished"
+filename="compute1_finished"
 touch ~/"$filename"
 
 mkdir ~/.ssh
