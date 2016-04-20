@@ -85,13 +85,13 @@ use egg:swift#memcache
 openstack-config --set /etc/swift/proxy-server.conf filter:cache \
 memcache_servers controller:11211
 
-read 
+#read 
 
 ./sub_storagenodes_configure.sh  #installing storage nodes
 
 while [ ! -f ~/object1_finished ]   #wait storage nodes finished
 do
-   echo "waitting for storage node installation"
+   echo "installing storage node"
    sleep 10
 done
 ########################################################## run command on the controller
@@ -106,8 +106,9 @@ IFS=$'\n' read -d '' -r -a nodes < /root/work/swift_service/object_storage_nodes
 
 local count=1 
 
-for node_ip in ${nodes[*]}
+for node_info in ${nodes[*]}
 do
+	node_ip=$(echo $node_info | cut -d " " -f1)
 	swift-ring-builder account.builder add --region 1 --zone $count --ip $node_ip --port 6002 --device sdb --weight 100
 	swift-ring-builder account.builder add --region 1 --zone $count --ip $node_ip --port 6002 --device sdc --weight 100
 
@@ -146,8 +147,8 @@ name Policy-0
 openstack-config --set /etc/swift/swift.conf storage-policy:0 \
 default yes
 
-scp swift.conf root@10.0.0.51:/etc/swift
-scp swift.conf root@10.0.0.52:/etc/swift
+scp swift.conf root@object1:/etc/swift
+scp swift.conf root@object2:/etc/swift
 
 touch controller_finished
 scp controller_finished root@object1:/etc/swift
