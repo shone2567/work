@@ -8,8 +8,8 @@ EXIT
 CREATEDB
 
 #change directory
-. admin-openrc
-#. /openstack_mitaka/image_service_mitaka/admin-openrc
+#. admin-openrc
+. /image_service_mitaka/admin-openrc
 
 #3
 openstack user create --domain default --password Super123 glance
@@ -84,8 +84,8 @@ su -s /bin/sh -c "glance-manage db_sync" glance
 systemctl enable openstack-glance-api.service openstack-glance-registry.service
 systemctl start openstack-glance-api.service openstack-glance-registry.service
 
-#. /openstack_mitaka/image_service_mitaka/admin-openrc
-. admin-openrc
+. /image_service_mitaka/admin-openrc
+#. admin-openrc
 
 yum install -y wget
 wget http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img
