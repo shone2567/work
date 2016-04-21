@@ -10,7 +10,7 @@ firewall-cmd --add-port=5672/tcp --permanent
 firewall-cmd --reload
 
 cd /root/work/compute_service/
-set -x
+#set -x
 
 mysql -u root -pSuper123 << EOF
 CREATE DATABASE nova_api;

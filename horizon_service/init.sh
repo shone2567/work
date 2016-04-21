@@ -3,7 +3,7 @@ firewall-cmd --add-service=http --permanent
 firewall-cmd --reload
 cd /root/work/horizon_service
 
-set -x
+#set -x
 
 echo "installing horizon package on controller"
 yum install -y openstack-dashboard &> /dev/null

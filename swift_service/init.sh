@@ -3,7 +3,7 @@
 
 cd /root/work/swift_service
 
-set -x
+#set -x
 
 firewall-cmd --add-port=6000-6003/tcp --permanent
 firewall-cmd --add-port=8080/tcp --permanent
@@ -174,4 +174,4 @@ openstack container create container1
 
 
 
-
+exit 0
