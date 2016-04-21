@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# remember to create rabbitmq openstack user before start the script
+
+
+
+
 firewall-cmd --add-port=5672/tcp --permanent
 firewall-cmd --reload
 
