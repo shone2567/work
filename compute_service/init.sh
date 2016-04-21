@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd /root/work/compute_service/
 set -x
 
 mysql -u root -pSuper123 << EOF
