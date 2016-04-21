@@ -4,7 +4,7 @@ set -x
 
 echo "installing openstack compute package on compute node"
 
-yum -y install openstack-nova-compute openstack-utils &> /dev/null;
+yum -y install openstack-nova-compute openstack-utils expect &> /dev/null;
 
 
 openstack-config --set /etc/nova/nova.conf DEFAULT \
