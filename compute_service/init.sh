@@ -42,8 +42,7 @@ openstack endpoint create --region RegionOne \
 compute admin http://controller:8774/v2.1/%\(tenant_id\)s
 
 
-yum install -y openstack-nova-api openstack-nova-cert \
-openstack-nova-conductor openstack-nova-console \
+yum install -y openstack-nova-api openstack-nova-conductor openstack-nova-console \
 openstack-nova-novncproxy openstack-nova-scheduler
 
 openstack-config --set /etc/nova/nova.conf DEFAULT \
@@ -128,20 +127,17 @@ lock_path /var/lib/nova/tmp
 su -s /bin/sh -c "nova-manage api_db sync" nova
 su -s /bin/sh -c "nova-manage db sync" nova
 
-sudo iptables -A IN_public_allow -p tcp -m tcp --dport 5672 -m conntrack --ctstate NEW -j ACCEPT
 
 
-systemctl enable openstack-nova-api.service \
-openstack-nova-cert.service openstack-nova-consoleauth.service \
+systemctl enable openstack-nova-api.service openstack-nova-consoleauth.service \
 openstack-nova-scheduler.service openstack-nova-conductor.service \
 openstack-nova-novncproxy.service
 
-systemctl start openstack-nova-api.service \
-openstack-nova-cert.service openstack-nova-consoleauth.service \
+systemctl start openstack-nova-api.service openstack-nova-consoleauth.service \
 openstack-nova-scheduler.service openstack-nova-conductor.service \
 openstack-nova-novncproxy.service
 
-systemctl restart rabbitmq-server.service
+
 
 if [ ! -f ~/.ssh/id_rsa ]; then
         echo "start connection"
