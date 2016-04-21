@@ -147,3 +147,6 @@ else
 	echo "Pass glance service installation"
 fi
 
+rm -f cirros-0.3.4-x86_64-disk.img
+
+exit 0
