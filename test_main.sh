@@ -34,7 +34,7 @@ main(){
 		1) echo "         Deploy Option1"
 		   echo "##################################################"
 		   #echo "install keystone"
-		   /root/work/identity_service/init.sh $>> "keystone_install.log" &
+		   /root/work/identity_service/init.sh &>> "keystone_install.log" &
        		   spinner $! "keystone"
 		   #echo "install glance"
 		   /root/work/glance_service/init.sh &>> "glance_install.log" &
