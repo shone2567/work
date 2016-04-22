@@ -2,7 +2,8 @@
 
 set -x
 
-yum -y install openstack-neutron-linuxbridge ebtables ipset
+echo "installing neutron package on compute"
+yum -y install openstack-neutron-linuxbridge ebtables ipset &> /dev/null
 
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT rpc_backend rabbit
@@ -76,7 +77,7 @@ systemctl restart openstack-nova-compute.service
 systemctl enable neutron-linuxbridge-agent.service
 systemctl start neutron-linuxbridge-agent.service
 
-filename="`hostname`_neutron_finished"
+filename="compute1_neutron_finished"
 touch ~/"$filename"
 
 /root/ssh_key_auth.sh controller

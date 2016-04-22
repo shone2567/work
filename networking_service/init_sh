@@ -1,11 +1,10 @@
 #!/bin/bash
 
-firewall-cmd --add-port=5627/tcp --permanent
-firewall-cmd --reload
+#firewall-cmd --add-port=5627/tcp --permanent
+#firewall-cmd --reload
 
 cd /root/work/networking_service
 
-yum install -y expect &> /dev/null
 set -x
 mysql -u root -pSuper123 << EOF
 CREATE DATABASE neutron;
@@ -215,6 +214,6 @@ done
 . admin-openrc
 
 neutron ext-list
-
+neutron agent-list
 
 
