@@ -29,8 +29,14 @@ openstack-config --set /etc/cinder/cinder.conf keystone_authtoken user_domain_na
 openstack-config --set /etc/cinder/cinder.conf keystone_authtoken project_name service
 openstack-config --set /etc/cinder/cinder.conf keystone_authtoken username cinder
 openstack-config --set /etc/cinder/cinder.conf keystone_authtoken password Super123
-openstack-config --set /etc/cinder/cinder.conf DEFAULT my_ip = 10.0.0.41
-
+openstack-config --set /etc/cinder/cinder.conf DEFAULT my_ip 10.0.0.41
+openstack-config --set /etc/cinder/cinder.conf lvm volume_driver cinder.volume.drivers.lvm.LVMVolumeDriver
+openstack-config --set /etc/cinder/cinder.conf lvm volume_group cinder-volumes
+openstack-config --set /etc/cinder/cinder.conf lvm iscsi_protocol iscsi
+openstack-config --set /etc/cinder/cinder.conf lvm iscsi_helper lioadm
+openstack-config --set /etc/cinder/cinder.conf DEFAULT enabled_backends lvm
+openstack-config --set /etc/cinder/cinder.conf DEFAULT glance_api_servers http://controller:9292
+openstack-config --set /etc/cinder/cinder.conf oslo_concurrency lock_path /var/lib/cinder/tmp
 
 
 systemctl enable openstack-cinder-volume.service target.service
