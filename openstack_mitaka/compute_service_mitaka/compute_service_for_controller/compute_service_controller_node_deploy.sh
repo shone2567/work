@@ -26,56 +26,33 @@ yum install -y openstack-nova-api openstack-nova-cert openstack-nova-conductor o
 #Edit the /etc/nova/nova.conf file
 #cp -f nova.conf /etc/nova/
 openstack-config --set /etc/nova/nova.conf DEFAULT enabled_apis osapi_compute,metadata
-
 openstack-config --set /etc/nova/nova.conf api_database connection mysql+pymysql://nova:Super123@controller/nova
-
 openstack-config --set /etc/nova/nova.conf DEFAULT rpc_backend rabbit
-
 openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_host controller
-
 openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_userid openstack
-
 openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_password Super123
-
 openstack-config --set /etc/nova/nova.conf DEFAULT auth_strategy keystone
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_uri http://controller:5000
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_url http://controller:35357
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken memcached_servers controller:11211
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_type password
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken project_domain_name default
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken user_domain_name default
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken project_name service
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken username nova
-
 openstack-config --set /etc/nova/nova.conf keystone_authtoken password Super123
-
 openstack-config --set /etc/nova/nova.conf DEFAULT my_ip 10.0.0.11
-
 openstack-config --set /etc/nova/nova.conf DEFAULT use_neutron True
-
 openstack-config --set /etc/nova/nova.conf DEFAULT firewall_driver  nova.virt.firewall.NoopFirewallDriver
-
 openstack-config --set /etc/nova/nova.conf vnc vncserver_listen $my_ip
-
 openstack-config --set /etc/nova/nova.conf vnc vncserver_proxyclient_address $my_ip
-
 openstack-config --set /etc/nova/nova.conf glance api_servers http://controller:9292
-
 openstack-config --set /etc/nova/nova.conf oslo_concurrency lock_path /var/lib/nova/tmp
 
 su -s /bin/sh -c "nova-manage api_db sync" nova
 su -s /bin/sh -c "nova-manage db sync" nova
 
 systemctl enable openstack-nova-api.service openstack-nova-cert.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
-
 systemctl start openstack-nova-api.service openstack-nova-cert.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
 
 firewall-cmd --zone=public --add-port=5672 --permanent
