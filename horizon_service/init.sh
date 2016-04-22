@@ -1,5 +1,6 @@
 #!/bin/bash
-
+firewall-cmd --add-service=http --permanent
+firewall-cmd --reload
 cd /root/work/horizon_service
 
 set -x
