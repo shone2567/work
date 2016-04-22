@@ -167,8 +167,10 @@ chown -R root:swift /etc/swift
 systemctl enable openstack-swift-proxy.service memcached.service
 systemctl start openstack-swift-proxy.service memcached.service
 
-swift stat
+. demo-openrc
 
+swift stat
+openstack container create container1
 
 
 
