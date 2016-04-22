@@ -16,5 +16,19 @@ ssh root@compute1
 
 . /compute_service_for_compute/compute_service_compute_node_deploy.sh
 
+#network
+
+#cinder
+#controller
+. /block_storage_mitaka/cinder_controller/block_storage_service_deploy.sh
+
+#storage
+scp -r /block_storage_mitaka/cinder_storage/
+. /block_storage_mitaka/cinder_storage/block_storage_service_deploy.sh
+
+
+
+#swift
+
 
 

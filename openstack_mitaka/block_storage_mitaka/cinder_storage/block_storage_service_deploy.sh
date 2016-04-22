@@ -1,0 +1,37 @@
+yum install -y lvm2
+
+systemctl enable lvm2-lvmetad.service
+systemctl start lvm2-lvmetad.service
+
+pvcreate /dev/sdb
+vgcreate cinder-volumes /dev/sdb
+
+#lvm file
+scp block_storage_mitaka/cinder_storage/lvm.conf root@block1:/root
+ssh root@block1
+cd /root
+cp -f lvm.conf /etc/lvm/
+
+yum install -y openstack-cinder targetcli
+
+openstack-config --set /etc/cinder/cinder.conf database connection mysql+pymysql://cinder:Super123@controller/cinder
+openstack-config --set /etc/cinder/cinder.conf DEFAULT rpc_backend rabbit
+openstack-config --set /etc/cinder/cinder.conf oslo_messaging_rabbit rabbit_host controller
+openstack-config --set /etc/cinder/cinder.conf rabbit_userid openstack
+openstack-config --set /etc/cinder/cinder.conf rabbit_password Super123
+openstack-config --set /etc/cinder/cinder.conf DEFAULT auth_strategy keystone
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_uri http://controller:5000
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_url http://controller:35357
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken memcached_servers controller:11211
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_type password
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken project_domain_name default
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken user_domain_name default
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken project_name service
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken username cinder
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken password Super123
+openstack-config --set /etc/cinder/cinder.conf DEFAULT my_ip = 10.0.0.41
+
+
+
+systemctl enable openstack-cinder-volume.service target.service
+systemctl start openstack-cinder-volume.service target.service

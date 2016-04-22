@@ -27,24 +27,22 @@ openstack endpoint create --region RegionOne volumev2 admin http://controller:87
 yum install -y openstack-cinder
 
 #cp -f cinder.conf /etc/cinder/
-openstack-config --set /etc/nova/nova.conf database connection mysql+pymysql://cinder:Super123@controller/cinder
-
-openstack-config --set /etc/nova/nova.conf DEFAULT rpc_backend rabbit
-openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_host controller
-openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_userid openstack
-openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_password Super123
-openstack-config --set /etc/nova/nova.conf DEFAULT auth_strategy keystone
-openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_uri http://controller:5000
-openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_url http://controller:35357
-openstack-config --set /etc/nova/nova.conf keystone_authtoken memcached_servers controller:11211
-openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_type passwordopenstack-config --set /etc/nova/nova.conf keystone_authtoken project_domain_name default
-openstack-config --set /etc/nova/nova.conf keystone_authtoken user_domain_name default
-openstack-config --set /etc/nova/nova.conf keystone_authtoken project_name service
-openstack-config --set /etc/nova/nova.conf keystone_authtoken username cinder
-openstack-config --set /etc/nova/nova.conf keystone_authtoken password Super123
-
-openstack-config --set /etc/nova/nova.conf DEFAULT my_ip 10.0.0.11
-openstack-config --set /etc/nova/nova.conf oslo_concurrency lock_path /var/lib/cinder/tmp
+openstack-config --set /etc/cinder/cinder.conf database connection mysql+pymysql://cinder:Super123@controller/cinder
+openstack-config --set /etc/cinder/cinder.conf DEFAULT rpc_backend rabbit
+openstack-config --set /etc/cinder/cinder.conf oslo_messaging_rabbit rabbit_host controller
+openstack-config --set /etc/cinder/cinder.conf oslo_messaging_rabbit rabbit_userid openstack
+openstack-config --set /etc/cinder/cinder.conf oslo_messaging_rabbit rabbit_password Super123
+openstack-config --set /etc/cinder/cinder.conf DEFAULT auth_strategy keystone
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_uri http://controller:5000
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_url http://controller:35357
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken memcached_servers controller:11211
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken auth_type passwordopenstack-config --set /etc/nova/nova.conf keystone_authtoken project_domain_name default
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken user_domain_name default
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken project_name service
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken username cinder
+openstack-config --set /etc/cinder/cinder.conf keystone_authtoken password Super123
+openstack-config --set /etc/cinder/cinder.conf DEFAULT my_ip 10.0.0.11
+openstack-config --set /etc/cinder/cinder.conf oslo_concurrency lock_path /var/lib/cinder/tmp
 
 su -s /bin/sh -c "cinder-manage db sync" cinder
 
