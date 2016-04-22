@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # remember to create rabbitmq openstack user before start the script
-
+rabbitmqctl add_user openstack Super123
+rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 
 
 
