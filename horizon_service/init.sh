@@ -3,9 +3,6 @@ firewall-cmd --add-service=http --permanent
 firewall-cmd --reload
 cd /root/work/horizon_service
 
-firewall-cmd --add-service=http --permanent
-firewall-cmd --reload
-
 set -x
 
 echo "installing horizon package on controller"
