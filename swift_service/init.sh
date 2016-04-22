@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-/root/work/swift_service
+cd /root/work/swift_service
 
 set -x
 
