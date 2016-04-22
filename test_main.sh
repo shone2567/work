@@ -4,10 +4,13 @@
 main(){
 
 	if [ $# -ne 1 ]; then
+		echo "####################################"
 		echo "Usage : $0 Deploy Option"
 		echo "Please check $0 --help"
 		exit
 	fi
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 		case $1 in
 		--help*)
 		cat <<-HELP
@@ -31,25 +34,25 @@ main(){
 		HELP
 		exit
 		;;
-		1) echo "         Deploy Option1"
+		1) echo "###        Deploy Option1       ###"
 		   echo "##################################################"
 		   #echo "install keystone"
-		   /root/work/identity_service/init.sh &>> "keystone_install.log" &
+		   $DIR/identity_service/init.sh &> "keystone_install.log" &
        		   spinner $! "keystone"
 		   #echo "install glance"
-		   /root/work/glance_service/init.sh &>> "glance_install.log" &
+		   $DIR/glance_service/init.sh &> "glance_install.log" &
        		   spinner $! "glance"
                    #echo "install compute"
-                   /root/work/compute_service/init.sh &>> "compute_install.log" &
+                   $DIR/compute_service/init.sh &> "compute_install.log" &
        		   spinner $! "compute"
        		   #echo "install neutron"
-		   /root/work/networking_service/init.sh &>> "neutron_install.log" &
+		   $DIR/networking_service/init.sh &> "neutron_install.log" &
        		   spinner $! "neutron"
 		   echo " "
 		   echo "Depolyment finished"
 		;;
 		2)
- 	           echo "         Deploy Option2"
+ 	           echo "###        Deploy Option2      ###"
 		   echo "##################################################"
 		   echo "install keystone"
 		   /root/work/identity_service/init.sh
@@ -63,7 +66,7 @@ main(){
 		   /root/work/horizon_service/init.sh
 		;;
 		3)
-		   echo "         Deploy Option3"
+		   echo "###       Deploy Option3       ###"
 		   echo "##################################################"
 		   echo "install keystone"
 		   /root/work/identity_service/init.sh

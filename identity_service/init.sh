@@ -85,7 +85,7 @@ openstack project create --domain default \
   --description "Admin Project" admin
 
 #create a keystone admin user
-./sub_keystoneadmin_create.sh
+. ./sub_keystoneadmin_create.sh
 
 openstack role create admin
 

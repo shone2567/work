@@ -1,0 +1,8 @@
++ mysql -u root -pSuper123
+ERROR 1007 (HY000) at line 1: Can't create database 'keystone'; database exists
++ cd /root/work/identity_service
+++ openssl rand -hex 10
++ ADMIN_TOKEN=462e2256b79da71cb156
++ echo 'installing keystone package on controller'
+installing keystone package on controller
++ yum install -y openstack-keystone openstack-utils httpd mod_wsgi expect
