@@ -10,7 +10,7 @@ vgcreate cinder-volumes /dev/sdb
 #scp block_storage_mitaka/cinder_storage/lvm.conf root@block1:/root
 #ssh root@block1
 #cd /root
-cp -f lvm.conf /etc/lvm/
+cp -f block_storage_mitaka/cinder_storage/lvm.conf /etc/lvm/
 
 yum install -y openstack-cinder targetcli
 
