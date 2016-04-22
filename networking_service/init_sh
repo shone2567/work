@@ -42,15 +42,13 @@ DEFAULT service_plugins
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT rpc_backend rabbit
 openstack-config --set /etc/neutron/neutron.conf \
-DEFAULT auth_strategy  keystone
+DEFAULT auth_strategy keystone
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT notify_nova_on_port_status_changes  True
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT notify_nova_on_port_data_changes  True
 #openstack-config --set /etc/neutron/neutron.conf \
 #DEFAULT nova_url http://controller:8774/v2
-openstack-config --set /etc/neutron/neutron.conf \
-DEFAULT verbose True
 
 
 openstack-config --set /etc/neutron/neutron.conf \

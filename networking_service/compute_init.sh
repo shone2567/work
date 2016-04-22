@@ -58,7 +58,7 @@ openstack-config --set /etc/nova/nova.conf \
 DEFAULT url http://controller:9696
 openstack-config --set /etc/nova/nova.conf \
 DEFAULT auth_url http://controller:35357
-penstack-config --set /etc/nova/nova.conf \
+openstack-config --set /etc/nova/nova.conf \
 DEFAULT auth_type password
 openstack-config --set /etc/nova/nova.conf \
 DEFAULT region_name RegionOne
