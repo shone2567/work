@@ -27,53 +27,29 @@ yum install -y openstack-glance
 #cp -f glance-api.conf /etc/glance/
 
 openstack-config --set /etc/glance/glance-api.conf database connection mysql+pymysql://glance:Super123@controller/glance
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_uri http://controller:5000
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_url http://controller:35357
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken memcached_servers controller:11211
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken auth_type password
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken project_domain_name default
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken user_domain_name default
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken project_name service
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken username glance
-
 openstack-config --set /etc/glance/glance-api.conf keystone_authtoken password Super123
-
 openstack-config --set /etc/glance/glance-api.conf paste_deploy flavor keystone
-
 openstack-config --set /etc/glance/glance-api.conf glance_store stores file,http
-
 openstack-config --set /etc/glance/glance-api.conf glance_store default_store file
-
 openstack-config --set /etc/glance/glance-api.conf glance_store filesystem_store_datadir /var/lib/glance/images/
-
 openstack-config --set /etc/glance/glance-registry.conf database connection mysql+pymysql://glance:Super123@controller/glance
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_uri http://controller:5000
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_url http://controller:35357
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken memcached_servers controller:11211
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken auth_type password
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken project_domain_name default
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken user_domain_name default
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken project_name service
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken username glance
-
 openstack-config --set /etc/glance/glance-registry.conf keystone_authtoken password Super123
-
 openstack-config --set /etc/glance/glance-registry.conf paste_deploy flavor keystone
 
 #Edit the /etc/glance/glance-registry.conf
