@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -x
+set -x
 
 #Create a database and an administration token
 

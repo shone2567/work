@@ -5,7 +5,7 @@
 
 cd /root/work/networking_service
 
-#set -x
+set -x
 mysql -u root -pSuper123 << EOF
 CREATE DATABASE neutron;
 GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
