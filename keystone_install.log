@@ -1,8 +1,174 @@
 + mysql -u root -pSuper123
-ERROR 1007 (HY000) at line 1: Can't create database 'keystone'; database exists
 + cd /root/work/identity_service
 ++ openssl rand -hex 10
-+ ADMIN_TOKEN=462e2256b79da71cb156
++ ADMIN_TOKEN=df84faebd0886b4d0a0d
 + echo 'installing keystone package on controller'
 installing keystone package on controller
 + yum install -y openstack-keystone openstack-utils httpd mod_wsgi expect
++ yum install -y memcached python-memcached
++ systemctl enable memcached.service
++ systemctl start memcached.service
++ openstack-config --set /etc/keystone/keystone.conf DEFAULT admin_token df84faebd0886b4d0a0d
++ openstack-config --set /etc/keystone/keystone.conf database connection mysql+pymysql://keystone:Super123@controller/keystone
++ openstack-config --set /etc/keystone/keystone.conf token provider fernet
++ su -s /bin/sh -c 'keystone-manage db_sync' keystone
++ keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
++ /usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t '/etc/keystone/fernet-keys(/.*)?'
++ /sbin/restorecon -R -v /etc/keystone/fernet-keys
+/sbin/restorecon reset /etc/keystone/fernet-keys context unconfined_u:object_r:etc_t:s0->unconfined_u:object_r:keystone_cgi_ra_content_t:s0
+/sbin/restorecon reset /etc/keystone/fernet-keys/1 context unconfined_u:object_r:etc_t:s0->unconfined_u:object_r:keystone_cgi_ra_content_t:s0
+/sbin/restorecon reset /etc/keystone/fernet-keys/0 context unconfined_u:object_r:etc_t:s0->unconfined_u:object_r:keystone_cgi_ra_content_t:s0
++ ./sub_httpd_edited.sh
+ServerName controller
++ ./sub_wsgikeystone_create.sh
++ systemctl enable httpd.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
++ systemctl start httpd.service
++ export OS_TOKEN=df84faebd0886b4d0a0d
++ OS_TOKEN=df84faebd0886b4d0a0d
++ export OS_URL=http://controller:35357/v3
++ OS_URL=http://controller:35357/v3
++ export OS_IDENTITY_API_VERSION=3
++ OS_IDENTITY_API_VERSION=3
++ openstack service create --name keystone --description 'OpenStack Identity' identity
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Identity               |
+| enabled     | True                             |
+| id          | 2ac5d4a8c0e940c6bf0632307f0443a2 |
+| name        | keystone                         |
+| type        | identity                         |
++-------------+----------------------------------+
++ openstack endpoint create --region RegionOne identity public http://controller:5000/v3
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 38fe955266ac4061adbe63b55fcd3ecc |
+| interface    | public                           |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 2ac5d4a8c0e940c6bf0632307f0443a2 |
+| service_name | keystone                         |
+| service_type | identity                         |
+| url          | http://controller:5000/v3        |
++--------------+----------------------------------+
++ openstack endpoint create --region RegionOne identity internal http://controller:5000/v3
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 246d32b025e84bbb8682b139fb8eb6d6 |
+| interface    | internal                         |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 2ac5d4a8c0e940c6bf0632307f0443a2 |
+| service_name | keystone                         |
+| service_type | identity                         |
+| url          | http://controller:5000/v3        |
++--------------+----------------------------------+
++ openstack endpoint create --region RegionOne identity admin http://controller:35357/v3
++--------------+----------------------------------+
+| Field        | Value                            |
++--------------+----------------------------------+
+| enabled      | True                             |
+| id           | 8e2134729b564109b65d81df15b73bc0 |
+| interface    | admin                            |
+| region       | RegionOne                        |
+| region_id    | RegionOne                        |
+| service_id   | 2ac5d4a8c0e940c6bf0632307f0443a2 |
+| service_name | keystone                         |
+| service_type | identity                         |
+| url          | http://controller:35357/v3       |
++--------------+----------------------------------+
++ openstack domain create --description 'Default Domain' default
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Default Domain                   |
+| enabled     | True                             |
+| id          | 7b8914f76dea4c58a5cba02cdd8b72af |
+| name        | default                          |
++-------------+----------------------------------+
++ openstack project create --domain default --description 'Admin Project' admin
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Admin Project                    |
+| domain_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
+| enabled     | True                             |
+| id          | 527d2fc161b446c28eb80e8f82ef7156 |
+| is_domain   | False                            |
+| name        | admin                            |
+| parent_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
++-------------+----------------------------------+
++ . ./sub_keystoneadmin_create.sh
+++ spawn openstack user create --domain default --password-prompt admin
+./sub_keystoneadmin_create.sh: line 3: spawn: command not found
+++ expect 'User Password*' '{' send 'Super123\r' '}'
+couldn't read file "User Password*": no such file or directory
+++ expect '*Password*:' '{' send 'Super123\r' '}'
+couldn't read file "*Password*:": no such file or directory
+++ interact
+./sub_keystoneadmin_create.sh: line 6: interact: command not found
++ openstack role create admin
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | None                             |
+| id        | 2753d403501c4911813c1291ab87c5a6 |
+| name      | admin                            |
++-----------+----------------------------------+
++ openstack role add --project admin --user admin admin
+No user with a name or ID of 'admin' exists.
++ openstack project create --domain default --description 'Service Project' service
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Service Project                  |
+| domain_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
+| enabled     | True                             |
+| id          | ccf9ac3d53454f2cb02e82bb5e312d60 |
+| is_domain   | False                            |
+| name        | service                          |
+| parent_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
++-------------+----------------------------------+
++ openstack project create --domain default --description 'Demo Project' demo
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | Demo Project                     |
+| domain_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
+| enabled     | True                             |
+| id          | 86eddfb509354f8cadac6d0cfc9ac1ac |
+| is_domain   | False                            |
+| name        | demo                             |
+| parent_id   | 7b8914f76dea4c58a5cba02cdd8b72af |
++-------------+----------------------------------+
++ ./sub_keystonedemo_create.sh
+spawn openstack user create --domain default --password-prompt demo
+User Password:
+Repeat User Password:+ openstack role create user
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | None                             |
+| id        | 2eb41baeaf044101ad8341d1224666a2 |
+| name      | user                             |
++-----------+----------------------------------+
++ openstack role add --project demo --user demo user
+No user with a name or ID of 'demo' exists.
++ ./sub_keystone-dist-paste_edited.sh
++ unset OS_TOKEN OS_URL
++ ./sub_keystone_verify.sh
+spawn openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin --os-auth-type password token issue
+Password: 
++ /usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t '/etc/keystone/fernet-keys(/.*)?'
++ /sbin/restorecon -R -v /etc/keystone/fernet-keys
++ identityResult=0
++ [[ 0 -eq 1 ]]
++ echo 'Pass identity service installation'
+Pass identity service installation
++ ./sub_openrc_create.sh
++ exit 0
