@@ -1,14 +1,14 @@
 + mysql -u root -pSuper123
 + cd /root/work/identity_service
 ++ openssl rand -hex 10
-+ ADMIN_TOKEN=980f0e669e96d13e89a7
++ ADMIN_TOKEN=74e017509d0503d7349c
 + echo 'installing keystone package on controller'
 installing keystone package on controller
 + yum install -y openstack-keystone openstack-utils httpd mod_wsgi expect
 + yum install -y memcached python-memcached
 + systemctl enable memcached.service
 + systemctl start memcached.service
-+ openstack-config --set /etc/keystone/keystone.conf DEFAULT admin_token 980f0e669e96d13e89a7
++ openstack-config --set /etc/keystone/keystone.conf DEFAULT admin_token 74e017509d0503d7349c
 + openstack-config --set /etc/keystone/keystone.conf database connection mysql+pymysql://keystone:Super123@controller/keystone
 + openstack-config --set /etc/keystone/keystone.conf token provider fernet
 + su -s /bin/sh -c 'keystone-manage db_sync' keystone
@@ -24,8 +24,8 @@ ServerName controller
 + systemctl enable httpd.service
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
 + systemctl start httpd.service
-+ export OS_TOKEN=980f0e669e96d13e89a7
-+ OS_TOKEN=980f0e669e96d13e89a7
++ export OS_TOKEN=74e017509d0503d7349c
++ OS_TOKEN=74e017509d0503d7349c
 + export OS_URL=http://controller:35357/v3
 + OS_URL=http://controller:35357/v3
 + export OS_IDENTITY_API_VERSION=3
@@ -36,7 +36,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 +-------------+----------------------------------+
 | description | OpenStack Identity               |
 | enabled     | True                             |
-| id          | 343e4780f5c6420a839e62a37369ac93 |
+| id          | 231ef1316e0d4c81bef627e291a1cebb |
 | name        | keystone                         |
 | type        | identity                         |
 +-------------+----------------------------------+
@@ -45,11 +45,11 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 8901e392a29c4057ad8e0cb1422010bb |
+| id           | d94e07e2fdc34414b64bf555b8b77f0b |
 | interface    | public                           |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 343e4780f5c6420a839e62a37369ac93 |
+| service_id   | 231ef1316e0d4c81bef627e291a1cebb |
 | service_name | keystone                         |
 | service_type | identity                         |
 | url          | http://controller:5000/v3        |
@@ -59,11 +59,11 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 6778832dc6634abb940d9022c2f97090 |
+| id           | 176349a064504815a7a908d5ec28be29 |
 | interface    | internal                         |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 343e4780f5c6420a839e62a37369ac93 |
+| service_id   | 231ef1316e0d4c81bef627e291a1cebb |
 | service_name | keystone                         |
 | service_type | identity                         |
 | url          | http://controller:5000/v3        |
@@ -73,11 +73,11 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | a566f0b19f884ba1af328340c46ea62b |
+| id           | 253ab95b53c649e6b67588dc8c7883cb |
 | interface    | admin                            |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 343e4780f5c6420a839e62a37369ac93 |
+| service_id   | 231ef1316e0d4c81bef627e291a1cebb |
 | service_name | keystone                         |
 | service_type | identity                         |
 | url          | http://controller:35357/v3       |
@@ -88,7 +88,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 +-------------+----------------------------------+
 | description | Default Domain                   |
 | enabled     | True                             |
-| id          | ed263b0c57314f19beba73655fb35546 |
+| id          | a39af586683f404a9243687ce394c9f6 |
 | name        | default                          |
 +-------------+----------------------------------+
 + openstack project create --domain default --description 'Admin Project' admin
@@ -96,20 +96,20 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field       | Value                            |
 +-------------+----------------------------------+
 | description | Admin Project                    |
-| domain_id   | ed263b0c57314f19beba73655fb35546 |
+| domain_id   | a39af586683f404a9243687ce394c9f6 |
 | enabled     | True                             |
-| id          | d5d71404b9dd4ddbb58d940e5210c2e9 |
+| id          | a56bae4ee4d04e8bb0a500933b256d9f |
 | is_domain   | False                            |
 | name        | admin                            |
-| parent_id   | ed263b0c57314f19beba73655fb35546 |
+| parent_id   | a39af586683f404a9243687ce394c9f6 |
 +-------------+----------------------------------+
 + openstack user create --domain default --password Super123 admin
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
-| domain_id | ed263b0c57314f19beba73655fb35546 |
+| domain_id | a39af586683f404a9243687ce394c9f6 |
 | enabled   | True                             |
-| id        | eadd92af85c6475db2f4efcdc7601754 |
+| id        | 9a99dda4f0e248948ff5d54c029b4b65 |
 | name      | admin                            |
 +-----------+----------------------------------+
 + openstack role create admin
@@ -117,7 +117,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field     | Value                            |
 +-----------+----------------------------------+
 | domain_id | None                             |
-| id        | 172833c1bba143b0addbcc5b1d7e9a68 |
+| id        | efbbb8e3ab374614825bdfea5d2b817b |
 | name      | admin                            |
 +-----------+----------------------------------+
 + openstack role add --project admin --user admin admin
@@ -126,53 +126,55 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service t
 | Field       | Value                            |
 +-------------+----------------------------------+
 | description | Service Project                  |
-| domain_id   | ed263b0c57314f19beba73655fb35546 |
+| domain_id   | a39af586683f404a9243687ce394c9f6 |
 | enabled     | True                             |
-| id          | d7cc2b3ffae442b0a64388848dd8441a |
+| id          | 747baee4317743b2ab3ff08cf038a1f0 |
 | is_domain   | False                            |
 | name        | service                          |
-| parent_id   | ed263b0c57314f19beba73655fb35546 |
+| parent_id   | a39af586683f404a9243687ce394c9f6 |
 +-------------+----------------------------------+
 + openstack project create --domain default --description 'Demo Project' demo
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
 | description | Demo Project                     |
-| domain_id   | ed263b0c57314f19beba73655fb35546 |
+| domain_id   | a39af586683f404a9243687ce394c9f6 |
 | enabled     | True                             |
-| id          | 693c2e92804b48a494ccb48ef2884223 |
+| id          | 08711fca61644ff9b1ebabbaeb22b75c |
 | is_domain   | False                            |
 | name        | demo                             |
-| parent_id   | ed263b0c57314f19beba73655fb35546 |
+| parent_id   | a39af586683f404a9243687ce394c9f6 |
 +-------------+----------------------------------+
-+ openstack user create --domain default --passsword Super123 demo
-usage: openstack user create [-h]
-                             [-f {html,json,json,shell,table,value,yaml,yaml}]
-                             [-c COLUMN] [--max-width <integer>] [--noindent]
-                             [--prefix PREFIX] [--domain <domain>]
-                             [--project <project>]
-                             [--project-domain <project-domain>]
-                             [--password <password>] [--password-prompt]
-                             [--email <email-address>]
-                             [--description <description>]
-                             [--enable | --disable] [--or-show]
-                             <name>
-openstack user create: error: unrecognized arguments: --passsword demo
++ openstack user create --domain default --password Super123 demo
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | a39af586683f404a9243687ce394c9f6 |
+| enabled   | True                             |
+| id        | 44b15f2039524893a508611211466566 |
+| name      | demo                             |
++-----------+----------------------------------+
 + openstack role create user
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
 | domain_id | None                             |
-| id        | 0fc95b965ad74f30a1c4476773ab7ecf |
+| id        | 09f8f64f5c5e4756a47e9a7dfbbbfa3c |
 | name      | user                             |
 +-----------+----------------------------------+
 + openstack role add --project demo --user demo user
-No user with a name or ID of 'demo' exists.
 + ./sub_keystone-dist-paste_edited.sh
 + unset OS_TOKEN OS_URL
-+ ./sub_keystone_verify.sh
-spawn openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin --os-auth-type password token issue
-Password: + /usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t '/etc/keystone/fernet-keys(/.*)?'
++ openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin --os-auth-type password --os-password Super123 token issue
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field      | Value                                                                                                                                                                                   |
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| expires    | 2016-04-29T20:43:56.411222Z                                                                                                                                                             |
+| id         | gAAAAABXI7l8cF2gk_8mzCKTbyUZ7cGLwkwomDfOr1hF4e2Pjv1wi6W0CxvAkseuXshdw4FAZi7nYcx4DbRizQqz7kcMZOnA_E2WipDffRCuJWO6xm4r3-NKoqbtlIUBpKLbB6Rix1uEuy84md9Jb0u2JVTjkD5i8DknZ4QOiyaHWKQFjen7ARs |
+| project_id | a56bae4ee4d04e8bb0a500933b256d9f                                                                                                                                                        |
+| user_id    | 9a99dda4f0e248948ff5d54c029b4b65                                                                                                                                                        |
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++ /usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t '/etc/keystone/fernet-keys(/.*)?'
 + /sbin/restorecon -R -v /etc/keystone/fernet-keys
 + identityResult=0
 + [[ 0 -eq 1 ]]

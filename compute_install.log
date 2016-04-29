@@ -31,18 +31,23 @@ Loading mirror speeds from cached hostfile
 1368 packages excluded due to repository priority protections
 Package expect-5.45-14.el7_1.x86_64 already installed and latest version
 Nothing to do
-+ ./sub_computeuser_create.sh
-spawn openstack user create --domain default --password-prompt nova
-User Password:
-Repeat User Password:+ openstack role add --project service --user nova admin
-No user with a name or ID of 'nova' exists.
++ openstack user create --domain default --password Super123 nova
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | a39af586683f404a9243687ce394c9f6 |
+| enabled   | True                             |
+| id        | 3894bc33cfda4d0d9165001e6e1b5d20 |
+| name      | nova                             |
++-----------+----------------------------------+
++ openstack role add --project service --user nova admin
 + openstack service create --name nova --description 'OpenStack Compute' compute
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
 | description | OpenStack Compute                |
 | enabled     | True                             |
-| id          | 6d9fa36d3924477a96186074735553ca |
+| id          | ed2b27d5664b4794960388a4e1e476e1 |
 | name        | nova                             |
 | type        | compute                          |
 +-------------+----------------------------------+
@@ -51,11 +56,11 @@ No user with a name or ID of 'nova' exists.
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | f6bb2de73b344ba6aaa0f54dde97dd8f          |
+| id           | 49a35327efc6403cab0f066fffc3c278          |
 | interface    | public                                    |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -65,11 +70,11 @@ No user with a name or ID of 'nova' exists.
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | c352ac1afedb4346a3d07a6985e4611a          |
+| id           | 608dd6fda70c43518a1ef309dfd49e8b          |
 | interface    | internal                                  |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -79,11 +84,11 @@ No user with a name or ID of 'nova' exists.
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | ac455bbfef814f878ed3f6a6c59f9234          |
+| id           | b8617a45056045f89bbad8bdd84cd76f          |
 | interface    | admin                                     |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -222,7 +227,7 @@ Total download size: 8.8 M
 Installed size: 36 M
 Downloading packages:
 --------------------------------------------------------------------------------
-Total                                              1.6 MB/s | 8.8 MB  00:05     
+Total                                              2.0 MB/s | 8.8 MB  00:04     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -361,18 +366,18 @@ Generating public/private rsa key pair.
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-21:7a:08:4f:9f:9b:c0:ee:42:fe:72:02:ee:63:eb:83 root@controller
+5f:8f:55:43:86:62:19:e4:94:8a:7c:f5:68:79:b5:dc root@controller
 The key's randomart image is:
 +--[ RSA 2048]----+
+|          .++ .o |
+|          o* .o. |
+|      . . +.= o.+|
+|       o o + o +E|
+|        S . o .  |
+|         . . +   |
+|          . . .  |
 |                 |
 |                 |
-|  . . . .        |
-|   = + o .       |
-|    * + S        |
-|. .. o o         |
-|o+  . o          |
-|E==..            |
-|+++*o            |
 +-----------------+
 + cp id_rsa id_rsa.pub /root/.ssh/
 + rm -f id_rsa id_rsa.pub
@@ -393,10 +398,30 @@ and check to make sure that only the key(s) you wanted were added.
 
 + scp ssh_key_auth.sh compute_init.sh 'root@10.0.0.31:~'
 + '[' '!' -f /root/compute1_finished ']'
++ ssh root@10.0.0.31 '~/compute_init.sh'
 + echo 'installing compute node'
 installing compute node
 + sleep 10
-+ ssh root@10.0.0.31 '~/compute_init.sh'
++ '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
++ '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
++ '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
++ '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
++ '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
 + '[' '!' -f /root/compute1_finished ']'
 + echo 'installing compute node'
 installing compute node
@@ -432,5 +457,12 @@ installing compute node
 ++ export OS_IMAGE_API_VERSION=2
 ++ OS_IMAGE_API_VERSION=2
 + openstack compute service list
-Unknown Error (HTTP 503) (Request-ID: req-d6340abd-1ee0-4d1b-a4c4-140b364364af)
++----+------------------+------------+----------+---------+-------+----------------------------+
+| Id | Binary           | Host       | Zone     | Status  | State | Updated At                 |
++----+------------------+------------+----------+---------+-------+----------------------------+
+|  1 | nova-consoleauth | controller | internal | enabled | up    | 2016-04-29T19:47:30.000000 |
+|  2 | nova-conductor   | controller | internal | enabled | up    | 2016-04-29T19:47:31.000000 |
+|  3 | nova-scheduler   | controller | internal | enabled | up    | 2016-04-29T19:47:32.000000 |
+|  8 | nova-compute     | compute1   | nova     | enabled | up    | 2016-04-29T19:47:33.000000 |
++----+------------------+------------+----------+---------+-------+----------------------------+
 + exit 0

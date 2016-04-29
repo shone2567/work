@@ -4,7 +4,7 @@
 set -x
 cd /root/work/glance_service
 
-firewall-cmd --add-port=9393/tcp --permanent
+firewall-cmd --add-port=9292/tcp --permanent
 firewall-cmd --reload
 
 mysql -u root -pSuper123 << EOF

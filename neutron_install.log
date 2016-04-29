@@ -16,18 +16,23 @@
 ++ OS_IDENTITY_API_VERSION=3
 ++ export OS_IMAGE_API_VERSION=2
 ++ OS_IMAGE_API_VERSION=2
-+ ./sub_neutronuser_create.sh
-spawn openstack user create --domain default --password-prompt neutron
-User Password:
-Repeat User Password:+ openstack role add --project service --user neutron admin
-No user with a name or ID of 'neutron' exists.
++ openstack user create --domain default --password Super123 neutron
++-----------+----------------------------------+
+| Field     | Value                            |
++-----------+----------------------------------+
+| domain_id | a39af586683f404a9243687ce394c9f6 |
+| enabled   | True                             |
+| id        | c4246e8f93b04e0eb3d95804e5d56e85 |
+| name      | neutron                          |
++-----------+----------------------------------+
++ openstack role add --project service --user neutron admin
 + openstack service create --name neutron --description 'OpenStack Networking' network
 +-------------+----------------------------------+
 | Field       | Value                            |
 +-------------+----------------------------------+
 | description | OpenStack Networking             |
 | enabled     | True                             |
-| id          | c1cd1a37685c4c78a96781cdd3b68b6f |
+| id          | 59f3f7ca6c624a478d93f23750f96b31 |
 | name        | neutron                          |
 | type        | network                          |
 +-------------+----------------------------------+
@@ -36,11 +41,11 @@ No user with a name or ID of 'neutron' exists.
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 51b9feea2a1242148f383dc239ed1771 |
+| id           | 695961657e164235aa99724bd229df39 |
 | interface    | public                           |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | c1cd1a37685c4c78a96781cdd3b68b6f |
+| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -50,11 +55,11 @@ No user with a name or ID of 'neutron' exists.
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | aa1f7c3c36464d7286bf0c41dadc2ff5 |
+| id           | 37e7d064403944a0947f03f29fa2437d |
 | interface    | internal                         |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | c1cd1a37685c4c78a96781cdd3b68b6f |
+| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -64,11 +69,11 @@ No user with a name or ID of 'neutron' exists.
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 8c0639470e0b4d34830bb4428c124aa3 |
+| id           | cd9239fc1f57416b937ed71f4e323e56 |
 | interface    | admin                            |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | c1cd1a37685c4c78a96781cdd3b68b6f |
+| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -214,6 +219,10 @@ installing neutron service
 installing neutron service
 + sleep 10
 + '[' '!' -f /root/compute1_neutron_finished ']'
++ echo 'installing neutron service'
+installing neutron service
++ sleep 10
++ '[' '!' -f /root/compute1_neutron_finished ']'
 + . admin-openrc
 ++ export OS_PROJECT_DOMAIN_NAME=default
 ++ OS_PROJECT_DOMAIN_NAME=default
@@ -232,17 +241,30 @@ installing neutron service
 ++ export OS_IMAGE_API_VERSION=2
 ++ OS_IMAGE_API_VERSION=2
 + neutron ext-list
-503 Service Unavailable
-
-The server is currently unavailable. Please try again at a later time.
-
-   
-Neutron server returns request_ids: ['req-2cb42c29-13bc-45e8-8efb-5c450f64ae24']
++---------------------------+----------------------------------+
+| alias                     | name                             |
++---------------------------+----------------------------------+
+| default-subnetpools       | Default Subnetpools              |
+| security-group            | security-group                   |
+| availability_zone         | Availability Zone                |
+| network_availability_zone | Network Availability Zone        |
+| net-mtu                   | Network MTU                      |
+| auto-allocated-topology   | Auto Allocated Topology Services |
+| port-security             | Port Security                    |
+| binding                   | Port Binding                     |
+| provider                  | Provider Network                 |
+| agent                     | agent                            |
+| quotas                    | Quota management support         |
+| subnet_allocation         | Subnet Allocation                |
+| dhcp_agent_scheduler      | DHCP Agent Scheduler             |
+| tag                       | Tag support                      |
+| rbac-policies             | RBAC Policies                    |
+| external-net              | Neutron external network         |
+| multi-provider            | Multi Provider Network           |
+| allowed-address-pairs     | Allowed Address Pairs            |
+| extra_dhcp_opt            | Neutron Extra DHCP opts          |
+| address-scope             | Address scope                    |
++---------------------------+----------------------------------+
 + neutron agent-list
-503 Service Unavailable
 
-The server is currently unavailable. Please try again at a later time.
-
-   
-Neutron server returns request_ids: ['req-51aaa3b4-13e9-4218-b628-701f9122e1ab']
 + exit 0
