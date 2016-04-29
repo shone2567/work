@@ -31,7 +31,8 @@ yum -y install expect
 
 #create glanceuser
 
-./sub_computeuser_create.sh
+#./sub_computeuser_create.sh
+openstack user create --domain default --password Super123 nova
 
 openstack role add --project service --user nova admin
 

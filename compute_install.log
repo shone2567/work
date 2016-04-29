@@ -33,21 +33,61 @@ Package expect-5.45-14.el7_1.x86_64 already installed and latest version
 Nothing to do
 + ./sub_computeuser_create.sh
 spawn openstack user create --domain default --password-prompt nova
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-e47c7874-64f5-443e-88bf-e39c7d790643)
-expect: spawn id exp6 not open
-    while executing
-"expect "*Password*:" { send "Super123\r" }"
-    (file "./sub_computeuser_create.sh" line 7)
-+ openstack role add --project service --user nova admin
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-0d47e4df-ff2d-47a9-a0e0-b3d7d211adc1)
+User Password:
+Repeat User Password:+ openstack role add --project service --user nova admin
+No user with a name or ID of 'nova' exists.
 + openstack service create --name nova --description 'OpenStack Compute' compute
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-8bbf07b6-1e37-4c3a-b01d-858cf2ae4da4)
++-------------+----------------------------------+
+| Field       | Value                            |
++-------------+----------------------------------+
+| description | OpenStack Compute                |
+| enabled     | True                             |
+| id          | 6d9fa36d3924477a96186074735553ca |
+| name        | nova                             |
+| type        | compute                          |
++-------------+----------------------------------+
 + openstack endpoint create --region RegionOne compute public 'http://controller:8774/v2.1/%(tenant_id)s'
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-090bfb19-55b7-44b5-8fba-f89d36e709f8)
++--------------+-------------------------------------------+
+| Field        | Value                                     |
++--------------+-------------------------------------------+
+| enabled      | True                                      |
+| id           | f6bb2de73b344ba6aaa0f54dde97dd8f          |
+| interface    | public                                    |
+| region       | RegionOne                                 |
+| region_id    | RegionOne                                 |
+| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_name | nova                                      |
+| service_type | compute                                   |
+| url          | http://controller:8774/v2.1/%(tenant_id)s |
++--------------+-------------------------------------------+
 + openstack endpoint create --region RegionOne compute internal 'http://controller:8774/v2.1/%(tenant_id)s'
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-dc4169d3-ea9e-4019-b7cd-4e0551b53e6a)
++--------------+-------------------------------------------+
+| Field        | Value                                     |
++--------------+-------------------------------------------+
+| enabled      | True                                      |
+| id           | c352ac1afedb4346a3d07a6985e4611a          |
+| interface    | internal                                  |
+| region       | RegionOne                                 |
+| region_id    | RegionOne                                 |
+| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_name | nova                                      |
+| service_type | compute                                   |
+| url          | http://controller:8774/v2.1/%(tenant_id)s |
++--------------+-------------------------------------------+
 + openstack endpoint create --region RegionOne compute admin 'http://controller:8774/v2.1/%(tenant_id)s'
-The request you have made requires authentication. (HTTP 401) (Request-ID: req-48a3e7cb-7450-47b7-864d-4042be6c886e)
++--------------+-------------------------------------------+
+| Field        | Value                                     |
++--------------+-------------------------------------------+
+| enabled      | True                                      |
+| id           | ac455bbfef814f878ed3f6a6c59f9234          |
+| interface    | admin                                     |
+| region       | RegionOne                                 |
+| region_id    | RegionOne                                 |
+| service_id   | 6d9fa36d3924477a96186074735553ca          |
+| service_name | nova                                      |
+| service_type | compute                                   |
+| url          | http://controller:8774/v2.1/%(tenant_id)s |
++--------------+-------------------------------------------+
 + yum install -y openstack-nova-api openstack-nova-conductor openstack-nova-console openstack-nova-novncproxy openstack-nova-scheduler
 Loaded plugins: fastestmirror, priorities
 Loading mirror speeds from cached hostfile
@@ -181,69 +221,136 @@ Install  5 Packages (+22 Dependent packages)
 Total download size: 8.8 M
 Installed size: 36 M
 Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              1.6 MB/s | 8.8 MB  00:05     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python-websockify-0.6.0-2.el7.noarch                        1/27 
+  Installing : libjpeg-turbo-1.2.90-5.el7.x86_64                           2/27 
+  Installing : python-psutil-1.2.1-1.el7.x86_64                            3/27 
+  Installing : python2-oslo-reports-1.6.1-0.20160226065613.da70fe7.el7.    4/27 
+  Installing : novnc-0.5.1-2.el7.noarch                                    5/27 
+  Installing : libwebp-0.3.0-3.el7.x86_64                                  6/27 
+  Installing : python2-mock-1.3.0-1.el7.noarch                             7/27 
+  Installing : python2-oslo-versionedobjects-1.7.1-0.20160303144806.c45    8/27 
+  Installing : python2-os-brick-1.1.1-0.20160303100740.cdc2531.el7.cent    9/27 
+  Installing : libxslt-1.1.28-5.el7.x86_64                                10/27 
+  Installing : python-lxml-3.2.1-4.el7.x86_64                             11/27 
+  Installing : python-markdown-2.4.1-1.el7.centos.noarch                  12/27 
+  Installing : python-rfc3986-0.2.0-1.el7.noarch                          13/27 
+  Installing : python-ecdsa-0.11-3.el7.noarch                             14/27 
+  Installing : python-paramiko-1.15.1-1.el7.noarch                        15/27 
+  Installing : jbigkit-libs-2.0-11.el7.x86_64                             16/27 
+  Installing : libtiff-4.0.3-14.el7.x86_64                                17/27 
+  Installing : python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64               18/27 
+  Installing : python-pygments-2.0.2-4.el7.noarch                         19/27 
+  Installing : python-cheetah-2.4.4-5.el7.centos.x86_64                   20/27 
+  Installing : 1:python-nova-13.0.0.0b4-0.20160304162843.c5a45a2.el7.ce   21/27 
+  Installing : 1:openstack-nova-common-13.0.0.0b4-0.20160304162843.c5a4   22/27 
+  Installing : 1:openstack-nova-api-13.0.0.0b4-0.20160304162843.c5a45a2   23/27 
+  Installing : 1:openstack-nova-console-13.0.0.0b4-0.20160304162843.c5a   24/27 
+  Installing : 1:openstack-nova-scheduler-13.0.0.0b4-0.20160304162843.c   25/27 
+  Installing : 1:openstack-nova-novncproxy-13.0.0.0b4-0.20160304162843.   26/27 
+  Installing : 1:openstack-nova-conductor-13.0.0.0b4-0.20160304162843.c   27/27 
+  Verifying  : 1:openstack-nova-common-13.0.0.0b4-0.20160304162843.c5a4    1/27 
+  Verifying  : python-websockify-0.6.0-2.el7.noarch                        2/27 
+  Verifying  : python-lxml-3.2.1-4.el7.x86_64                              3/27 
+  Verifying  : python-psutil-1.2.1-1.el7.x86_64                            4/27 
+  Verifying  : libtiff-4.0.3-14.el7.x86_64                                 5/27 
+  Verifying  : jbigkit-libs-2.0-11.el7.x86_64                              6/27 
+  Verifying  : 1:openstack-nova-api-13.0.0.0b4-0.20160304162843.c5a45a2    7/27 
+  Verifying  : python-cheetah-2.4.4-5.el7.centos.x86_64                    8/27 
+  Verifying  : 1:openstack-nova-console-13.0.0.0b4-0.20160304162843.c5a    9/27 
+  Verifying  : python-ecdsa-0.11-3.el7.noarch                             10/27 
+  Verifying  : libjpeg-turbo-1.2.90-5.el7.x86_64                          11/27 
+  Verifying  : python-rfc3986-0.2.0-1.el7.noarch                          12/27 
+  Verifying  : 1:openstack-nova-scheduler-13.0.0.0b4-0.20160304162843.c   13/27 
+  Verifying  : python-markdown-2.4.1-1.el7.centos.noarch                  14/27 
+  Verifying  : python-pygments-2.0.2-4.el7.noarch                         15/27 
+  Verifying  : libxslt-1.1.28-5.el7.x86_64                                16/27 
+  Verifying  : python-pillow-2.0.0-19.gitd1c6db8.el7.x86_64               17/27 
+  Verifying  : novnc-0.5.1-2.el7.noarch                                   18/27 
+  Verifying  : python2-os-brick-1.1.1-0.20160303100740.cdc2531.el7.cent   19/27 
+  Verifying  : 1:openstack-nova-novncproxy-13.0.0.0b4-0.20160304162843.   20/27 
+  Verifying  : 1:python-nova-13.0.0.0b4-0.20160304162843.c5a45a2.el7.ce   21/27 
+  Verifying  : 1:openstack-nova-conductor-13.0.0.0b4-0.20160304162843.c   22/27 
+  Verifying  : python2-mock-1.3.0-1.el7.noarch                            23/27 
+  Verifying  : python2-oslo-versionedobjects-1.7.1-0.20160303144806.c45   24/27 
+  Verifying  : python2-oslo-reports-1.6.1-0.20160226065613.da70fe7.el7.   25/27 
+  Verifying  : libwebp-0.3.0-3.el7.x86_64                                 26/27 
+  Verifying  : python-paramiko-1.15.1-1.el7.noarch                        27/27 
 
+Installed:
+  openstack-nova-api.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos    
+  openstack-nova-conductor.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos
+  openstack-nova-console.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos
+  openstack-nova-novncproxy.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos
+  openstack-nova-scheduler.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos
 
-Exiting on user cancel
+Dependency Installed:
+  jbigkit-libs.x86_64 0:2.0-11.el7                                              
+  libjpeg-turbo.x86_64 0:1.2.90-5.el7                                           
+  libtiff.x86_64 0:4.0.3-14.el7                                                 
+  libwebp.x86_64 0:0.3.0-3.el7                                                  
+  libxslt.x86_64 0:1.1.28-5.el7                                                 
+  novnc.noarch 0:0.5.1-2.el7                                                    
+  openstack-nova-common.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos 
+  python-cheetah.x86_64 0:2.4.4-5.el7.centos                                    
+  python-ecdsa.noarch 0:0.11-3.el7                                              
+  python-lxml.x86_64 0:3.2.1-4.el7                                              
+  python-markdown.noarch 0:2.4.1-1.el7.centos                                   
+  python-nova.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos           
+  python-paramiko.noarch 0:1.15.1-1.el7                                         
+  python-pillow.x86_64 0:2.0.0-19.gitd1c6db8.el7                                
+  python-psutil.x86_64 0:1.2.1-1.el7                                            
+  python-pygments.noarch 0:2.0.2-4.el7                                          
+  python-rfc3986.noarch 0:0.2.0-1.el7                                           
+  python-websockify.noarch 0:0.6.0-2.el7                                        
+  python2-mock.noarch 0:1.3.0-1.el7                                             
+  python2-os-brick.noarch 0:1.1.1-0.20160303100740.cdc2531.el7.centos           
+  python2-oslo-reports.noarch 0:1.6.1-0.20160226065613.da70fe7.el7.centos       
+  python2-oslo-versionedobjects.noarch 0:1.7.1-0.20160303144806.c459d5e.el7.centos
+
+Complete!
 + openstack-config --set /etc/nova/nova.conf DEFAULT enabled_apis osapi_compute,metadata
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf DEFAULT rpc_backend rabbit
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf DEFAULT auth_strategy keystone
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf DEFAULT my_ip 10.0.0.11
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf DEFAULT use_neutron True
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf DEFAULT firewall_driver nova.virt.firewall.NoopFirewallDriver
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf api_database connection mysql+pymysql://nova:Super123@controller/nova_api
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf database connection mysql+pymysql://nova:Super123@controller/nova
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_host controller
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_userid openstack
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_password Super123
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_uri http://controller:5000
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_url http://controller:35357
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken memcached_servers controller:11211
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_type password
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken project_domain_name default
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken user_domain_name default
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken project_name service
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken username nova
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf keystone_authtoken password Super123
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf vnc vncserver_listen 10.0.0.11
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf vnc vncserver_proxyclient_address 10.0.0.11
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf glance api_servers http://controller:9292
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + openstack-config --set /etc/nova/nova.conf oslo_concurrency lock_path /var/lib/nova/tmp
-[Errno 2] No such file or directory: '/etc/nova/nova.conf'
 + su -s /bin/sh -c 'nova-manage api_db sync' nova
-su: user nova does not exist
 + su -s /bin/sh -c 'nova-manage db sync' nova
-su: user nova does not exist
+/usr/lib/python2.7/site-packages/pymysql/cursors.py:146: Warning: Duplicate index 'block_device_mapping_instance_uuid_virtual_name_device_name_idx' defined on the table 'nova.block_device_mapping'. This is deprecated and will be disallowed in a future release.
+  result = self._query(query)
+/usr/lib/python2.7/site-packages/pymysql/cursors.py:146: Warning: Duplicate index 'uniq_instances0uuid' defined on the table 'nova.instances'. This is deprecated and will be disallowed in a future release.
+  result = self._query(query)
 + systemctl enable openstack-nova-api.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
-Failed to execute operation: Access denied
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-api.service to /usr/lib/systemd/system/openstack-nova-api.service.
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-consoleauth.service to /usr/lib/systemd/system/openstack-nova-consoleauth.service.
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-scheduler.service to /usr/lib/systemd/system/openstack-nova-scheduler.service.
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-conductor.service to /usr/lib/systemd/system/openstack-nova-conductor.service.
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-novncproxy.service to /usr/lib/systemd/system/openstack-nova-novncproxy.service.
 + systemctl start openstack-nova-api.service openstack-nova-consoleauth.service openstack-nova-scheduler.service openstack-nova-conductor.service openstack-nova-novncproxy.service
-Failed to start openstack-nova-api.service: Unit openstack-nova-api.service failed to load: No such file or directory.
-Failed to start openstack-nova-consoleauth.service: Unit openstack-nova-consoleauth.service failed to load: No such file or directory.
-Failed to start openstack-nova-scheduler.service: Unit openstack-nova-scheduler.service failed to load: No such file or directory.
-Failed to start openstack-nova-conductor.service: Unit openstack-nova-conductor.service failed to load: No such file or directory.
-Failed to start openstack-nova-novncproxy.service: Unit openstack-nova-novncproxy.service failed to load: No such file or directory.
 + '[' '!' -f /root/.ssh/id_rsa ']'
 + echo 'start connection'
 start connection
@@ -254,18 +361,18 @@ Generating public/private rsa key pair.
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-f9:cf:57:d0:21:d5:f1:3a:c1:c4:69:f3:02:86:10:9c root@controller
+21:7a:08:4f:9f:9b:c0:ee:42:fe:72:02:ee:63:eb:83 root@controller
 The key's randomart image is:
 +--[ RSA 2048]----+
-|       .o+ . .o+o|
-|        E . o+=.o|
-|           . o++o|
-|         .    ooo|
-|        S     oo |
-|         .     ..|
-|          .    . |
-|           o  .  |
-|            o.   |
+|                 |
+|                 |
+|  . . . .        |
+|   = + o .       |
+|    * + S        |
+|. .. o o         |
+|o+  . o          |
+|E==..            |
+|+++*o            |
 +-----------------+
 + cp id_rsa id_rsa.pub /root/.ssh/
 + rm -f id_rsa id_rsa.pub
@@ -287,9 +394,9 @@ and check to make sure that only the key(s) you wanted were added.
 + scp ssh_key_auth.sh compute_init.sh 'root@10.0.0.31:~'
 + '[' '!' -f /root/compute1_finished ']'
 + echo 'installing compute node'
+installing compute node
++ sleep 10
 + ssh root@10.0.0.31 '~/compute_init.sh'
-installing compute node
-+ sleep 10
 + '[' '!' -f /root/compute1_finished ']'
 + echo 'installing compute node'
 installing compute node
@@ -307,170 +414,23 @@ installing compute node
 installing compute node
 + sleep 10
 + '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
++ . admin-openrc
+++ export OS_PROJECT_DOMAIN_NAME=default
+++ OS_PROJECT_DOMAIN_NAME=default
+++ export OS_USER_DOMAIN_NAME=default
+++ OS_USER_DOMAIN_NAME=default
+++ export OS_PROJECT_NAME=admin
+++ OS_PROJECT_NAME=admin
+++ export OS_USERNAME=admin
+++ OS_USERNAME=admin
+++ export OS_PASSWORD=Super123
+++ OS_PASSWORD=Super123
+++ export OS_AUTH_URL=http://controller:35357/v3
+++ OS_AUTH_URL=http://controller:35357/v3
+++ export OS_IDENTITY_API_VERSION=3
+++ OS_IDENTITY_API_VERSION=3
+++ export OS_IMAGE_API_VERSION=2
+++ OS_IMAGE_API_VERSION=2
++ openstack compute service list
+Unknown Error (HTTP 503) (Request-ID: req-d6340abd-1ee0-4d1b-a4c4-140b364364af)
++ exit 0

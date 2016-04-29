@@ -102,7 +102,7 @@ openstack project create --domain default \
 #create a keystone demo user
 #./sub_keystonedemo_create.sh
 #sleep 30
-openstack user create --domain default --passsword Super123 demo
+openstack user create --domain default --password Super123 demo
 openstack role create user
 
 openstack role add --project demo --user demo user
@@ -118,7 +118,9 @@ unset OS_TOKEN OS_URL
 
 #check token
 
-./sub_keystone_verify.sh
+#./sub_keystone_verify.sh
+
+openstack --os-auth-url http://controller:35357/v3 --os-project-domain-name default --os-user-domain-name default --os-project-name admin --os-username admin --os-auth-type password --os-password Super123 token issue
 
 /usr/sbin/semanage fcontext -a -t keystone_cgi_ra_content_t "/etc/keystone/fernet-keys(/.*)?" 
 /sbin/restorecon -R -v /etc/keystone/fernet-keys

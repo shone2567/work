@@ -16,7 +16,9 @@ EOF
 
 . admin-openrc
 
-./sub_neutronuser_create.sh
+#./sub_neutronuser_create.sh
+
+openstack user create --domain default --password Super123 neutron
 
 openstack role add --project service --user neutron admin
 

@@ -19,7 +19,9 @@ yum -y install expect &>/dev/null
 
 #create glanceuser
 
-. ./sub_glanceuser_create.sh
+#./sub_glanceuser_create.sh
+
+openstack user create --domain default --password Super123  glance
 
 openstack role add --project service --user glance admin
 

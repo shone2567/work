@@ -11,7 +11,9 @@ firewall-cmd --reload
 
 . admin-openrc
 
-./sub_swiftuser_create.sh
+#./sub_swiftuser_create.sh
+
+openstack user create --domain default --password Super123 swift
 
 openstack role add --project service --user swift admin
 
