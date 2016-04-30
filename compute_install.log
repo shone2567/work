@@ -35,9 +35,9 @@ Nothing to do
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
-| domain_id | db50924faea245dc8200a639e5f8d461 |
+| domain_id | 05fedb7006534e68b1f4de0c66110989 |
 | enabled   | True                             |
-| id        | d29d28e12126440fb0b8158077dc2eed |
+| id        | c24b8c55f9f9414ea9ac928221ce9107 |
 | name      | nova                             |
 +-----------+----------------------------------+
 + openstack role add --project service --user nova admin
@@ -47,7 +47,7 @@ Nothing to do
 +-------------+----------------------------------+
 | description | OpenStack Compute                |
 | enabled     | True                             |
-| id          | 431c6a9e0c3a4c0d8d1e774d28173f74 |
+| id          | bfdfbf0487b24691b324601aed5a3bbc |
 | name        | nova                             |
 | type        | compute                          |
 +-------------+----------------------------------+
@@ -56,11 +56,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | 0697c3603fa74ab5ab380c1016e5a408          |
+| id           | 9ba80cbf68184ac38082fbd29fbed801          |
 | interface    | public                                    |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
+| service_id   | bfdfbf0487b24691b324601aed5a3bbc          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -70,11 +70,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | 6b1c73423b7e4bf69fce28069606e467          |
+| id           | bb628247841a47de8de7bbb4fdb360b6          |
 | interface    | internal                                  |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
+| service_id   | bfdfbf0487b24691b324601aed5a3bbc          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -84,11 +84,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | 04cd26c4983b48bb9186685fff7403e8          |
+| id           | 8c0a701406f346019f072970cab4af16          |
 | interface    | admin                                     |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
+| service_id   | bfdfbf0487b24691b324601aed5a3bbc          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -227,7 +227,7 @@ Total download size: 8.8 M
 Installed size: 36 M
 Downloading packages:
 --------------------------------------------------------------------------------
-Total                                              1.4 MB/s | 8.8 MB  00:06     
+Total                                              1.7 MB/s | 8.8 MB  00:05     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -366,18 +366,18 @@ Generating public/private rsa key pair.
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-d7:8a:5b:fa:82:45:cc:a4:8f:d6:de:db:10:64:b6:ce root@controller
+36:17:89:dc:65:ee:d8:cd:a4:99:6f:7d:f6:e6:d5:6f root@controller
 The key's randomart image is:
 +--[ RSA 2048]----+
-|                 |
-|        .        |
-|       =  +      |
-|      . ++ o     |
-|       =S + .    |
-|      o += o     |
-|     . +..E      |
-|      . o+.o     |
-|        ooo..    |
+|            o    |
+|       . o =     |
+|        o + . .  |
+|           = B   |
+|        S o * o  |
+|       . o   . ..|
+|              o *|
+|             . .E|
+|               ++|
 +-----------------+
 + cp id_rsa id_rsa.pub /root/.ssh/
 + rm -f id_rsa id_rsa.pub
@@ -448,9 +448,9 @@ installing compute node
 +----+------------------+------------+----------+---------+-------+----------------------------+
 | Id | Binary           | Host       | Zone     | Status  | State | Updated At                 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
-|  1 | nova-conductor   | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
-|  2 | nova-scheduler   | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
-|  3 | nova-consoleauth | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
-|  6 | nova-compute     | compute1   | nova     | enabled | up    | 2016-04-30T07:43:27.000000 |
+|  1 | nova-conductor   | controller | internal | enabled | up    | 2016-04-30T08:26:23.000000 |
+|  2 | nova-scheduler   | controller | internal | enabled | up    | 2016-04-30T08:26:23.000000 |
+|  3 | nova-consoleauth | controller | internal | enabled | up    | 2016-04-30T08:26:23.000000 |
+|  6 | nova-compute     | compute1   | nova     | enabled | up    | 2016-04-30T08:26:26.000000 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
 + exit 0

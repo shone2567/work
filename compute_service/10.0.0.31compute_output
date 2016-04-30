@@ -237,3 +237,73 @@ Now try logging into the machine, with:   "ssh 'controller'"
 and check to make sure that only the key(s) you wanted were added.
 
 + scp /root/compute1_finished 'root@controller:~/'
+installing openstack compute package on compute node
++ echo 'installing openstack compute package on compute node'
++ yum -y install openstack-nova-compute openstack-utils expect
++ openstack-config --set /etc/nova/nova.conf DEFAULT rpc_backend rabbit
++ openstack-config --set /etc/nova/nova.conf DEFAULT auth_strategy keystone
++ openstack-config --set /etc/nova/nova.conf DEFAULT my_ip 10.0.0.31
++ openstack-config --set /etc/nova/nova.conf DEFAULT use_neutron True
++ openstack-config --set /etc/nova/nova.conf DEFAULT firewall_driver nova.virt.firewall.NoopFirewallDriver
++ openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_host controller
++ openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_userid openstack
++ openstack-config --set /etc/nova/nova.conf oslo_messaging_rabbit rabbit_password Super123
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_uri http://controller:5000
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_url http://controller:35357
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken memcached_servers controller:11211
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken auth_type password
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken project_domain_name default
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken user_domain_name default
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken project_name service
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken username nova
++ openstack-config --set /etc/nova/nova.conf keystone_authtoken password Super123
++ openstack-config --set /etc/nova/nova.conf vnc enabled True
++ openstack-config --set /etc/nova/nova.conf vnc vncserver_listen 0.0.0.0
++ openstack-config --set /etc/nova/nova.conf vnc vncserver_proxyclient_address 10.0.0.31
++ openstack-config --set /etc/nova/nova.conf glance novncproxy_base_url http://controller:6080/vnc_auto.html
++ openstack-config --set /etc/nova/nova.conf glance api_servers http://controller:9292
++ openstack-config --set /etc/nova/nova.conf oslo_concurrency lock_path /var/lib/nova/tmp
++ openstack-config --set /etc/nova/nova.conf libvirt virt_type qemu
++ systemctl enable libvirtd.service openstack-nova-compute.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/openstack-nova-compute.service to /usr/lib/systemd/system/openstack-nova-compute.service.
++ systemctl start libvirtd.service openstack-nova-compute.service
++ filename=compute1_finished
++ touch /root/compute1_finished
++ mkdir /root/.ssh
+mkdir: cannot create directory ‘/root/.ssh’: File exists
++ chmod 700 /root/.ssh
++ ssh-keygen -f id_rsa -t rsa -N ''
+Generating public/private rsa key pair.
+Your identification has been saved in id_rsa.
+Your public key has been saved in id_rsa.pub.
+The key fingerprint is:
+cf:32:59:30:e8:94:ae:9c:aa:94:f3:a8:62:9e:ba:0e root@compute1
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|       o         |
+|      + o        |
+|     +   o       |
+|      o S .      |
+|  .. o   =       |
+|E+  +   + o      |
+|+.=.     o       |
+|%B..             |
++-----------------+
++ cp id_rsa id_rsa.pub /root/.ssh/
++ rm -f id_rsa id_rsa.pub
++ /root/ssh_key_auth.sh controller
+spawn ssh-copy-id controller
+The authenticity of host 'controller (10.0.0.11)' can't be established.
+ECDSA key fingerprint is 37:1e:74:6b:14:b8:6a:5a:cc:ce:89:cd:e8:78:03:3a.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@controller's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'controller'"
+and check to make sure that only the key(s) you wanted were added.
+
++ scp /root/compute1_finished 'root@controller:~/'

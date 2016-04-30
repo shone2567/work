@@ -20,9 +20,9 @@
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
-| domain_id | db50924faea245dc8200a639e5f8d461 |
+| domain_id | 05fedb7006534e68b1f4de0c66110989 |
 | enabled   | True                             |
-| id        | 44a7d91714ac411f9cd2245462615b34 |
+| id        | 81039bf8f28345b7b20b08359255e233 |
 | name      | neutron                          |
 +-----------+----------------------------------+
 + openstack role add --project service --user neutron admin
@@ -32,7 +32,7 @@
 +-------------+----------------------------------+
 | description | OpenStack Networking             |
 | enabled     | True                             |
-| id          | 05842b480ff0491f9dec6f5a3e27c5af |
+| id          | 57e3d9a3154a4fb4804fcfbd09c7bd32 |
 | name        | neutron                          |
 | type        | network                          |
 +-------------+----------------------------------+
@@ -41,11 +41,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | a80fa0a03c234a35b98e7d55c1720775 |
+| id           | c194db4ac39742b18b61fb77607795a6 |
 | interface    | public                           |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
+| service_id   | 57e3d9a3154a4fb4804fcfbd09c7bd32 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -55,11 +55,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 383efe4b2bd346139b55f438bc8eb54f |
+| id           | 926d946f451a40c2a96bbf4ad4d2f5f0 |
 | interface    | internal                         |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
+| service_id   | 57e3d9a3154a4fb4804fcfbd09c7bd32 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -69,11 +69,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 01a6cd81210a419781577f8d22b997d9 |
+| id           | c7265b10249447be941eb7aa889ecd21 |
 | interface    | admin                            |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
+| service_id   | 57e3d9a3154a4fb4804fcfbd09c7bd32 |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -126,18 +126,17 @@ installing neutron package on controller
 + openstack-config --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_ip controller
 + openstack-config --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret Super123
 + openstack-config --set /etc/neutron/metadata_agent.ini DEFAULT verbose True
-+ openstack-config --set /etc/nova/nova.conf DEFAULT url http://controller:9696
-+ openstack-config --set /etc/nova/nova.conf DEFAULT auth_url http://controller:35357
-+ openstack-config --set /etc/nova/nova.conf DEFAULT auth_type password
-+ openstack-config --set /etc/nova/nova.conf DEFAULT project_domain_name default
-+ openstack-config --set /etc/nova/nova.conf DEFAULT user_domain_name default
-+ openstack-config --set /etc/nova/nova.conf DEFAULT region_name RegionOne
-+ openstack-config --set /etc/nova/nova.conf DEFAULT project_name service
-+ openstack-config --set /etc/nova/nova.conf DEFAULT username neutron
-+ openstack-config --set /etc/nova/nova.conf DEFAULT password Super123
-+ openstack-config --set /etc/nova/nova.conf DEFAULT service_metadata_proxy True
-+ openstack-config --set /etc/nova/nova.conf DEFAULT metadata_proxy_shared_secret Super123
-+ openstack-config --set /etc/nova/nova.conf DEFAULT verbose True
++ openstack-config --set /etc/nova/nova.conf neutron url http://controller:9696
++ openstack-config --set /etc/nova/nova.conf neutron auth_url http://controller:35357
++ openstack-config --set /etc/nova/nova.conf neutron auth_type password
++ openstack-config --set /etc/nova/nova.conf neutron project_domain_name default
++ openstack-config --set /etc/nova/nova.conf neutron user_domain_name default
++ openstack-config --set /etc/nova/nova.conf neutron region_name RegionOne
++ openstack-config --set /etc/nova/nova.conf neutron project_name service
++ openstack-config --set /etc/nova/nova.conf neutron username neutron
++ openstack-config --set /etc/nova/nova.conf neutron password Super123
++ openstack-config --set /etc/nova/nova.conf neutron service_metadata_proxy True
++ openstack-config --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret Super123
 + ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
 + su -s /bin/sh -c 'neutron-db-manage --config-file /etc/neutron/neutron.conf   --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head' neutron
 No handlers could be found for logger "oslo_config.cfg"
@@ -219,14 +218,6 @@ installing neutron service
 installing neutron service
 + sleep 10
 + '[' '!' -f /root/compute1_neutron_finished ']'
-+ echo 'installing neutron service'
-installing neutron service
-+ sleep 10
-+ '[' '!' -f /root/compute1_neutron_finished ']'
-+ echo 'installing neutron service'
-installing neutron service
-+ sleep 10
-+ '[' '!' -f /root/compute1_neutron_finished ']'
 + . admin-openrc
 ++ export OS_PROJECT_DOMAIN_NAME=default
 ++ OS_PROJECT_DOMAIN_NAME=default
@@ -273,6 +264,6 @@ installing neutron service
 +--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
 | id                                   | agent_type         | host     | availability_zone | alive | admin_state_up | binary                    |
 +--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
-| ad78b230-5a6a-4de1-96fb-2a6d6cdbdbad | Linux bridge agent | compute1 |                   | :-)   | True           | neutron-linuxbridge-agent |
+| 7f3bb419-0a87-46a1-9f6d-e8fc1b4629cc | Linux bridge agent | compute1 |                   | :-)   | True           | neutron-linuxbridge-agent |
 +--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
 + exit 0

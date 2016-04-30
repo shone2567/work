@@ -55,23 +55,23 @@ openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
 securitygroup firewall_driver neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
 
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT url http://controller:9696
+neutron url http://controller:9696
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT auth_url http://controller:35357
+neutron auth_url http://controller:35357
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT auth_type password
+neutron auth_type password
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT region_name RegionOne
+neutron region_name RegionOne
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT project_domain_name default
+neutron project_domain_name default
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT user_domain_name default
+neutron user_domain_name default
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT project_name service
+neutron project_name service
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT username neutron
+neutron username neutron
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT password Super123
+neutron password Super123
 
 systemctl restart openstack-nova-compute.service
 systemctl enable neutron-linuxbridge-agent.service
