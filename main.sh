@@ -45,6 +45,15 @@ main(){
   		fi
 	done
 
+	firewall-cmd --add-port=9696/tcp --permanent
+	firewall-cmd --add-port=8774/tcp --permanent
+	firewall-cmd --add-port=9292/tcp --permanent
+	firewall-cmd --add-port=5000/tcp --permanent
+	firewall-cmd --add-port=35357/tcp --permanent
+	firewall-cmd --add-port=11211/tcp --permanent
+	firewall-cmd --reload
+
+	
 	neutron_option="init_provider.sh"
 
 	if [ "$2" == "selfservice" ]; then
