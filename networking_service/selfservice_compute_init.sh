@@ -48,7 +48,7 @@ openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
 vxlan enable_vxlan True
 
 openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
-vxlan local_ip 10.0.0.11
+vxlan local_ip 10.0.0.31
 openstack-config --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini \
 vxlan l2_population True
 

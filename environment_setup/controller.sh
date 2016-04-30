@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./network_setup.sh
+./network_setup.sh 203.0.113.5
 hostnamectl set-hostname controller
 #installing NTP
 

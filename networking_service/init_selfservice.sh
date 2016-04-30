@@ -195,6 +195,9 @@ systemctl start neutron-server.service \
   neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
   neutron-metadata-agent.service
 
+systemctl enable neutron-l3-agent.service
+systemctl start neutron-l3-agent.service
+
 
 if [ ! -f ~/.ssh/id_rsa ]; then
         echo "start connection"

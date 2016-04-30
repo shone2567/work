@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./network_setup.sh
+./network_setup.sh 203.0.113.6
 hostnamectl set-hostname compute1
 yum install chrony -y
 sed -i 's/^server.*//g' /etc/chrony.conf

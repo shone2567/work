@@ -29,8 +29,11 @@ esac
 #echo "nameserver 8.8.8.8" >> /etc/hosts
 
 sed -i.bak '/UUID=.*/!d' /etc/sysconfig/network-scripts/ifcfg-enp0s8
+echo "IPADDR=$1" >> /etc/sysconfig/network-scripts/ifcfg-enp0s8
 cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-enp0s8
 DEVICE=enp0s8
+NETMASK=255.255.255.0
+GATEWAY=203.0.113.1
 TYPE=Ethernet
 ONBOOT="yes"
 BOOTPROTO="none"
