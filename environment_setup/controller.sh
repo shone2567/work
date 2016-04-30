@@ -32,7 +32,6 @@ systemctl start mariadb.service
 
 yum -y install expect
 
-// Not required in actual script
 MYSQL_ROOT_PASSWORD=Super123
 
 SECURE_MYSQL=$(expect -c "
