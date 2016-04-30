@@ -1,8 +1,8 @@
 #!/bin/bash
 
-./network_setup.sh 10.0.0.31
+./network_setup.sh
 yum install chrony -y
-sed -i 's/^server//g' /etc/chrony.conf
+sed -i 's/^server.*//g' /etc/chrony.conf
 echo "server controller iburst" >> /etc/chrony.conf
 systemctl enable chronyd.service
 systemctl start chronyd.service

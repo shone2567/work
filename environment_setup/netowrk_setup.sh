@@ -54,4 +54,4 @@ cat <<EOF >> /etc/hosts
 EOF
 
 
-
+exit 0

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./network_setup.sh 10.0.0.1
+./network_setup.sh
 
 #installing NTP
 
