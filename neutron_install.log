@@ -20,9 +20,9 @@
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
-| domain_id | a39af586683f404a9243687ce394c9f6 |
+| domain_id | db50924faea245dc8200a639e5f8d461 |
 | enabled   | True                             |
-| id        | c4246e8f93b04e0eb3d95804e5d56e85 |
+| id        | 44a7d91714ac411f9cd2245462615b34 |
 | name      | neutron                          |
 +-----------+----------------------------------+
 + openstack role add --project service --user neutron admin
@@ -32,7 +32,7 @@
 +-------------+----------------------------------+
 | description | OpenStack Networking             |
 | enabled     | True                             |
-| id          | 59f3f7ca6c624a478d93f23750f96b31 |
+| id          | 05842b480ff0491f9dec6f5a3e27c5af |
 | name        | neutron                          |
 | type        | network                          |
 +-------------+----------------------------------+
@@ -41,11 +41,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 695961657e164235aa99724bd229df39 |
+| id           | a80fa0a03c234a35b98e7d55c1720775 |
 | interface    | public                           |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
+| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -55,11 +55,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | 37e7d064403944a0947f03f29fa2437d |
+| id           | 383efe4b2bd346139b55f438bc8eb54f |
 | interface    | internal                         |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
+| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -69,11 +69,11 @@
 | Field        | Value                            |
 +--------------+----------------------------------+
 | enabled      | True                             |
-| id           | cd9239fc1f57416b937ed71f4e323e56 |
+| id           | 01a6cd81210a419781577f8d22b997d9 |
 | interface    | admin                            |
 | region       | RegionOne                        |
 | region_id    | RegionOne                        |
-| service_id   | 59f3f7ca6c624a478d93f23750f96b31 |
+| service_id   | 05842b480ff0491f9dec6f5a3e27c5af |
 | service_name | neutron                          |
 | service_type | network                          |
 | url          | http://controller:9696           |
@@ -212,7 +212,11 @@ send: spawn id exp6 not open
 + '[' '!' -f /root/compute1_neutron_finished ']'
 + echo 'installing neutron service'
 installing neutron service
++ sleep 10
 + ssh root@10.0.0.31 '~/compute_init.sh'
++ '[' '!' -f /root/compute1_neutron_finished ']'
++ echo 'installing neutron service'
+installing neutron service
 + sleep 10
 + '[' '!' -f /root/compute1_neutron_finished ']'
 + echo 'installing neutron service'
@@ -266,5 +270,9 @@ installing neutron service
 | address-scope             | Address scope                    |
 +---------------------------+----------------------------------+
 + neutron agent-list
-
++--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
+| id                                   | agent_type         | host     | availability_zone | alive | admin_state_up | binary                    |
++--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
+| ad78b230-5a6a-4de1-96fb-2a6d6cdbdbad | Linux bridge agent | compute1 |                   | :-)   | True           | neutron-linuxbridge-agent |
++--------------------------------------+--------------------+----------+-------------------+-------+----------------+---------------------------+
 + exit 0

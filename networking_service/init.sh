@@ -146,29 +146,27 @@ openstack-config --set /etc/neutron/metadata_agent.ini \
 DEFAULT verbose True
 
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT url http://controller:9696
+neutron url http://controller:9696
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT auth_url http://controller:35357
+neutron auth_url http://controller:35357
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT auth_type password
+neutron auth_type password
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT project_domain_name default
+neutron project_domain_name default
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT user_domain_name default
+neutron user_domain_name default
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT region_name RegionOne
+neutron region_name RegionOne
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT project_name service
+neutron project_name service
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT username neutron
+neutron username neutron
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT password Super123
+neutron password Super123
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT service_metadata_proxy True
+neutron service_metadata_proxy True
 openstack-config --set /etc/nova/nova.conf \
-DEFAULT metadata_proxy_shared_secret Super123
-openstack-config --set /etc/nova/nova.conf \
-DEFAULT verbose True
+neutron metadata_proxy_shared_secret Super123
 
 ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
 

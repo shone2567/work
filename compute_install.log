@@ -1,5 +1,5 @@
 Creating user "openstack" ...
-Error: user_already_exists: openstack
+...done.
 Setting permissions for user "openstack" in vhost "/" ...
 ...done.
 success
@@ -25,19 +25,19 @@ success
 + yum -y install expect
 Loaded plugins: fastestmirror, priorities
 Loading mirror speeds from cached hostfile
- * base: mirror.pac-12.org
- * extras: centos.den.host-engine.com
- * updates: centos.mirror.lstn.net
-1368 packages excluded due to repository priority protections
+ * base: mirrors.cat.pdx.edu
+ * extras: mirror.supremebytes.com
+ * updates: mirrors.cat.pdx.edu
+424 packages excluded due to repository priority protections
 Package expect-5.45-14.el7_1.x86_64 already installed and latest version
 Nothing to do
 + openstack user create --domain default --password Super123 nova
 +-----------+----------------------------------+
 | Field     | Value                            |
 +-----------+----------------------------------+
-| domain_id | a39af586683f404a9243687ce394c9f6 |
+| domain_id | db50924faea245dc8200a639e5f8d461 |
 | enabled   | True                             |
-| id        | 3894bc33cfda4d0d9165001e6e1b5d20 |
+| id        | d29d28e12126440fb0b8158077dc2eed |
 | name      | nova                             |
 +-----------+----------------------------------+
 + openstack role add --project service --user nova admin
@@ -47,7 +47,7 @@ Nothing to do
 +-------------+----------------------------------+
 | description | OpenStack Compute                |
 | enabled     | True                             |
-| id          | ed2b27d5664b4794960388a4e1e476e1 |
+| id          | 431c6a9e0c3a4c0d8d1e774d28173f74 |
 | name        | nova                             |
 | type        | compute                          |
 +-------------+----------------------------------+
@@ -56,11 +56,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | 49a35327efc6403cab0f066fffc3c278          |
+| id           | 0697c3603fa74ab5ab380c1016e5a408          |
 | interface    | public                                    |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
+| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -70,11 +70,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | 608dd6fda70c43518a1ef309dfd49e8b          |
+| id           | 6b1c73423b7e4bf69fce28069606e467          |
 | interface    | internal                                  |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
+| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -84,11 +84,11 @@ Nothing to do
 | Field        | Value                                     |
 +--------------+-------------------------------------------+
 | enabled      | True                                      |
-| id           | b8617a45056045f89bbad8bdd84cd76f          |
+| id           | 04cd26c4983b48bb9186685fff7403e8          |
 | interface    | admin                                     |
 | region       | RegionOne                                 |
 | region_id    | RegionOne                                 |
-| service_id   | ed2b27d5664b4794960388a4e1e476e1          |
+| service_id   | 431c6a9e0c3a4c0d8d1e774d28173f74          |
 | service_name | nova                                      |
 | service_type | compute                                   |
 | url          | http://controller:8774/v2.1/%(tenant_id)s |
@@ -96,10 +96,10 @@ Nothing to do
 + yum install -y openstack-nova-api openstack-nova-conductor openstack-nova-console openstack-nova-novncproxy openstack-nova-scheduler
 Loaded plugins: fastestmirror, priorities
 Loading mirror speeds from cached hostfile
- * base: mirror.pac-12.org
- * extras: centos.den.host-engine.com
- * updates: centos.mirror.lstn.net
-1368 packages excluded due to repository priority protections
+ * base: mirrors.cat.pdx.edu
+ * extras: mirror.supremebytes.com
+ * updates: mirrors.cat.pdx.edu
+424 packages excluded due to repository priority protections
 Resolving Dependencies
 --> Running transaction check
 ---> Package openstack-nova-api.noarch 1:13.0.0.0b4-0.20160304162843.c5a45a2.el7.centos will be installed
@@ -227,7 +227,7 @@ Total download size: 8.8 M
 Installed size: 36 M
 Downloading packages:
 --------------------------------------------------------------------------------
-Total                                              2.0 MB/s | 8.8 MB  00:04     
+Total                                              1.4 MB/s | 8.8 MB  00:06     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -366,18 +366,18 @@ Generating public/private rsa key pair.
 Your identification has been saved in id_rsa.
 Your public key has been saved in id_rsa.pub.
 The key fingerprint is:
-5f:8f:55:43:86:62:19:e4:94:8a:7c:f5:68:79:b5:dc root@controller
+d7:8a:5b:fa:82:45:cc:a4:8f:d6:de:db:10:64:b6:ce root@controller
 The key's randomart image is:
 +--[ RSA 2048]----+
-|          .++ .o |
-|          o* .o. |
-|      . . +.= o.+|
-|       o o + o +E|
-|        S . o .  |
-|         . . +   |
-|          . . .  |
 |                 |
-|                 |
+|        .        |
+|       =  +      |
+|      . ++ o     |
+|       =S + .    |
+|      o += o     |
+|     . +..E      |
+|      . o+.o     |
+|        ooo..    |
 +-----------------+
 + cp id_rsa id_rsa.pub /root/.ssh/
 + rm -f id_rsa id_rsa.pub
@@ -385,7 +385,7 @@ The key's randomart image is:
 + ./ssh_key_auth.sh 10.0.0.31
 spawn ssh-copy-id 10.0.0.31
 The authenticity of host '10.0.0.31 (10.0.0.31)' can't be established.
-ECDSA key fingerprint is 9b:b8:96:a8:31:67:6f:39:7c:ad:a2:b5:8b:67:1e:d0.
+ECDSA key fingerprint is 5c:42:52:88:42:c5:a1:b9:30:86:8a:6b:ba:9d:a6:df.
 Are you sure you want to continue connecting (yes/no)? yes
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
@@ -398,22 +398,10 @@ and check to make sure that only the key(s) you wanted were added.
 
 + scp ssh_key_auth.sh compute_init.sh 'root@10.0.0.31:~'
 + '[' '!' -f /root/compute1_finished ']'
++ echo 'installing compute node'
+installing compute node
++ sleep 10
 + ssh root@10.0.0.31 '~/compute_init.sh'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
-+ '[' '!' -f /root/compute1_finished ']'
-+ echo 'installing compute node'
-installing compute node
-+ sleep 10
 + '[' '!' -f /root/compute1_finished ']'
 + echo 'installing compute node'
 installing compute node
@@ -460,9 +448,9 @@ installing compute node
 +----+------------------+------------+----------+---------+-------+----------------------------+
 | Id | Binary           | Host       | Zone     | Status  | State | Updated At                 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
-|  1 | nova-consoleauth | controller | internal | enabled | up    | 2016-04-29T19:47:30.000000 |
-|  2 | nova-conductor   | controller | internal | enabled | up    | 2016-04-29T19:47:31.000000 |
-|  3 | nova-scheduler   | controller | internal | enabled | up    | 2016-04-29T19:47:32.000000 |
-|  8 | nova-compute     | compute1   | nova     | enabled | up    | 2016-04-29T19:47:33.000000 |
+|  1 | nova-conductor   | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
+|  2 | nova-scheduler   | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
+|  3 | nova-consoleauth | controller | internal | enabled | up    | 2016-04-30T07:43:25.000000 |
+|  6 | nova-compute     | compute1   | nova     | enabled | up    | 2016-04-30T07:43:27.000000 |
 +----+------------------+------------+----------+---------+-------+----------------------------+
 + exit 0
