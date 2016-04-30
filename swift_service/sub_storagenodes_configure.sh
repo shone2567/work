@@ -22,7 +22,7 @@ do
 	node_ip=$(echo "$node_info" | cut -d " " -f2)
 	./ssh_key_auth.sh "$node_ip"
 	scp ssh_key_auth.sh storage_init.sh root@"$node_ip":~
-	ssh root@$node_ip '~/storage_init.sh' &>> "$node_ip""_output" &
+	ssh root@$node_ip '~/storage_init.sh' &>> "$node_ip""_output.log" &
 done
 
 

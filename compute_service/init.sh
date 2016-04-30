@@ -161,7 +161,7 @@ node_ip=10.0.0.31
 ./ssh_key_auth.sh "$node_ip"
 
 scp ssh_key_auth.sh compute_init.sh root@"$node_ip":~
-ssh root@$node_ip '~/compute_init.sh' &>> "$node_ip""compute_output" &
+ssh root@$node_ip '~/compute_init.sh' &>> "$node_ip""compute_output.log" &
 
 while [ ! -f ~/compute1_finished ]   #wait storage nodes finished
 do
