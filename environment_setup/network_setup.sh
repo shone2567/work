@@ -53,5 +53,6 @@ cat <<EOF >> /etc/hosts
 10.0.0.52       object2
 EOF
 
+ifup enp0s8 
 
 exit 0

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ./network_setup.sh
+hostnamectl set-hostname compute1
 yum install chrony -y
 sed -i 's/^server.*//g' /etc/chrony.conf
 echo "server controller iburst" >> /etc/chrony.conf

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ./network_setup.sh
-
+hostnamectl set-hostname controller
 #installing NTP
 
 yum install -y chrony
