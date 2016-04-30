@@ -49,7 +49,7 @@ main(){
        		   spinner $! "Compute Service"
 		   echo ""
        		   #echo "install neutron"
-		   $DIR/networking_service/init.sh &> "neutron_install.log" &
+		   $DIR/networking_service/init_selfservice.sh &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
 		   echo " "
 		   echo "Depolyment Finished"
