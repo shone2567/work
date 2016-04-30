@@ -61,7 +61,7 @@ echo "$SECURE_MYSQL ***************************"
 
 
 # Install rabbitmq
-install rabbitmq-server -y
+yum install rabbitmq-server -y
 systemctl enable rabbitmq-server.service
 systemctl start rabbitmq-server.service
 

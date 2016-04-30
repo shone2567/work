@@ -15,15 +15,18 @@ exit
 ;;
 esac
 
-sed -i.bak 's/^ONBOOT=.*/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-enp0s3
-sed -i 's/^BOOTPROTO=.*/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-enp0s3
-echo "IPADDR=$1" >> /etc/sysconfig/network-scripts/ifcfg-enp0s3
+#  comment now due to the assumption that we have internet access before deployment
 
-cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-enp0s3
-NETMASK=255.255.255.0
-GATEWAY=10.0.0.1
-EOF
+#sed -i.bak 's/^ONBOOT=.*/ONBOOT=yes/' /etc/sysconfig/network-scripts/ifcfg-enp0s3
+#sed -i 's/^BOOTPROTO=.*/BOOTPROTO=static/' /etc/sysconfig/network-scripts/ifcfg-enp0s3
+#echo "IPADDR=$1" >> /etc/sysconfig/network-scripts/ifcfg-enp0s3
 
+#cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-enp0s3
+#NETMASK=255.255.255.0
+#GATEWAY=10.0.0.1
+#EOF
+
+#echo "nameserver 8.8.8.8" >> /etc/hosts
 
 sed -i.bak '/UUID=.*/!d' /etc/sysconfig/network-scripts/ifcfg-enp0s8
 cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-enp0s8
