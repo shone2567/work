@@ -38,18 +38,21 @@ main(){
 		   echo "##################################################"
 		   #echo "install keystone"
 		   $DIR/identity_service/init.sh &> "keystone_install.log" &
-       		   spinner $! "keystone"
+       		   spinner $! "Keystone Service"
+		   echo ""
 		   #echo "install glance"
 		   $DIR/glance_service/init.sh &> "glance_install.log" &
-       		   spinner $! "glance"
+       		   spinner $! "Glance Service"
+		   echo ""
                    #echo "install compute"
                    $DIR/compute_service/init.sh &> "compute_install.log" &
-       		   spinner $! "compute"
+       		   spinner $! "Compute Service"
+		   echo ""
        		   #echo "install neutron"
 		   $DIR/networking_service/init.sh &> "neutron_install.log" &
-       		   spinner $! "neutron"
+       		   spinner $! "Neutron Service"
 		   echo " "
-		   echo "Depolyment finished"
+		   echo "Depolyment Finished"
 		;;
 		2)
  	           echo "###        Deploy Option2      ###"
