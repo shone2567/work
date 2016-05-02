@@ -49,7 +49,7 @@ main(){
 			
 		ssh_setup $compute1
 	        scp ssh_key_auth.sh compute1_setup.sh root@"$compute1":~
-		ssh root@$compute1 '~/compute_setup.sh' &>> "$compute1""_setup.log"
+		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log"
 		echo "Finished environment setup"
 		 
 	fi
