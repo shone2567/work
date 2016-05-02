@@ -20,7 +20,7 @@ main(){
 
 	compute1="10.0.0.31"
 	controller="10.0.0.11"
-
+	COUNT=4
 	for myHost in $HOSTS
 	do
   		count=$(ping -c $COUNT $myHost | grep 'received' | awk -F',' '{ print $2 }' | awk '{ print $1 }')
@@ -36,7 +36,7 @@ main(){
 
 	#check installed packages
         
-	if yum -q list installed $1 &>/dev/null; then
+	if yum -q list installed centos-release-openstack-mitaka &>/dev/null; then
         	echo "Openstack Packages already installed pass eviroment setup"
 	else
         	echo "Openstack packages is not installed. Start installing "
@@ -48,14 +48,14 @@ main(){
 	#scp enviroment file to compute1
 			
 		ssh_setup $compute1
-	        scp ssh_key_auth.sh compute_setup.sh root@"$compute1":~
+	        scp ssh_key_auth.sh compute1_setup.sh root@"$compute1":~
 		ssh root@$compute1 '~/compute_setup.sh' &>> "$compute1""_setup.log"
 		echo "Finished environment setup"
 		 
 	fi
 
 	echo "Finished enviroment setup"
-
+        read
 	case $1 in
 	--help*)
 		cat <<-HELP
