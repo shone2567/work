@@ -49,13 +49,12 @@ main(){
 	     		
 		ssh_setup $compute1
 	        scp $DIR/ssh_key_auth.sh $DIR/environment_setup/compute1_setup.sh $DIR/environment_setup/network_setup.sh root@"$compute1":~
-		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log"
+		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log" &
 		spinner $! "openstack packages on compute1 node"
 		echo "Finished environment setup"
 		 
 	fi
 
-	echo "Finished enviroment setup"
         read
 	case $1 in
 	--help*)

@@ -67,7 +67,7 @@ echo "$SECURE_MYSQL ***************************"
 yum install rabbitmq-server -y
 systemctl enable rabbitmq-server.service
 systemctl start rabbitmq-server.service
-
+sleep 5
 rabbitmqctl add_user openstack Super123
 rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 
