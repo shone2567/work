@@ -7,12 +7,57 @@ main(){
 		echo "####################################"
 		echo "Usage : $0 Deploy Option"
 		echo "Please check $0 --help"
-		exit
+		exit 1
 	fi
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-		case $1 in
-		--help*)
+	
+	echo "Check environment status"
+		
+        #only two nodes for now will add more nodes later
+
+	HOSTS="10.0.0.31 10.0.0.11"  
+
+	compute1="10.0.0.31"
+	controller="10.0.0.11"
+
+	for myHost in $HOSTS
+	do
+  		count=$(ping -c $COUNT $myHost | grep 'received' | awk -F',' '{ print $2 }' | awk '{ print $1 }')
+  		if [ $count -eq 0 ]; then
+    		# 100% failed
+    			echo "Host : $myHost is down (ping failed) at $(date)"
+			exit 1
+ 	        else
+   			echo "Host : $myHost is alive"
+
+  		fi
+	done
+
+	#check installed packages
+        
+	if yum -q list installed $1 &>/dev/null; then
+        	echo "Openstack Packages already installed pass eviroment setup"
+	else
+        	echo "Openstack packages is not installed. Start installing "
+		echo "Setting up controller environment"
+		$DIR/environment_setup/controller_setup.sh &> "controller_setup.log" &
+		echo "Finished"
+		echo "Setting up compute environment"
+
+	#scp enviroment file to compute1
+			
+		ssh_setup $compute1
+	        scp ssh_key_auth.sh compute_setup.sh root@"$compute1":~
+		ssh root@$compute1 '~/compute_setup.sh' &>> "$compute1""_setup.log"
+		echo "Finished environment setup"
+		 
+	fi
+
+	echo "Finished enviroment setup"
+
+	case $1 in
+	--help*)
 		cat <<-HELP
 		#    OpenStack multinode deployment tool
 		#-----------------------------------------------------
@@ -32,8 +77,8 @@ main(){
 		#    ./main 1   <-- deploy option 1
 		#
 		HELP
-		exit
-		;;
+	exit
+	;;
 		1) echo "###        Deploy Option1       ###"
 		   echo "##################################################"
 		   #echo "install keystone"
@@ -44,7 +89,7 @@ main(){
 		   $DIR/glance_service/init.sh &> "glance_install.log" &
        		   spinner $! "Glance Service"
 		   echo ""
-                   #echo "install compute"
+                   #echo "install compute
                    $DIR/compute_service/init.sh &> "compute_install.log" &
        		   spinner $! "Compute Service"
 		   echo ""
@@ -91,19 +136,38 @@ main(){
 
 spinner()
 {
-    local pid=$1
-    local delay=0.55
-    local spinstr='|/-\'
-    echo -n "Installing $2 ......."
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
+	local pid=$1
+	local delay=0.55
+	local spinstr='|/-\'
+	echo -n "Installing $2 ......."
+	while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        	local temp=${spinstr#?}
+        	printf " [%c]  " "$spinstr"
+        	local spinstr=$temp${spinstr%"$temp"}
+        	sleep $delay
+        	printf "\b\b\b\b\b\b"
+    	done
+	printf "    \b\b\b\b"
 }
+
+ssh_setup()
+{
+	if [ ! -f ~/.ssh/id_rsa ]; then
+        	echo "start connection"
+        	mkdir ~/.ssh
+        	chmod 700 ~/.ssh
+        	ssh-keygen -f id_rsa -t rsa -N ''
+        	cp id_rsa id_rsa.pub "/root/.ssh/"
+        	rm -f id_rsa id_rsa.pub
+	else
+        	echo "already have rsa keys"
+	fi
+
+	node_ip=$1
+	./ssh_key_auth.sh "$node_ip"
+
+}
+
 
 main "$@"
 
