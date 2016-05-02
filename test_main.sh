@@ -42,13 +42,13 @@ main(){
         	echo "Openstack packages is not installed. Start installing "
 		echo "Setting up controller environment"
 		$DIR/environment_setup/controller_setup.sh &> "controller_setup.log" &
-		echo "Finished"
+		spinner $! "controller"
+  		echo "Finished"
 		echo "Setting up compute environment"
-
 	#scp enviroment file to compute1
-			
+	     		
 		ssh_setup $compute1
-	        scp ssh_key_auth.sh compute1_setup.sh root@"$compute1":~
+	        scp ssh_key_auth.sh compute1_setup.sh network_setup.sh root@"$compute1":~
 		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log"
 		echo "Finished environment setup"
 		 
