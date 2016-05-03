@@ -2,7 +2,6 @@
 
 
 cd /root/work/environment_setup
-./network_setup.sh 203.0.113.5
 
 #installing NTP
 
@@ -68,10 +67,11 @@ yum install rabbitmq-server -y
 systemctl enable rabbitmq-server.service
 systemctl start rabbitmq-server.service
 #sleep 5
-#systemctl restart rabbitmq-server.service
-#rabbitmqctl add_user openstack Super123
-#rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+systemctl restart rabbitmq-server.service
+rabbitmqctl add_user openstack Super123
+rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 
+./network_setup.sh 203.0.113.5
 hostnamectl set-hostname controller
 systemctl restart network
 
