@@ -44,13 +44,6 @@ main(){
 		$DIR/environment_setup/controller_setup.sh &> "controller_setup.log" &
 		spinner $! "openstack packages on controller node"
   		
-		#echo "setup rabbitmq"
-		#yum install rabbitmq-server -y &> /dev/null
-		#systemctl enable rabbitmq-server.service
-  		#systemctl start rabbitmq-server.service
-		#rabbitmqctl add_user openstack Super123
-		#rabbitmqctl set_permissions openstack ".*" ".*" ".*"
-
 		echo "Finished"
 		echo "Setting up compute environment"
 	#scp enviroment file to compute1
@@ -59,6 +52,7 @@ main(){
 	        scp $DIR/ssh_key_auth.sh $DIR/environment_setup/compute1_setup.sh $DIR/environment_setup/network_setup.sh root@"$compute1":~
 		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log" &
 		spinner $! "openstack packages on compute1 node"
+		echo ""
 		echo "Finished environment setup"
 		 
 	fi

@@ -71,7 +71,9 @@ systemctl restart rabbitmq-server.service
 rabbitmqctl add_user openstack Super123
 rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 
-./network_setup.sh 203.0.113.5
+
+/root/work/environment_setup/network_setup.sh 203.0.113.5
+
 hostnamectl set-hostname controller
 systemctl restart network
 
