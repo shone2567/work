@@ -5,7 +5,7 @@ systemctl start lvm2-lvmetad.service
 
 
 #cp -f block_storage_mitaka/cinder_storage/lvm.conf /etc/lvm/
-sed -i 's/.*devices {.*/&\nfilter = [ "a/sdb/", "r/.*/"]/' /etc/lvm/lvm.conf
+sed -i 's|.*devices {.*|&\nfilter = [ "a/sdb/", "r/.*/"]|' /etc/lvm/lvm.conf
 
 pvcreate /dev/sdb
 vgcreate cinder-volumes /dev/sdb
