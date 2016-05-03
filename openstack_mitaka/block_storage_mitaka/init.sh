@@ -7,6 +7,6 @@ scp -r cinder_storage root@block1
 
 #change to block
 ssh root@block1
-./block_storage_service_deploy.sh
+. cinder_storage/block_storage_service_deploy.sh
 
 
