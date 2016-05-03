@@ -28,7 +28,9 @@ pvcreate /dev/sdc
 vgcreate manila-volumes /dev/sdc
 
 #change lvm file
-cp -f lvm.conf /etc/lvm/
+#cp -f lvm.conf /etc/lvm/
+
+sed -i "s%filter = [ "a/sdb/", "r/.*/"]%filter = [ "a/sdb/", "a/sdc/" "r/.*/"]%g" /etc/lvm/lvm.conf
 
 openstack-config --set /etc/manila/manila.conf DEFAULT enabled_share_backends lvm
 openstack-config --set /etc/manila/manila.conf DEFAULT enabled_share_protocols NFS,CIFS
