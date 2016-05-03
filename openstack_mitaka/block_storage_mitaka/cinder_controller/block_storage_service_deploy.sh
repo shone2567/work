@@ -6,7 +6,7 @@ EXIT
 CREATECINDER
 
 #. admin-openrc
-. /block_storage_mitaka/cinder_controller/admin-openrc
+. admin-openrc
 
 
 openstack user create --domain default --password Super123 cinder
