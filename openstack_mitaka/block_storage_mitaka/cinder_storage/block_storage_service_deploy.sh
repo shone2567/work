@@ -3,6 +3,10 @@ yum install -y lvm2
 systemctl enable lvm2-lvmetad.service
 systemctl start lvm2-lvmetad.service
 
+
+#cp -f block_storage_mitaka/cinder_storage/lvm.conf /etc/lvm/
+sed -i 's/.*devices {.*/&\nfilter = [ "a/sdb/", "r/.*/"]/' /etc/lvm/lvm.conf
+
 pvcreate /dev/sdb
 vgcreate cinder-volumes /dev/sdb
 
@@ -10,7 +14,7 @@ vgcreate cinder-volumes /dev/sdb
 #scp block_storage_mitaka/cinder_storage/lvm.conf root@block1:/root
 #ssh root@block1
 #cd /root
-cp -f block_storage_mitaka/cinder_storage/lvm.conf /etc/lvm/
+
 
 yum install -y openstack-cinder targetcli
 
