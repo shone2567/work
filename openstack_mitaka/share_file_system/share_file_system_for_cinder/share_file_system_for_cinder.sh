@@ -30,7 +30,10 @@ vgcreate manila-volumes /dev/sdc
 #change lvm file
 #cp -f lvm.conf /etc/lvm/
 
-sed -i "s%filter = [ "a/sdb/", "r/.*/"]%filter = [ "a/sdb/", "a/sdc/" "r/.*/"]%g" /etc/lvm/lvm.conf
+#sed -i "s%filter = [ "a/sdb/", "r/.*/"]%filter = [ "a/sdb/", "a/sdc/", "r/.*/"]%g" /etc/lvm/lvm.conf
+sed -i '/devices {/{n;d}' /etc/lvm/lvm.conf
+sed -i 's|.*devices {.*|&\nfilter = [ "a/sdb/", "a/sdc/", "r/.*/"]|' /etc/lvm/lvm.conf
+
 
 openstack-config --set /etc/manila/manila.conf DEFAULT enabled_share_backends lvm
 openstack-config --set /etc/manila/manila.conf DEFAULT enabled_share_protocols NFS,CIFS
