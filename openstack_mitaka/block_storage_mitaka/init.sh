@@ -1,4 +1,3 @@
-
 #execute
 . cinder_controller/block_storage_service.sh
 
