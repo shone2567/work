@@ -1,6 +1,6 @@
 
 #execute
-. cinder/controller/block_storage_service.sh
+. cinder_controller/block_storage_service.sh
 
 ./ssh-keygen
 scp -r cinder_storage root@block1
