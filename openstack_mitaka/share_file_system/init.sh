@@ -3,5 +3,4 @@
 #./ssh-keygen
 scp -r share_file_system_for_cinder root@block1:/root
 
-ssh root@block1
-. share_file_system_for_cinder/share_file_system_for_cinder.sh
+ssh -t root@block1 ". share_file_system_for_cinder/share_file_system_for_cinder.sh"
