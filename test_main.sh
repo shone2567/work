@@ -43,7 +43,12 @@ main(){
 		echo "Setting up controller environment"
 		$DIR/environment_setup/controller_setup.sh &> "controller_setup.log" &
 		spinner $! "openstack packages on controller node"
-  		echo "Finished"
+  		
+		echo "setup rabbitmq"
+		rabbitmqctl add_user openstack Super123
+		rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+
+		echo "Finished"
 		echo "Setting up compute environment"
 	#scp enviroment file to compute1
 	     		

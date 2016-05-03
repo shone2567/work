@@ -69,8 +69,8 @@ systemctl enable rabbitmq-server.service
 systemctl start rabbitmq-server.service
 #sleep 5
 #systemctl restart rabbitmq-server.service
-rabbitmqctl add_user openstack Super123
-rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+#rabbitmqctl add_user openstack Super123
+#rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 
 hostnamectl set-hostname controller
 systemctl restart network
