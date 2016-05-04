@@ -16,7 +16,7 @@ main(){
 		
         #Set node number based on deploy option
 
-	if [ $1 -eq 3]; then
+	if [ $1 -eq 3 ]; then
 
 		HOSTS="10.0.0.31 10.0.0.11 10.0.0.51 10.0.0.52"
 
@@ -37,6 +37,7 @@ main(){
   		if [ $count -eq 0 ]; then
     		# 100% failed
     			echo "Host : $myHost is down (ping failed) at $(date)"
+			echo "Please check all nodes status"
 			exit 1
  	        else
    			echo "Host : $myHost is alive"
@@ -58,7 +59,7 @@ main(){
 		echo "Setting up compute environment"
 	#scp enviroment file to compute1
 	     		
-		ssh_setup $compute1
+		ssh_setup $compute1 &>>/dev/null
 	        scp $DIR/ssh_key_auth.sh $DIR/environment_setup/compute1_setup.sh $DIR/environment_setup/network_setup.sh root@"$compute1":~
 		ssh root@$compute1 '~/compute1_setup.sh' &>> "$compute1""_setup.log" &
 		spinner $! "openstack packages on compute1 node"
@@ -152,6 +153,7 @@ main(){
        		   #echo "install neutron"
 		   $DIR/networking_service/init_selfservice.sh &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
+		   echo ""
 		   #echo "install horizon"
 		   $DIR/horizon_service/init.sh &> "Horizon_install.log"
 		   spinner $! "Horizon Service"
