@@ -1,5 +1,5 @@
 #execute
-. cinder_controller/block_storage_service_deploy.sh &> /dev/null
+. cinder_controller/block_storage_service_deploy.sh
 
 ./ssh-keygen
 scp -r cinder_storage root@block1:/root
