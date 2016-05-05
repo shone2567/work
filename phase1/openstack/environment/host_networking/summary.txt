@@ -1,0 +1,4 @@
+dev,enp0s3,10.0.2.15,24,--,auto,ethernet,connected,enp0s3,1,1edfd6c1-f9d6-44a8-950c-e946b00ea2c5,2
+dev,enp0s9,192.168.56.104,24,,,ethernet,connected,Wired connection 1,0,dc4d6007-56f0-4d4c-a79d-ee67fecf50a1,4
+dev,enp0s8,,,,,ethernet,connecting,Wired connection 2,0,20da4ce2-65ac-4e2d-bc15-d2836876dc54,
+dev,lo,127.0.0.1,8,,,loopback,unmanaged,,0,,1

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+pipe=/tmp/testpipe
+
+trap "rm -f $pipe" EXIT
+
+if [[ ! -p $pipe ]]; then
+	mkfifo $pipe
+fi
+
+while true
+do 
+	echo 'before'
+	if read line <$pipe; then   #read return alwyas non-zero value
+		if [[ "$line" == 'quit' ]]; then
+			break
+		fi
+		echo $line
+	
+	else 
+
+		echo oops          # should never execute this line
+	fi
+done
+
+:<<COMMENT
+while read line < $pipe
+do
+	if [[ "$line" == 'quit' ]]; then
+		break
+	fi
+		echo dgsdfsd $line
+		echo opps
+done
+COMMENT
+
+
+
+echo "Reader exiting"
+
+  

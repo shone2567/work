@@ -1,0 +1,20 @@
+WORK_DIR=$HOME/work
+openstack_work_dir=$WORK_DIR/openstack
+openstack_conf_dir=$openstack_work_dir/config/
+openstack_var=$openstack_conf/openstack.var
+openstack_hosts_conf=$openstack_conf_dir/openstack_hosts.config
+openstack_node_def=$openstack_conf_dir/openstack_node.def
+openstack_errorcode_def=$openstack_conf_dir/openstack_errorcode.def
+openstack_network_conf=$openstack_conf_dir/openstack_network.config
+openstack_service_conf=$openstack_conf_dir/openstack_service.config
+openstack_password_def=$openstack_conf_dir/openstack_password.def
+export WORK_DIR
+export openstack_work_dir
+export openstack_conf_dir
+export openstack_var
+export openstack_hosts_conf
+export openstack_node_def
+export openstack_errorcode_def
+export openstack_network_conf
+export openstack_service_conf
+export openstack_password_def

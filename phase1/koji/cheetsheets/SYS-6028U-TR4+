@@ -1,0 +1,1374 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html LANG=en-Us>
+<head>
+	<title>Supermicro | Products | SuperServers | 2U | 6028U-TR4+                                                                                                                    </title>
+	<META NAME="keywords" content="6028U-TR4+, SYS-6028U-TR4+, SS6028U-TR4+, Ultra">
+	<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+	
+		<div id="clangform" style="z-index: 60; position:absolute; top:48px;  left: 600px;" >
+		<FORM METHOD="POST" NAME="Selectlg" action="">
+		<select NAME="lgus" CLASS="sup" onchange="document.Selectlg.submit();">
+		    <option value="1" selected="selected" >English</option>
+		    <option value="2">繁體中文</option>
+		    <option value="3">簡体中文</option>
+		    <option value="4">日本語</option>
+		</select>
+		</form >
+		</div >
+
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="/style/basic.css" type="text/css">
+    <link rel="stylesheet" href="/style/seo.css" type="text/css">
+	
+<script type="text/javascript" src="/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/lib/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/lib/jquery.validate.min.js"></script>
+
+	<script language="javascript" src="/interface/navigationDhtml.js"></script>
+	<script language="javascript">
+	<!--
+		defaultSubnav = "emptySubnav";
+	// -->
+	</script>
+	<SCRIPT SRC="/lib/qforms.js"></SCRIPT>
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+		qFormAPI.setLibraryPath("/lib/");
+		qFormAPI.include("*");
+	//-->
+	</SCRIPT>
+	<script language="JavaScript">
+			function popUp(strURL,strType,strHeight,strWidth) {
+				var strOptions="";
+				if (strType=="console") strOptions="resizable,height="+strHeight+",width="+strWidth;
+				if (strType=="fixed") strOptions="status,height="+strHeight+",width="+strWidth;
+				if (strType=="elastic") strOptions="scrollbars=yes,resizable,height="+strHeight+",width="+strWidth;
+				window.open(strURL, 'newWin', strOptions);
+			}		   
+	</script>
+
+	
+
+	
+	
+	<div id="resetSubnav" class="resetSubnav">
+		<a href="#" onmouseover="settimedreset();" onclick="return false;" target="_top"><img src="/a_images/pixel.gif" width="99%" height="560" border="0"></a>
+	</div>
+
+	<div id="topNav" class="topNav"> 
+	<table border="0" cellpadding="0" cellspacing="0" width="731">
+		<tr valign="top">
+			<td width="101" height="24" valign="top"><a href="/about/" onMouseOver="showtopnav('aboutus');" target="_top"><img name="aboutus" src="/a_images/nav/m_aboutOff.gif" width="101" height="24" border="0" alt="About Us"></a></td>
+			<td width="101" height="24" valign="top"><a href="/products/" onMouseOver="showtopnav('products');" target="_top"><img name="products" src="/a_images/nav/m_prodOff.gif" width="101" height="24" border="0" alt="Products"></a></td>
+			<td width="101" height="24" valign="top"><a href="/support/" onMouseOver="showtopnav('support');" target="_top"><img name="support" src="/a_images/nav/m_supportOff.gif" width="101" height="24" border="0" alt="Support"></a></td>
+			<td width="101" height="24" valign="top"><a href="/newsroom/" onMouseOver="showtopnav('news');" target="_top"><img name="news" src="/a_images/nav/m_newsOff.gif" width="101" height="24" border="0" alt="News"></a></td>
+			<td width="101" height="24" valign="top"><a href="/wheretobuy/" onMouseOver="showtopnav('wheretobuy');" target="_top"><img name="wheretobuy" src="/a_images/nav/m_whereOff.gif" width="101" height="24" border="0" alt="Where To Buy"></a></td>
+			<td width="226" height="24" valign="top"><img src="/a_images/nav/menu_space.gif" width="226" height="24"></td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="aboutusSubnav" class="aboutusSubnav">
+	<table border="0" cellpadding="0" cellspacing="0" width="731" background="/a_images/nav/s_about.gif">
+		<tr valign="top">
+			<td width="18" height="25"></td>			
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a1"></td>
+			<td height="25" class="textNav" valign="middle" ><a href="/about/" class="nav" onMouseOver="doton('a1','aboutusSubnav');" onMouseOut="dotoff('a1','aboutusSubnav');" target="_top">About Us</a></td>			
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a3"></td>
+			<td height="25"  class="textNav" valign="middle"><a href="/about/milestones/" class="nav" onMouseOver="doton('a3','aboutusSubnav');" onMouseOut="dotoff('a3','aboutusSubnav');" target="_top">Company Milestones</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a4"></td>
+			<td height="25" class="textNav" valign="middle"><a href="http://ir.supermicro.com/" class="nav" onMouseOver="doton('a4','aboutusSubnav');" onMouseOut="dotoff('a4','aboutusSubnav');" target="_top">Investor Relations</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a5"></td>
+			<td height="25"  class="textNav" valign="middle"><a href="/applyjob" class="nav" onMouseOver="doton('a5','aboutusSubnav');" onMouseOut="dotoff('a5','aboutusSubnav');" target="_top">Careers</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a6"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/about/contact/" class="nav" onMouseOver="doton('a6','aboutusSubnav');" onMouseOut="dotoff('a6','aboutusSubnav');" target="_top">Contact</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a7"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/about/policies/" class="nav" onMouseOver="doton('a7','aboutusSubnav');" onMouseOut="dotoff('a7','aboutusSubnav');" target="_top">Policies</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="a8"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/about/sitemap/" class="nav" onMouseOver="doton('a8','aboutusSubnav');" onMouseOut="dotoff('a8','aboutusSubnav');" target="_top">Sitemap</a></td>
+			<td width="15%" height="25" ></td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="productsSubnav" class="productsSubnav">
+	<table border="0" cellpadding="0" cellspacing="0" width="731" background="/a_images/nav/s_prod.gif">
+		<tr valign="top">
+			<td width="18" height="25"></td>			
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p1"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/system/" class="nav" onMouseOver="doton('p1','productsSubnav');" onMouseOut="dotoff('p1','productsSubnav');" target="_top">SuperServer&reg;</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p2"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/SuperBlade/" class="nav" onMouseOver="doton('p2','productsSubnav');" onMouseOut="dotoff('p2','productsSubnav');" target="_top">SuperBlade&reg;</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p3"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/MicroBlade/" class="nav" onMouseOver="doton('p3','productsSubnav');" onMouseOut="dotoff('p3','productsSubnav');" target="_top">MicroBlade</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p4"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/motherboard/" class="nav" onMouseOver="doton('p4','productsSubnav');" onMouseOut="dotoff('p4','productsSubnav');" target="_top">Motherboards</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p5"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/chassis/" class="nav" onMouseOver="doton('p5','productsSubnav');" onMouseOut="dotoff('p5','productsSubnav');" target="_top">Chassis</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p6"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/products/accessories/" class="nav" onMouseOver="doton('p6','productsSubnav');" onMouseOut="dotoff('p6','productsSubnav');" target="_top">Accessories</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="p7"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/aplus/" class="nav" onMouseOver="doton('p7','productsSubnav');" onMouseOut="dotoff('p7','productsSubnav');">AMD Solutions</a></td>			
+			<td width="15%" height="25"></td>
+			
+		
+		</tr>
+	</table>
+	</div>
+
+	<div id="supportSubnav" class="supportSubnav">
+	<table border="0" cellpadding="0" cellspacing="0" width="731" background="/a_images/nav/s_sup.gif">
+		<tr valign="top">
+			<td width="65" height="25"></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su1"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/" class="nav" onMouseOver="doton('su1','supportSubnav');" onMouseOut="dotoff('su1','supportSubnav');" target="_top">Support</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su2"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/resources/" class="nav" onMouseOver="doton('su2','supportSubnav');" onMouseOut="dotoff('su2','supportSubnav');" target="_top">Downloads</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su3"></td>
+			<!--td width="96" height="25" class="textNav" valign="middle"><a href="/support/faqs/" class="nav" onMouseOver="doton('su3','supportSubnav');" onMouseOut="dotoff('su3','supportSubnav');" target="_top">online support</a></td-->
+			<td height="25" class="textNav" valign="middle"><a href="/FAQ/index.aspx" class="nav" onMouseOver="doton('su3','supportSubnav');" onMouseOut="dotoff('su3','supportSubnav');" target="_top">Online Support</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su7"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/Onsite_Services.cfm" class="nav" onMouseOver="doton('su7','supportSubnav');" onMouseOut="dotoff('su7','supportSubnav');" target="_top">Onsite Services</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su4"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/manuals/" class="nav" onMouseOver="doton('su4','supportSubnav');" onMouseOut="dotoff('su4','supportSubnav');" target="_top">Manual</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su8"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/quickrefs/" class="nav" onMouseOver="doton('su8','supportSubnav');" onMouseOut="dotoff('su8','supportSubnav');" target="_top">QRG</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su5"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/rma/" class="nav" onMouseOver="doton('su5','supportSubnav');" onMouseOut="dotoff('su5','supportSubnav');" target="_top">RMA</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="su6"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/support/Warranty/" class="nav" onMouseOver="doton('su6','supportSubnav');" onMouseOut="dotoff('su6','supportSubnav');" target="_top">Warranty</a></td>
+			<td width="15%" height="25"></td>	
+		</tr>
+	</table>
+	</div>
+
+	<div id="newsSubnav" class="newsSubnav">
+	<table border="0" cellpadding="0" cellspacing="0" width="731" background="/a_images/nav/s_news.gif">
+		<tr valign="top">
+			<td width="10%" height="25"></td>
+			
+            <td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="n1"></td>
+            <td height="25" class="textNav" valign="middle"><a href="/newsroom/" class="nav" onMouseOver="doton('n1','newsSubnav');" onMouseOut="dotoff('n1','newsSubnav');" target="_top">Newsroom</a></td>
+			
+            <td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="n2"></td>
+            <td height="25" class="textNav" valign="middle"><a href="/newsroom/events/" class="nav" onMouseOver="doton('n2','newsSubnav');" onMouseOut="dotoff('n2','newsSubnav');" target="_top">Events & Conferences</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="n3"></td>
+            <td height="25" class="textNav" valign="middle"><a href="/newsroom/news/" class="nav" onMouseOver="doton('n3','newsSubnav');" onMouseOut="dotoff('n3','newsSubnav');" target="_top">News</a></td>
+            
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="n5"></td>
+            <td height="25" class="textNav" valign="middle"><a href="/newsroom/videos/" class="nav" onMouseOver="doton('n5','newsSubnav');" onMouseOut="dotoff('n5','newsSubnav');" target="_top">View Video</a></td>
+
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="n4"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/newsroom/pressreleases/" class="nav" onMouseOver="doton('n4','newsSubnav');" onMouseOut="dotoff('n4','newsSubnav');" target="_top">Press Releases</a></td>
+			<td width="15%" height="25"></td>		
+		</tr>
+	</table>
+	</div>
+
+	<div id="wheretobuySubnav" class="wheretobuySubnav">
+	<table border="0" cellpadding="0" cellspacing="0" width="731" background="/a_images/nav/s_where.gif">
+		<tr valign="top">
+			<td width="19" height="25"></td>
+			<td width="10" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w1"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/asia.cfm" class="nav" onMouseOver="doton('w1','wheretobuySubnav');" onMouseOut="dotoff('w1','wheretobuySubnav');" target="_top">Asia / Middle East</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w2"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/europe.cfm" class="nav" onMouseOver="doton('w2','wheretobuySubnav');" onMouseOut="dotoff('w2','wheretobuySubnav');" target="_top">Pan Europe</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w3"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/namerica.cfm" class="nav" onMouseOver="doton('w3','wheretobuySubnav');" onMouseOut="dotoff('w3','wheretobuySubnav');" target="_top">North America</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w4"></td>			
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/camerica.cfm" class="nav" onMouseOver="doton('w4','wheretobuySubnav');" onMouseOut="dotoff('w4','wheretobuySubnav');" target="_top">Central America</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w5"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/samerica.cfm" class="nav" onMouseOver="doton('w5','wheretobuySubnav');" onMouseOut="dotoff('w5','wheretobuySubnav');" target="_top">South America</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w6"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/others.cfm" class="nav" onMouseOver="doton('w6','wheretobuySubnav');" onMouseOut="dotoff('w6','wheretobuySubnav');" target="_top">Other Regions</a></td>
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w7"></td>
+			
+			<td width="9" height="25"><img src="/a_images/nav/dotOff.gif" width="9" height="25" alt="" name="w8"></td>
+			<td height="25" class="textNav" valign="middle"><a href="/wheretobuy/gsa.cfm?rgn=173" class="nav" onMouseOver="doton('w8','wheretobuySubnav');" onMouseOut="dotoff('w8','wheretobuySubnav');" target="_top">GSA</a></td>
+
+
+
+			<td width="10%" height="25"></td>			
+		</tr>
+	</table>
+	</div>
+
+	<div id="emptySubnav" class="emptySubnav"> 
+	  <table cellpadding="0" cellspacing="0" border="0">
+	    <tr> 
+	      <td nowrap>&nbsp;<br></td>
+	    </tr>
+	  </table>
+	</div>
+
+	<script language="JavaScript">
+	function checksearch()
+	{
+		topicName=document.topsearch.Search.value
+		if (topicName == "")
+		{
+			document.topsearch.Search.style.background="#00ffff";
+			alert("The enter a Search Text field is required.");
+			topsearch.Search.focus(); 
+		} 
+		else {
+			document.topsearch.submit();
+		}
+	}
+	</script>
+
+	
+
+
+<link rel="stylesheet" type="text/css" href="/SearchToolkit/Search/css/ui-lightness/jquery-ui-1.8.16.custom.css">
+<script type="text/javascript" src="/SearchToolkit/Search/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="/SearchToolkit/Search/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/SearchToolkit/Search/js/search_v1.js"></script> 
+	
+<div id="searchform" class="searchform" style="z-index:20; position:absolute; margin-left:0px; width:250px; height:26px;"><!-- class="searchform_c"; background-image:url('/a_images/banner/searchbox_small_width.jpg'); background-repeat:no-repeat;-->
+           <form name="topsearch" method="post" action="/SearchToolkit/Search/Default_CSE.aspx" id="topsearch">
+					&nbsp;<input type="text" size="20" autocomplete="off" name="Search" id="Search" value="" style="height:18px; width: 125px; font-size:10pt; margin-top:5px;"> 
+      </form>
+
+</div>
+
+<div id="Search_btn" style="z-index: 20; position: absolute; top: 17px; margin-left: 695px;" class="textWhite">
+      <img name="goCSE" id="goCSE" src="/a_images/banner/search_button_white.jpg" onClick="javascript:checksearch()" onmouseover="this.style.cursor='pointer'"><!-- src="/a_images/banner/searchbutton_transparent.gif"; margin-left: 136px; top: 2px;-->
+    </div>
+    
+                
+	<link rel="stylesheet" href="/style/prod.css" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="#ffffff" onLoad="loadProc();">
+<div id="specModel" class="specModelSEO"><H1 class="specSEO">SuperServer 6028U-TR4+                                                                                                                    <strong>(<font color="#FFFFFF">Complete System Only</font>)</strong></H1></div>
+
+	<table border="0" cellpadding="0" cellspacing="0" width="749">
+		
+
+
+
+		<!-- Top Navigation Bar -->
+		<tr>
+			<td width="26" height="51" rowspan="15"><img src="/a_images/pixel.gif" width="26" height="51" alt=""></td>
+			<td width="731" height="35">
+				<table border="0" cellpadding="0" cellspacing="0" width="731">
+					<tr>				
+						<td width="162" height="35"><a href="/"><img src="/a_images/nav/SLogo_162x45.gif" width="162" height="45" border="0" alt="Super Micro Computer, Inc."></a></td>
+						<td width="100%" nowrap><img src="/a_images/pixel.gif" width="1" height="35" alt=""></td>
+
+
+
+						<td valign="middle" nowrap><img src="/a_images/pixel.gif" width="1" height="10" alt=""><br>
+                        <a href="/about/contact/" class="auxNav">Contact Us</a>
+                        <img src="/a_images/nav/divider.gif" width="16" height="7" border="0" alt=""></td>
+
+                        <td valign="middle" nowrap><img src="/a_images/pixel.gif" width="1" height="10" alt=""><br>
+							
+								<a href="/SearchToolkit/Search/Default_CSE.aspx" class="auxNav">Search</a>
+							
+                        <img src="/a_images/nav/divider.gif" width="16" height="7" border="0" alt=""></td>
+
+						<td valign="middle" nowrap><img src="/a_images/pixel.gif" width="1" height="10" alt=""><br>
+                        <a href="/reseller/" class="auxNav">Reseller Resource Center</a>
+                        <img src="/a_images/nav/divider.gif" width="16" height="7" border="0" alt=""></td>
+
+
+
+						<td valign="bottom" nowrap><img src="/a_images/pixel.gif" width="200" height="1" alt=""></td>
+				  </tr>
+				</table>
+			</td>
+		</tr>
+		<tr><td height="24"><img src="/a_images/pixel.gif" width="731" height="24" border="0" alt=""></td></tr>
+		<tr>
+			<td height="25">
+				<table border="0" cellspacing="0" cellpadding="0" width="731">
+					<tr>
+						<td><img src="/a_images/nav/sub_margin_l.gif" width="7" height="25" border="0" alt=""></td>
+						<td width="717"><img src="/a_images/nav/sub_space.gif" width="717" height="25" border="0" alt=""></td>
+						<td><img src="/a_images/nav/sub_margin_r.gif" width="7" height="25" border="0" alt=""></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td height="80">
+				<table border="0" cellspacing="0" cellpadding="0" width="731">
+					
+
+<tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<td width="259"><img src="/a_images/banner/prod_spec_l_GlobalSKU.gif" width="259" height="45" border="0"></td>
+
+						<td width="472"><img src="/a_images/banner/prod_spec_r.jpg" width="472" height="45" border="0"></td>
+					</tr>
+					<tr>
+						<td width="731" colspan="2" bgcolor="#EEEEEE"><img src="/a_images/pixel.gif" width="731" height="13" border="0"></td>
+					</tr>
+
+					<tr>
+						<td width="731" valign="middle" colspan="2" class="crumbs"><h2 class="specSEO">
+								&nbsp;&nbsp;<a href="/products/" class="crumbs">Products</a>&nbsp;&nbsp;<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">
+								<a href="/products/system/" class="crumbs">Systems</a>&nbsp;&nbsp;<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">
+              					<a href="/products/system/2U/" class="crumbs">2U</a>&nbsp;&nbsp;<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">
+								[ <strong>6028U-TR4+                                                                                                                    </strong> ]<img src="/a_images/pixel.gif" width="1" height="30" border="0" align="absmiddle" alt="">
+						</h2></td>
+					</tr>
+					<tr><td width="731" colspan="2"><img src="/a_images/pixel.gif" width="1" height="10" border="0" alt=""></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+		
+			<!-- Page Content Below Banner -->
+			<td>
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr valign="top">
+
+						<!-- Product Image and Features -->
+			          	<td width="455" class="body">
+							<table width="455" cellspacing="0" cellpadding="0" border="0">						
+								<tr>
+									<td width="280" style="padding-left: 4px; padding-right: 4px; padding-top: 4px; padding-bottom: 4px" align="center">
+                                    <img src="/a_images/products/SuperServer/2U/SYS-6028U-TR4_.jpg" width="261" height="222">
+                                    <br>
+								  </td>
+									<td width="175" valign="top" align="center">										
+										<br><br><br>										
+										<table cellpadding="0" cellspacing="0" border="0" width="150">
+											<tr>
+												<td valign="top" bgcolor="#8caae7">
+													<table cellpadding="0" cellspacing="0" border="0">
+														<tr><td valign="top" class="tblue"><img src="/a_images/boxes/crnr_tl_6699cc.gif" width="10" height="10" border="0"></td></tr>
+														<tr><td valign="top" class="tblue"><img src="/a_images/pixel.gif" width="10" height="9" border="0" alt=""></td></tr>
+													</table>
+												</td>
+												<td valign="top">
+													<table cellpadding="0" cellspacing="0" border="0">
+														<tr><td valign="top" class="tblue"><img src="/a_images/pixel.gif" width="130" height="2" alt=""></td></tr>			
+														<tr><td align="center" valign="middle" class="tblue" width="130" height="17">Integrated Board</td></tr>
+													</table>
+												</td>
+												<td valign="top" class="tblue">
+													<table cellpadding="0" cellspacing="0" border="0">
+														<tr><td valign="top"><img src="/a_images/boxes/crnr_tr_6699cc.gif" width="10" height="10" border="0"></td></tr>
+														<tr><td valign="top"><img src="/a_images/pixel.gif" width="10" height="9" border="0" alt=""></td></tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+										<table cellpadding="0" cellspacing="0" border="0" width="150" bgcolor="#EEF3FF">
+											<tr>
+												<td width="1" bgcolor="#C4D4F3"><img src="/a_images/pixel.gif" width="1" height="1" alt="" border="0"></td>
+												<td width="9"><img src="/a_images/pixel.gif" width="9" height="1" alt="" border="0"></td>	
+												<td align="center">
+													<table width="125" border="0" cellpadding="0" cellspacing="0">
+														<tr><td align="center"><a href="/products/motherboard/Xeon/C600/X10DRU-i_.cfm"><img src="/a_images/thumb/t_X10DRU-i_.gif" width="120" height="120" border="0" alt=""></a></td></tr>
+														<tr><td align="center"><a href="/products/motherboard/Xeon/C600/X10DRU-i_.cfm"><strong>Super X10DRU-i+                                                                                                                       </strong></a></td></tr>
+													</table>																																																				
+												</td>	
+												<td width="9"><img src="/a_images/pixel.gif" width="9" height="1" alt="" border="0"></td>
+												<td width="1" bgcolor="#C4D4F3"><img src="/a_images/pixel.gif" width="1" height="1" alt="" border="0"></td>
+											</tr>
+										</table>
+										<table cellpadding="0" cellspacing="0" border="0" width="150">
+											<tr><td><img src="/a_images/boxes/box_btm_6699cc.gif" width="150" height="10"></td></tr>
+										</table>																																						
+									</td>
+								</tr>
+							</table>													
+						</td>
+
+						<!-- Vertical Rule -->
+          				<td width="35" background="/a_images/vertRule.gif" rowspan="2"><img src="/a_images/pixel.gif" width="35" height="1" border="0" alt=""></td>						
+						
+						<!-- Links & Resources -->
+						<td width="230" rowspan="2" valign="middle">
+
+
+
+<!-- Pattern 1: logo above Key Features / System & some Chassis pages -->
+
+
+
+
+
+	
+<div align="right"><a href="/Global_SKU/"><img src="/products/nfo/files/Global_SKUs/logo_Global_SKU_60x60.jpg" width="60" height="60" border="0"></a></div>
+
+
+
+<!-- logo_Global_SKU_140x90.jpg -->
+    
+
+							<span class="tertiaryNavSection">Key Features</span><br>
+
+							<span class="keyFeatures"><strong class="textA" style="color:#090; font-size:12px;">
+							&#149; Flexible Connectivity Options</strong></span><br>
+
+							<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">1. Dual socket R3 (LGA 2011) supports<br>
+									&nbsp;&nbsp;&nbsp; Intel&reg; Xeon&reg; processor E5-2600<br>
+									&nbsp;&nbsp;&nbsp; v3 family; QPI up to 9.6GT/s</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">2. Up to 1.5TB ECC DDR4, up to<br>
+							&nbsp;&nbsp;&nbsp; 2133MHz ; 24x DIMM slots</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">3. 1x PCI-E 3.0 x16 slot (FH, 10.5" L),<br>
+										&nbsp;&nbsp;&nbsp; 7x PCI-E 3.0 x8 slots (5x FH, 10.5" L,<br>
+										&nbsp;&nbsp;&nbsp; 1x LP, 1x Internal LP)</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">4. 4x Gigabit Ethernet ports
+										
+										</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">5. 12x Hot-swap 3.5" Drive Bays:<br>
+										&nbsp;&nbsp;&nbsp; 10x SATA3 ports by default;<br>
+										&nbsp;&nbsp;&nbsp; Optional drive support: 12x SAS3</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">6. 4x heavy duty fans w/ optimal<br>
+										&nbsp;&nbsp;&nbsp; fan speed control</span>
+									<div class="keyFeaturesLine"></div>
+									<span class="keyFeatures">7. 1000W High efficiency (96%)<br>
+										&nbsp;&nbsp;&nbsp; Redundant PSU; <strong>Titanium Level</strong></span>
+									<div class="keyFeaturesLine"></div>																														
+							<img src="/a_images/pixel.gif" width="220" height="10" border="0" alt=""><br>
+						</td>
+						<td width="5" rowspan="2">
+							<img src="/a_images/pixel.gif" width="5" height="1" border="0" align="left" alt="">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						
+
+<table border="0" width="455" cellspacing="0" cellpadding="10" class="rowBorderT" bgcolor="#EEF3FF">
+	<tr>
+			<td class="crumbs" align="center">
+
+	<div align="center">
+
+
+
+    Due to the complexity of integration, this product is sold as completely assembled systems only
+
+ (with minimum 2 CPU and 4 DIMM). Please contact your Supermicro sales rep for special requirements.
+</div>
+		</td>
+	</tr>
+</table><br /> 
+<table border="0" width="455" cellspacing="0" cellpadding="6" class="rowBorderT" bgcolor="#EEF3FF">
+	<form name="driversForm" method="post" action="/support/resources/resource_drivers.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Category" value="SS">
+		<input type="Hidden" name="Track" value="">
+	</form>
+	<form name="biosForm" method="post" action="/support/resources/results.aspx">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Resource" value="BIOS">
+		<input type="Hidden" name="ProductName" value="SS6028U-TR4+                                                                                                                    ">
+		<input type="Hidden" name="Category" value="SS">
+	</form>
+	<form name="ipmiForm" method="post" action="/support/bios/firmware.aspx">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Resource" value="IPMI">
+		<input type="Hidden" name="ProductName" value="SS6028U-TR4+                                                                                                                    ">
+		<input type="Hidden" name="Category" value="SS">
+	</form>
+	
+	<form name="memoryForm" method="post" action="/support/resources/mem.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Category" value="SS">
+	</form>
+	
+		<form name="HDDForm" method="post" action="/support/resources/HDD.cfm">
+			<input type="hidden" name="ProductID" value="84287">
+			<input type="Hidden" name="Category" value="SS">
+			
+		</form>
+	
+
+	
+	<form name="NVMeForm" method="post" action="/support/resources/NVMe.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Category" value="SS">
+		<input type="Hidden" name="NVMe" value="1">
+	</form>
+	
+	<form name="AOCForm" method="post" action="/support/resources/tested_AOC.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="Hidden" name="Category" value="SS">
+		
+		
+			<input type="Hidden" name="storage" value="no">
+		
+			<input type="Hidden" name="networking" value="no">
+		
+	</form>
+	
+	<form name="manualForm" method="post" action="/support/resources/results.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="hidden" name="Resource" value="Manuals">
+		<input type="Hidden" name="ProductName" value="SS6028U-TR4+                                                                                                                    ">
+	</form>
+	<form name="quickRefForm" method="post" action="/support/resources/results.cfm">
+		<input type="hidden" name="ProductID" value="84287">
+		<input type="hidden" name="Resource" value="QuickRefs">
+		<input type="Hidden" name="ProductName" value="SS6028U-TR4+                                                                                                                    ">
+	</form>
+	
+	<tr>
+		<td width="15">
+		<td class="crumbs" align="left">
+			<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.driversForm.submit();">Drivers &amp; Utilities</a></strong>&nbsp;
+			<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.biosForm.submit();">BIOS</a></strong>&nbsp;
+
+			
+				<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.ipmiForm.submit();">IPMI</a></strong>&nbsp;
+			
+				<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.memoryForm.submit();">Tested Memory</a></strong>
+			
+				<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.HDDForm.submit();">Tested HDD</a></strong>&nbsp;
+			
+			<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="javascript:document.manualForm.submit();">Manuals</a></strong>&nbsp;
+		
+				<img src="/a_images/bullets/arrow_red.gif" width="8" height="8" border="0">&nbsp;<strong><a href="/support/resources/OS/OS_Certification_Intel.cfm?MProduct_Name=SYS%2D6028U%2DTR4%2B" target="_blank" >OS Certification Matrix</a></strong>&nbsp;
+				
+
+				
+
+		</td>
+	</tr>
+</table>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4"><br><img src="/a_images/tabs/tab_spec_system.gif" width="731" height="39" border="0" alt=""></td>
+					</tr>													
+				</table>				
+			</td>
+		</tr>
+
+		<!-- Specifications Section-->
+		<tr>			
+			<td>
+				<table border="0" cellpadding="0" cellspacing="0" width="731">
+					<tr valign="top">
+						<td width="5" rowspan="100"><img src="/a_images/pixel.gif" width="5" height="1" border="0" align="left" alt=""></td>		
+						<td><img src="/a_images/pixel.gif" width="10" height="20" alt=""></td>
+						<td width="5" rowspan="100"><img src="/a_images/pixel.gif" width="5" height="1" border="0" align="left" alt=""></td>
+					</tr>					
+					<tr>
+						<td width="721">
+							<table border="0" cellpadding="0" cellspacing="0" width="709">
+								<tr>
+								
+									<!-- Column 1 -->
+									<td valign="top" width="337" background="/a_images/gradient/gradient_lightblue_long.jpg">
+
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+									   		<tr><td width="337" colspan="2"><img src="/a_images/pixel.gif" width="1" height="0" alt=""></td></tr>
+									   		<tr><td colspan="2" class="specHeader2">Product SKUs</td></tr>
+									   		<tr> <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+									   		
+									   		<tr>
+										 		<td width="90" class="feature border_b2"><span class="w90">SYS-6028U-TR4+                                                                                                                  </span></td>
+										 		<td width="247" class="description border_b2">
+													<ul class="desc">
+											 		<li class="desc">SuperServer 6028U-TR4+                                                                                                                     (<strong>Black</strong>)</li>
+										 			</ul>
+												</td>
+									   		</tr>
+                                            
+									 	</table>
+										
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+											<tr><td colspan="2" class="specHeader">Motherboard</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+											<tr><td width="337" colspan="2" class="spec border_b"><br>
+											<a href="/products/motherboard/Xeon/C600/X10DRU-i_.cfm" class="crumbs"><strong>Super X10DRU-i+                                                                                                                       </strong></a></td>
+											</tr>
+										</table>
+										
+					<!-- Processor / Cache -->
+					
+
+   <!-- Processor / Cache -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="337" colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">Processor/Cache 
+					
+						</td>
+                      </tr>
+                      <tr>
+                        <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">CPU</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+					
+                          <li class="desc">Intel&reg; Xeon&reg; processor E5-2600 v3 family
+					
+					(up to 160W TDP)
+					
+                          <font color="#FF0000">*</font><br>
+					
+					</li>
+                          <li class="desc">Dual Socket R3 (LGA 2011)</li>
+                        </ul></td>
+                      </tr>
+
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Cores / Cache</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+					
+                          <li class="desc">Up to 18 Cores / Up to 45MB Cache</li>
+
+                        </ul></td>
+                      </tr>
+
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">System Bus</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                          <li class="desc">QPI up to 9.6 GT/s</li>
+                        </ul></td>
+                      </tr>
+
+
+
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Note</span></td>
+                        <td width="247" class="description border_b">
+                          <font color="#FF0000">* Please contact Supermicro Technical Support for additional information about frequency optimized CPUs and specialized system optimization.</font><br>
+                        
+                        </td>
+                      </tr>
+					
+
+					</table>
+										
+					<!-- System Memory -->
+                    
+
+<table width="337" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td width="337" colspan="2" class="h10">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="specHeader">System Memory
+		</td>
+	</tr>
+	<tr>
+		<td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Memory Capacity</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+        	
+			<li class="desc">24x 288-pin DDR4 DIMM slots</li>
+			
+			<li class="desc">Up to 1.5TB ECC LRDIMM, RDIMM</li>
+
+
+
+			
+
+		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Memory Type</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+
+			<li class="desc">2133/1866/1600MHz ECC DDR4 SDRAM 72-bit</li>
+		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">DIMM Sizes</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+			
+			<li class="desc">64GB, 32GB, 16GB, 8GB, 4GB</li>
+			
+		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Memory Voltage</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">1.2 V</li>
+		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Error Detection</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">Corrects single-bit errors</li>
+
+		</ul>
+        </td>
+	</tr>
+
+			
+
+</table>
+
+
+                    <!-- Onboard Devices -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="337" colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">On-Board Devices</td>
+                      </tr>
+                      <tr>
+                        <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Chipset</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                             <li class="desc">Intel&reg; C612 chipset</li>
+                        </ul></td>
+                      </tr>
+                      
+					<tr>
+                        <td width="90" class="feature border_b"><span class="w90">SATA</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc">SATA3 (6Gbps) with RAID 0, 1, 5, 10</li>
+                        </ul></td>
+                      </tr>
+                      
+					<tr>
+						<td width="90" class="feature border_b"><span class="w90">IPMI</span></td>
+						<td width="247" class="description border_b">
+							<ul class="desc">
+							<li class="desc">Support for Intelligent Platform Management Interface v.2.0</li>
+							<li class="desc">IPMI 2.0 with virtual media over LAN and KVM-over-LAN support</li>
+							<li class="desc">ASPEED AST2400 BMC</li>
+						</ul></td>
+					</tr>
+
+										<tr>
+											<td width="90" class="feature border_b"><span class="w90">Network Connectivity</span></td>
+											<td width="247" class="description border_b"><ul class="desc">
+											<li class="desc">4x GbE ports via <a href="/support/resources/aoc/aoc_compatibility_ultra.cfm">AOC-2UR68-i4G</a></li>
+											<li class="desc">Intel&reg; i350 Gigabit Ethernet Controller</li>
+											<li class="desc">1x Realtek RTL8211E PHY (dedicated IPMI)</li>
+											</ul></td>
+										</tr>
+					<tr>
+                        <td width="337" class="feature border_b"><span class="w90">Graphics</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+							<li class="desc">ASPEED AST2400 BMC</li>
+						</ul></td>
+					</tr>                    
+                     
+
+					  
+                    </table>
+                    <!-- Input Output -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">Input / Output</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+					  	
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">SATA</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+                            <li class="desc">10x SATA3 (6Gbps) ports</li>
+                        </ul></td>
+                      </tr>
+
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">SAS</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+                            <li class="desc">12x SAS3 ports support via optional Add-on Card</li>
+                        </ul></td>
+                      </tr>
+
+
+
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">LAN</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+							<li class="desc">4x RJ45 Gigabit Ethernet LAN ports</li>
+							<li class="desc">1x RJ45 Dedicated IPMI LAN port </li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">USB</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+						<li class="desc">5x USB 3.0 ports<br>(2 rear, 2 onboard header, 1 Type A)</li>
+                        </ul></td>
+                      </tr>
+										<tr>
+                                            <td width="82" class="feature border_b"><span class="w90">Video</span></td>
+                                            <td width="255" class="description border_b">
+                                                <ul class="desc">
+                                                    <li class="desc">1x VGA Connector</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">Serial Port / Header</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+
+						<li class="desc">1x Serial header</li>
+                        </ul></td>
+                      </tr>
+
+                      <tr>
+                        <td width="82" class="feature border_b"><span class="w90">DOM</span></td>
+                        <td width="255" class="description border_b"><ul class="desc">
+                            <li class="desc">2x Super<a href="/SATADOM/">DOM</a> (Disk on Module) ports</li>
+                        </ul></td>
+                      </tr>
+
+                  </table>
+
+					<!-- System BIOS -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="337" colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">System BIOS</td>
+                      </tr>
+                      <tr>
+                        <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">BIOS Type</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                           <li class="desc">128Mb SPI Flash EEPROM with AMI BIOS</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">BIOS Features</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                           <li class="desc">Plug and Play (PnP)</li>
+                           <li class="desc">APM 1.2</li>
+                           <li class="desc">PCI 2.3</li>
+                           <li class="desc">ACPI 1.0 / 2.0 / 3.0 / 4.0</li>
+                           <li class="desc">USB Keyboard support</li>
+                           <li class="desc">SMBIOS 2.7.1</li><li class="desc">UEFI 2.3.1</li>
+                        </ul></td>
+                      </tr>
+                    </table>
+
+                    <!-- Management -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="337" colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">Management</td>
+                      </tr>
+                      <tr>
+                        <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Software</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc"><a href="/products/nfo/SMS_SD5.cfm">SuperDoctor&reg; 5</a></li>
+                            <li class="desc">Intel&reg; Node Manager 3.0</li>
+                            <li class="desc">Watch Dog</li>
+                            <li class="desc">NMI</li>
+                            <li class="desc"><a href="/products/nfo/SMS_SUM.cfm">SUM</a> and <a href="/products/nfo/SMS_SSM.cfm">SSM</a></li>
+                            <li class="desc">Optional IPMI 1.5 / 2.0</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Power Configurations</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                        <li class="desc">ACPI Power Management</li>
+                        <li class="desc">Power-on mode for AC power recovery</li>
+                        </ul></td>
+                      </tr>
+                    </table>
+																	
+									</td>
+									
+									<!-- Vertical Rule -->
+									<td width="35" background="/a_images/vertRule.gif"><img src="/a_images/pixel.gif" width="35" height="1" border="0" alt=""></td>
+						
+									<!-- Column 2 -->
+									<td valign="top" width="337" background="/a_images/gradient/gradient_lightblue_long.jpg">					
+									
+															
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2"><img src="/a_images/pixel.gif" width="1" height="0" alt=""></td></tr>
+ 											<tr><td colspan="2" class="specHeader">Chassis</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+ 											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Form Factor</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">2U Rackmount</li>
+													</ul>												</td>
+											</tr>
+
+
+											<tr>
+												<td width="90" class="feature border_b"><span class="w90">Model</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													
+                                                    <li class="desc"><strong>CSE-829UAC-R1K02</strong></li>
+                                                    
+													</ul>
+												</td>
+										  </tr>
+										</table>
+										
+								    <!-- Dimensions -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+ 											<tr><td colspan="2" class="specHeader">Dimensions and Weight</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+ 											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Width</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">17.2" (437mm)</li>
+													</ul>
+												</td>
+											</tr>
+ 											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Height</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">3.5" (89mm)</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Depth</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">28.46" (723mm)</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Weight</span></td>
+  												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">Net Weight: 36 lbs (16.4 kg)</li>
+													<li class="desc">Gross Weight: 72 lbs (32.7 kg)</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Available Colors</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">Black</li>
+													</ul>
+												</td>
+											</tr>
+										</table>
+										
+										<!-- Front Panel -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+											<tr><td colspan="2" class="specHeader">Front Panel</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Buttons</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">Power On/Off button</li>
+													<li class="desc">System Reset button</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">LEDs</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">Power status LED</li>
+													<li class="desc">HDD activity LED</li>
+													<li class="desc">2x Network activity LEDs</li>
+													<li class="desc">System information (overheat/UID) LED</li>
+													</ul>
+												</td>
+											</tr>
+																				
+										</table>
+
+										<!-- Expansion Slots -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td width="337" colspan="2" class="h10">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="specHeader">Expansion Slots</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                                        </tr>
+
+									  	<tr>
+											<td width="90" class="feature border_b"><span class="w90">PCI-Express</span></td>
+											<td width="247" class="description border_b">
+                                            <ul class="desc">
+                            <li class="desc">1x PCI-E 3.0 x16 slot (FH, 10.5" L)</li>
+                            <li class="desc">7x PCI-E 3.0 x8 slots <br>
+                            (5x FH, 10.5" L, 1x LP, 1x Internal LP)</li>
+											<br><br><font color="#ff0000">(Both CPUs need to be installed for full access to PCI-E slots and onboard controllers. See manual block diagram and <a href="/products/nfo/UIO.cfm?show=AOCSupport">AOC Support</a> for details.)</font>
+											</ul>
+                                            </td>
+									  	</tr>
+                                    </table>			
+
+
+										<!-- Drive Bays -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+											<tr><td colspan="2" class="specHeader">Drive Bays</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+											<tr>
+												<td width="90" class="feature border_b"><span class="w90">Hot-swap</span></td>
+  												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">12x Hot-swap 3.5" Drive Bays:<br>
+													10x SATA3 ports by default</li>
+													<li class="desc">Optional drive support: 12x SAS3</li>
+											<br><br><font color="#ff0000">Note: optional storage card is required to support more than 10 drives.</font>
+													</ul>
+												</td>
+											</tr>
+										</table>
+										
+										<!-- Peripheral Drives -->
+
+										
+										<!-- SCSI Backplane -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+											<tr><td colspan="2" class="specHeader">Backplane</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+											<tr><td width="337" colspan="2" class="spec border_b">2U SAS/SATA backplane</td></tr>
+										</table>
+										
+										<!-- System Cooling -->
+										<table width="337" cellpadding="0" cellspacing="0" border="0">
+											<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+ 											<tr><td colspan="2" class="specHeader">System Cooling</td></tr>
+											<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+ 											<tr>
+  												<td width="90" class="feature border_b"><span class="w90">Fans</span></td>
+												<td width="247" class="description border_b">
+													<ul class="desc">
+													<li class="desc">4x 8cm heavy duty PWM fans</li>
+
+													</ul>
+												</td>
+											</tr>	
+
+										</table>
+										
+					<!-- Power Supply -->
+					
+
+<table width="337" cellpadding="0" cellspacing="0" border="0">
+	<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+	<tr><td colspan="2" class="specHeader">Power Supply with Digital Switching Control</td></tr>
+
+	<tr>
+		<td width="337" colspan="2" class="spec border_b">1000W Redundant Titanium Level (96%) Single Output Power Supplies</td>
+	</tr>
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">AC Input</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">100-127 V, 50-60 Hz</li>
+			<li class="desc">200-240 V, 50-60 Hz</li>
+		</ul>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">+12V</span></td>
+  		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">Max: 62.5A & Min: 0A (100Vac-127Vac)</li>
+			<li class="desc">Max: 83A (200Vac-240Vac) & Min: 0A</li>
+		</ul>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">12V SB</span></td>
+  		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">Max: 2.1A</li>
+			<li class="desc">Min: 0A</li>
+		</ul>
+		</td>
+	</tr>
+
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Certification</span></td>
+		<td width="247" class="description border_b">
+		<a href="http://www.plugloadsolutions.com/80PlusPowerSuppliesDetail.aspx?id=69&type=2" target="_blank"></a><img src="/a_images/icons/80Plus_w35_titanium.gif" width="35" height="47" align="left" alt="Titanium Level" border="0" /><img src="/a_images/icons/96_ps_40x37.gif" width="40" height="37" alt="96%" border="0" hspace="2" vspace="5" align="left">&nbsp; <strong>&nbsp; Titanium Level<br />&nbsp; &nbsp; <strong>[ <a href="/products/powersupply/80PLUS/80PLUS_PWS-1K02A-1R.pdf">Test Report</a> ]</strong>
+		</td>
+	</tr>
+
+</table>
+
+					<!-- PC Health Monitoring -->
+					                    <!-- PC Health Monitoring -->
+                    <table width="337" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="337" colspan="2" class="h10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" class="specHeader">PC Health Monitoring</td>
+                      </tr>
+                      <tr>
+                        <td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Voltage</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc">Monitors for CPU Cores, +1.8V, +3.3V, +5V, +12V, +3.3V Standby, +5V Standby, VBAT, Memory Voltages.</li>
+                            <li class="desc">5+1 Phase-switching voltage regulator</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">FAN</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+							<li class="desc">8x 4-pin fan headers</li>
+
+                            <li class="desc">Status monitor for speed control</li>
+                           <li class="desc">Pulse Width Modulated (PWM) fan connectors</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Temperature</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc">Support to monitor Supermicro AOC temperatures from IPMI or SD 5</li>
+                            <li class="desc">Monitoring for CPU and chassis environment</li>
+                            <li class="desc">CPU thermal trip support</li>
+                            <li class="desc">Thermal Control for 8x Fan Connectors</li>
+
+                            <li class="desc">Thermal Monitor 2 (TM2) support</li>
+                            <li class="desc">PECI</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">LED</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc">Memory DIMM ECC error LEDs</li>
+                            <li class="desc">CPU / System Overheat LED</li>
+                            <li class="desc">Suspend static indicator LED</li>
+                            <li class="desc">UID/Remote UID</li>
+                        </ul></td>
+                      </tr>
+                      <tr>
+                        <td width="90" class="feature border_b"><span class="w90">Other Features</span></td>
+                        <td width="247" class="description border_b"><ul class="desc">
+                            <li class="desc">4x 8-pin GPU power connectors</li>
+                            <li class="desc">Chassis intrusion detection</li>
+                            <li class="desc">Chassis intrusion header</li>
+                            <li class="desc">SDDC Support</li>
+
+                            <li class="desc">RoHS</li>
+                        </ul></td>
+                      </tr>
+					  </table> 
+
+<table width="337" cellpadding="0" cellspacing="0" border="0">
+	<tr><td width="337" colspan="2" class="h10">&nbsp;</td></tr>
+	<tr><td colspan="3" class="specHeader">Operating Environment / Compliance</td></tr>
+	<tr><td width="337" colspan="2"><img src="/a_images/boxes/line_yellow.gif" width="337" height="1"></td></tr>
+
+	
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">RoHS</span><br></td>
+		<td width="247" class="description border_b"><ul class="desc"><li class="desc">RoHS Compliant</li></ul></td>
+	</tr>
+	
+
+	<tr>
+		<td width="90" class="feature border_b"><span class="w90">Environmental Spec.</span></td>
+		<td width="247" class="description border_b">
+		<ul class="desc">
+			<li class="desc">Operating Temperature: <br> 
+
+
+            
+            &nbsp;&nbsp; 5&deg;C to 40&deg;C (41&deg;F to 104&deg;F)
+
+			</li>
+
+			<li class="desc">Non-operating Temperature: <br>
+            
+            &nbsp;&nbsp; -40&deg;C to 60&deg;C (-40&deg;F to 140&deg;F)</li>
+
+            
+
+			<li class="desc">Operating Relative Humidity: <br>
+            
+            &nbsp;&nbsp; 8% to 90% (non-condensing)</li>
+			
+
+			<li class="desc">Non-operating Relative Humidity: <br>
+            
+            &nbsp;&nbsp; 5% to 95% (non-condensing)</li>
+			
+
+		</ul></td>
+	</tr>
+
+            
+
+</table>
+									</td>								
+								</tr>							
+							</table>
+						</td>
+					</tr>					
+				</table>
+			</td>
+		</tr>
+
+
+		<!-- Accessories Section-->
+		<tr>			
+			<td>
+				<table border="0" cellpadding="0" cellspacing="0" width="731">
+					<tr><td colspan="4"><img src="/a_images/pixel.gif" width="731" height="10" border="0" alt=""></td></tr>
+					<tr><td colspan="4"><img src="/a_images/tabs/tab_parts.gif" width="731" height="39" border="0" alt=""></td></tr>					
+
+					<tr valign="top">
+						<td width="5" rowspan="100">
+							<img src="/a_images/pixel.gif" width="5" height="1" border="0" align="left" alt="">
+						</td>		
+						<td><img src="/a_images/pixel.gif" width="10" height="20" alt=""><a href="SYS-6028U-TR4_.cfm?parts=SHOW#jump">See Parts List</a><a name="jump"></a><br><br></td>
+						<td width="5" rowspan="100">
+							<img src="/a_images/pixel.gif" width="5" height="1" border="0" align="left" alt="">
+						</td>
+					</tr>
+
+
+				</table>
+			</td>
+		</tr>
+
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+							
+  ga('create', 'UA-341778-1', 'auto');
+
+  ga('send', 'pageview');
+</script>
+
+<tr>
+			<td width="731" height="50"><img src="/a_images/pixel.gif" width="1" height="50" border="0" alt=""></td>
+		</tr>
+		<tr> 
+			<td width="731" height="20" align="right" valign="middle">
+				<table width="731" height="20" cellspacing="0" cellpadding="0" class="boxSection">
+					<tr>
+						<td colspan="2" width="731" height="20" align="left" valign="middle" class="copyright textA"><img src="/a_images/pixel.gif" width="3" height="15" alt=""><a href="/about/policies/index.cfm" class="copyright textA">Terms &amp; Conditions</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="/about/policies/privacy.cfm" class="copyright textA">Privacy</a>  &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://ir.supermicro.com/" class="copyright textA">Investor Relations</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="/applyjob/" class="copyright textA">Jobs</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="/about/sitemap/" class="copyright textA">Site Map</a> <img src="/a_images/pixel.gif" width="0" height="5" align="absmiddle"> </td>						
+					</tr>
+                    <tr>
+						<td colspan="2" width="731" height="20" align="left" valign="middle" class="copyright textA"><img src="/a_images/pixel.gif" width="3" height="5" alt=""><a href="/products/system/index.cfm" class="copyright textA">SuperServer&reg;</a> | <a href="/products/motherboard/index.cfm" class="copyright textA">Motherboard</a> | <a href="/products/chassis/index.cfm" class="copyright textA">Chassis</a> | <a href="/products/rack/index.cfm" class="copyright textA">Rack Cabinet</a> | <a href="/products/SuperBlade/index.cfm" class="copyright textA">SuperBlade&reg;</a> | <a href="/products/embedded/" class="copyright textA">Embedded</a>  | <a href="/products/nfo/networking.cfm" class="copyright textA">Networking</a> | <a href="/products/nfo/storage.cfm" class="copyright textA">Storage</a> | <a href="/products/accessories/index.cfm" class="copyright textA">Accessories</a> | <a href="/aplus/index.cfm" class="copyright textA">AMD Solution</a> | <a href="/products/nfo/power_supply.cfm" class="copyright textA">Power Supplies</a> <img src="/a_images/pixel.gif" width="0" height="5" align="absmiddle"> </td>						
+					</tr>
+                    
+                    <tr>
+						<td width="400" height="20" align="left" valign="middle" class="copyright textA"><img src="/a_images/pixel.gif" width="15" height="10" alt=""></td>						
+					
+                    <td width="331" height="20" align="right" valign="" class="copyright textA">Copyright &copy; 2016 Super Micro Computer, Inc. &nbsp;&nbsp;<img src="/a_images/pixel.gif" width="15" height="30" align="absmiddle"> </td>
+                    </tr>
+					<tr>
+						<td width="731" style="font-size: 9px; color: #336699;" colspan="2">
+							<img src="/a_images/pixel.gif" width="15" height="10" alt="">Information in this document is subject to change without notice.<br>
+							<img src="/a_images/pixel.gif" width="15" height="10" alt="">Other products and companies referred to herein are trademarks or registered trademarks of their respective companies or mark holders.<br>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		
+	</table>		
+
+</body>
+</html>
