@@ -49,7 +49,8 @@ su -s /bin/sh -c "cinder-manage db sync" cinder
 openstack-config --set /etc/nova/nova.conf cinder os_region_name RegionOne
 
 systemctl restart openstack-nova-api.service
-systemctl enable openstack-cinder-api.service openstack-cinder-scheduler.servicesystemctl start openstack-cinder-api.service openstack-cinder-scheduler.service
+systemctl enable openstack-cinder-api.service openstack-cinder-scheduler.service
+systemctl start openstack-cinder-api.service openstack-cinder-scheduler.service
 
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --zone=public --add-port=123/udp --permanent
