@@ -45,6 +45,19 @@ main(){
   		fi
 	done
 
+	neutron_option="init_provider.sh"
+
+	if [ "$2" == "selfservice" ]; then
+		echo "Installing neutron with selfservice feature"
+		neutron_option="init_selfservice.sh"
+	else
+		echo "Installing neutron with provider feaure"
+		neutron_option="init_provider.sh"	 
+
+	fi
+#	echo "$neutron_option"
+#	read
+
 	#check installed packages
         
 	if yum -q list installed centos-release-openstack-mitaka &>/dev/null; then
@@ -107,7 +120,7 @@ main(){
        		   spinner $! "Compute Service"
 		   echo ""
        		   #echo "install neutron"
-		   $DIR/networking_service/init_selfservice.sh &> "neutron_install.log" &
+		   $DIR/networking_service/$neutron_option &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
 		   echo " "
 		   echo "Depolyment Finished"
@@ -128,11 +141,11 @@ main(){
        		   spinner $! "Compute Service"
 		   echo ""
        		   #echo "install neutron"
-		   $DIR/networking_service/init_selfservice.sh &> "neutron_install.log" &
+		   $DIR/networking_service/$neutron_option &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
 		   #echo "install horizon"
 		   spinner $! "Horizon Service"
-		   $DIR/horizon_service/init.sh &> "Horizon_install.log"
+		   $DIR/horizon_service/init.sh &> "horizon_install.log"
 		   echo ""
 		;;
 		3)
@@ -151,11 +164,11 @@ main(){
        		   spinner $! "Compute Service"
 		   echo ""
        		   #echo "install neutron"
-		   $DIR/networking_service/init_selfservice.sh &> "neutron_install.log" &
+		   $DIR/networking_service/$neutron_option &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
 		   echo ""
 		   #echo "install horizon"
-		   $DIR/horizon_service/init.sh &> "Horizon_install.log"
+		   $DIR/horizon_service/init.sh &> "horizon_install.log"
 		   spinner $! "Horizon Service"
 		   echo ""
 		   #echo "install swift"
