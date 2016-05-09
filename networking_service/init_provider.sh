@@ -36,6 +36,14 @@ echo "installing neutron package on controller"
 yum install -y openstack-neutron openstack-neutron-ml2 \
   openstack-neutron-linuxbridge ebtables ipset &> /dev/null
 
+############################
+
+
+yum install -y python-neutronclient
+
+
+############################
+
 
 openstack-config --set /etc/neutron/neutron.conf \
 DEFAULT core_plugin ml2
@@ -137,6 +145,31 @@ openstack-config --set /etc/neutron/dhcp_agent.ini \
 DEFAULT enable_isolated_metadata True
 openstack-config --set /etc/neutron/dhcp_agent.ini \
 DEFAULT verbose True
+
+####################################################
+
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_uri http://controller:5000
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_url http://controller:35357
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT memcached_servers controller:11211
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT auth_type password
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT project_domain_name default
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT user_domain_name default
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT project_name service
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT username neutron
+openstack-config --set /etc/neutron/metadata_agent.ini \
+DEFAULT password Super123
+
+
+
+################################################
 
 openstack-config --set /etc/neutron/metadata_agent.ini \
 DEFAULT nova_metadata_ip controller
