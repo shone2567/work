@@ -26,6 +26,6 @@ openstack image list
 openstack network list
 openstack security group list
 
-openstack server create --flavor m1.tiny --image cirros --security-group default \
+openstack server create --flavor m1.nano --image cirros --security-group default \
 --key-name mykey provider-instance
 

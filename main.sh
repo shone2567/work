@@ -44,16 +44,16 @@ main(){
 
   		fi
 	done
-
-	firewall-cmd --add-port=9696/tcp --permanent
-	firewall-cmd --add-port=8774/tcp --permanent
-	firewall-cmd --add-port=9292/tcp --permanent
-	firewall-cmd --add-port=5000/tcp --permanent
-	firewall-cmd --add-port=35357/tcp --permanent
-	firewall-cmd --add-port=11211/tcp --permanent
-	firewall-cmd --reload
-
 	
+	echo "configuring firewall"
+	firewall-cmd --add-port=9696/tcp --permanent &>/dev/null
+	firewall-cmd --add-port=8774/tcp --permanent &>/dev/null
+	firewall-cmd --add-port=9292/tcp --permanent &>/dev/null
+	firewall-cmd --add-port=5000/tcp --permanent &>/dev/null
+	firewall-cmd --add-port=35357/tcp --permanent &>/dev/null
+	firewall-cmd --add-port=11211/tcp --permanent &>/dev/null
+	firewall-cmd --reload &>/dev/null
+
 	neutron_option="init_provider.sh"
 
 	if [ "$2" == "selfservice" ]; then
@@ -90,7 +90,7 @@ main(){
 		 
 	fi
 
-        read
+#        read
 	case $1 in
 	--help*)
 		cat <<-HELP
@@ -153,6 +153,7 @@ main(){
 		   $DIR/networking_service/$neutron_option &> "neutron_install.log" &
        		   spinner $! "Neutron Service"
 		   #echo "install horizon"
+		   echo ""
 		   spinner $! "Horizon Service"
 		   $DIR/horizon_service/init.sh &> "horizon_install.log"
 		   echo ""

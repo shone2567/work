@@ -39,7 +39,7 @@ yum install -y openstack-neutron openstack-neutron-ml2 \
 ############################
 
 
-yum install -y python-neutronclient
+#yum install -y python-neutronclient
 
 
 ############################
