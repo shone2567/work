@@ -148,24 +148,24 @@ DEFAULT verbose True
 
 ####################################################
 
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT auth_uri http://controller:5000
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT auth_url http://controller:35357
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT memcached_servers controller:11211
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT auth_type password
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT project_domain_name default
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT user_domain_name default
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT project_name service
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT username neutron
-openstack-config --set /etc/neutron/metadata_agent.ini \
-DEFAULT password Super123
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT auth_uri http://controller:5000
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT auth_url http://controller:35357
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT memcached_servers controller:11211
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT auth_type password
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT project_domain_name default
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT user_domain_name default
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT project_name service
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT username neutron
+#openstack-config --set /etc/neutron/metadata_agent.ini \
+#DEFAULT password Super123
 
 
 
