@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+
+spawn ssh-copy-id root@compute1
+expect "(yes/no)"
+send "yes\n"
+expect "password:"
+send "Super123\n"
+expect eof
+
+
