@@ -1,0 +1,2 @@
+. compute_service_for_controller/compute_service_controller_node_deploy.sh
+
