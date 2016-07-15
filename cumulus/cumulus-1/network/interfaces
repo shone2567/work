@@ -1,0 +1,62 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5), ifup(8)
+#
+# Please see /usr/share/doc/python-ifupdown2/examples/ for examples
+#
+#
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+	address 10.20.0.251/24
+
+
+#Bond for the peer link. MLAG control traffic and data when links are down. auto peerlink
+iface peerlink
+	bond-slaves swp46 swp47
+	bond-mode 802.3ad
+	bond-miimon 100
+	bond-use-carrier 1
+	bond-lacp-rate 1
+	bond-min-links 1
+	bond-xmit-hash-policy layer3+4
+	mtu 9000
+
+#VLAN for the MLAG control traffic.
+auto peerlink.4094
+iface peerlink.4094
+	address 169.254.255.1/30
+	clagd-enable yes
+	clagd-peer-ip 169.254.255.2 
+#	clagd-backup-ip 192.168.0.91/24 
+	clagd-sys-mac 44:38:39:ff:00:01
+
+# swp43: laptop port
+auto swp43
+iface swp43
+   link-speed 1000
+   link-duplex full
+   link-autoneg off
+
+# swp44: fuel node public
+auto swp44
+iface swp44
+
+# swp45: windows NAT server
+auto swp45
+iface swp45
+
+# bridge0: bridge fuel node with NAT server
+auto bridge0
+iface bridge0
+	bridge-vlan-aware yes
+	bridge-vids 100-110 1000-1100
+	bridge-ports swp43 swp44 swp45 peerlink host01 host02 host03 host04 host05 host06 host07
+	bridge-stp on
+	bridge-ageing 150
+
+source /etc/network/interfaces.d/*

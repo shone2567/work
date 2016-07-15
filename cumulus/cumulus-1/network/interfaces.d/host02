@@ -1,0 +1,16 @@
+auto swp4
+iface swp4
+auto host02
+allow-hosts host02
+iface host02
+    bond-slaves swp4
+    bond-mode 802.3ad
+    bond-miimon 100
+    bond-lacp-rate 1
+    bond-min-links 1
+    bond-xmit-hash-policy layer3+4
+    bond-lacp-bypass-allow 1
+    mstpctl-portadminedge yes
+    mstpctl-bpduguard yes
+    clag-id 2
+    mtu 9000

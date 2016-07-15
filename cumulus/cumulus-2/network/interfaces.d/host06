@@ -1,0 +1,16 @@
+auto swp8
+iface swp8
+auto host06
+allow-hosts host06
+iface host06
+    bond-slaves swp8
+    bond-mode 802.3ad
+    bond-miimon 100
+    bond-lacp-rate 1
+    bond-min-links 1
+    bond-xmit-hash-policy layer3+4
+    bond-lacp-bypass-allow 1
+    mstpctl-portadminedge yes
+    mstpctl-bpduguard yes
+    clag-id 6
+    mtu 9000

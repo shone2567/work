@@ -1,0 +1,16 @@
+auto swp5
+iface swp5
+auto host03
+allow-hosts host03
+iface host03
+    bond-slaves swp5
+    bond-mode 802.3ad
+    bond-miimon 100
+    bond-lacp-rate 1
+    bond-min-links 1
+    bond-xmit-hash-policy layer3+4
+    bond-lacp-bypass-allow 1
+    mstpctl-portadminedge yes
+    mstpctl-bpduguard yes
+    clag-id 3
+    mtu 9000
