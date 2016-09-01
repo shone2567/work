@@ -15,10 +15,10 @@ firewall-cmd --reload
 
 #installing Openstack packages
 
-yum install yum-plugin-priorities -y
-cd /etc/yum.repos.d/
-curl -O http://trunk.rdoproject.org/centos7/delorean-deps.repo
-curl -O http://trunk.rdoproject.org/centos7/current-passed-ci/delorean.repo
+#yum install yum-plugin-priorities -y
+#cd /etc/yum.repos.d/
+#curl -O http://trunk.rdoproject.org/centos7/delorean-deps.repo
+#curl -O http://trunk.rdoproject.org/centos7/current-passed-ci/delorean.repo
 yum install centos-release-openstack-mitaka -y
 yum upgrade -y
 yum install python-openstackclient -y
